@@ -8,6 +8,7 @@
 
 %%% Load packages
 \usepackage{amsthm,amsmath}
+\usepackage{multicol}
 \usepackage{graphicx}
 %\RequirePackage[numbers]{natbib}
 %\RequirePackage{hyperref}
@@ -23,10 +24,12 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
+	
+	\setlength{\parindent}{0pt} 
 
 	\begin{frontmatter}
 	
-		\begin{fmbox}
+	%	\begin{fmbox}
 			\dochead{Research}
 			
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -39,17 +42,28 @@
 			%% AUTORES. METER UNA ENTRADA AUTHOR        %%
 			%% POR PERSONA                              %%
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-			
-			\author[
-			  addressref={aff1},                   % ESTA LINEA SE COPIA IGUAL PARA CADA AUTOR
-			  email={teresavegamar@uma.es}   % VUESTRO CORREO ACTIVO
-			]{\inits{T.V.}\fnm{Teresa V.} \snm{Vega Martínez}} % inits: INICIALES DE AUTOR, fnm: NOMBRE DE AUTOR, snm: APELLIDOS DE AUTOR
-			
 			\author[
 			addressref={aff1},                   % ESTA LINEA SE COPIA IGUAL PARA CADA AUTOR
 			corref={aff1},                       % ESTA LINEA SOLO DEBE TENERLA EL COORDINADOR DEL GRUPO
 			email={13albertomontero@uma.es}   % VUESTRO CORREO ACTIVO
-			]{\inits{A.M.}\fnm{Alberto M.} \snm{Montero Solera}} % inits: INICIALES DE AUTOR, fnm: NOMBRE DE AUTOR, snm: APELLIDOS DE AUTOR
+			]{\inits{A.M.}\fnm{Alberto} \snm{Montero Solera}} % inits: INICIALES DE AUTOR, fnm: NOMBRE DE AUTOR, snm: APELLIDOS DE AUTOR
+			
+			\author[
+			  addressref={aff1},                   % ESTA LINEA SE COPIA IGUAL PARA CADA AUTOR
+			  email={teresavegamar@uma.es}   % VUESTRO CORREO ACTIVO
+			]{\inits{T.V.}\fnm{Teresa} \snm{Vega Martínez}} % inits: INICIALES DE AUTOR, fnm: NOMBRE DE AUTOR, snm: APELLIDOS DE AUTOR
+			
+			\author[
+			addressref={aff1},                   % ESTA LINEA SE COPIA IGUAL PARA CADA AUTOR
+			email={Alexandra.rodser.@gmail.com}   % VUESTRO CORREO ACTIVO
+			]{\inits{A.R.}\fnm{Alexandra} \snm{Rodríguez Serantes}}
+			
+			\author[
+			addressref={aff1},                   % ESTA LINEA SE COPIA IGUAL PARA CADA AUTOR
+			email={Lilixia13@uma.es}   % VUESTRO CORREO ACTIVO
+			]{\inits{X.L.}\fnm{Xian Li} \snm{Xia}}
+			
+			\vspace{10pt}
 			
 			
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -63,7 +77,7 @@
 			  \cny{España}                                    % country
 			}
 		
-		\end{fmbox}% comment this for two column layout
+	%	\end{fmbox}% comment this for two column layout
 		
 		\begin{abstractbox}
 		
@@ -80,9 +94,10 @@
 			%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 			
 			\begin{keyword}
-			\kwd{sample}
-			\kwd{article}
-			\kwd{author}
+			\kwd{aniridia}
+			\kwd{patologías}
+			\kwd{iris}
+			\kwd{ocular}
 			\end{keyword}
 		
 		
@@ -90,51 +105,14 @@
 	
 	\end{frontmatter}
 	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%% EJEMPLO DE LATEX %%                                                                %%
-	%% BORRAR ANTES DE ENTREGAR!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!              %%
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
-		%
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		%% USAR \cite{...} PARA INCLUIR REFERENCIAS BIBLIOGRAFICAS          %%
-		%%  \cite{koon}  Para una sola                                      %%
-		%%  \cite{oreg,khar,zvai,xjon,schn,pond} Para una lista             %%
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		Thus we observe that this expected value is finite for all $v>0$ (also see \cite{koon,xjon,marg,schn,koha,issnic}).
-		
-		
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		%% FIGURAS                                                                               %%
-		%% includegraphics: inserta la imagen                                                    %%
-		%% caption: descripcion de la figura                                                     %%
-		%% label: etiqueta para hacer referencia a la figura en el texto con la instrucción ref  %%
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
-		
-	
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		%% TABLAS                                                                               %%
-		%% caption: Descripción tabla                                                           %%
-		%% \begin{tabular}{letras}: Indica numero de columnas.                                  %%
-		%%    Una letra por columna, la letra indica la alineación de la columna:               %%
-		%%    c center, l left, r right                                                         %%
-		%% hline: Representa una linea como entre filas                                         %%
-		%% \\: fin de fila                                                                      %%
-		%% &: delimitador de celda                                                              %%
-		%% label: etiqueta para hacer referencia a la tabla en el texto con la instrucción ref  %%
-		%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		
-		
-	
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	%% FIN DE EJEMPLO !!!!!!!!!!!! %%
-	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 	
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%% COMIENZO DEL DOCUMENTO REAL %%
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-	
-	\input{tex_files/introduction.tex}
+	\begin{multicols}{2}
+		\input{tex_files/introduction.tex}
+	\end{multicols}
 	\input{tex_files/material_methods.tex}
 	\input{tex_files/resultados.tex}
 	\input{tex_files/discusion.tex}

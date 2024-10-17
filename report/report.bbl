@@ -1,0 +1,426 @@
+%% BioMed_Central_Bib_Style_v1.01
+
+\begin{thebibliography}{12}
+% BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
+\ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
+\ifx \binits  \undefined \def \binits#1{#1}\fi
+\ifx \bauthor  \undefined \def \bauthor#1{#1}\fi
+\ifx \batitle  \undefined \def \batitle#1{#1}\fi
+\ifx \bjtitle  \undefined \def \bjtitle#1{#1}\fi
+\ifx \bvolume  \undefined \def \bvolume#1{\textbf{#1}}\fi
+\ifx \byear  \undefined \def \byear#1{#1}\fi
+\ifx \bissue  \undefined \def \bissue#1{#1}\fi
+\ifx \bfpage  \undefined \def \bfpage#1{#1}\fi
+\ifx \blpage  \undefined \def \blpage #1{#1}\fi
+\ifx \burl  \undefined \def \burl#1{\textsf{#1}}\fi
+\ifx \doiurl  \undefined \def \doiurl#1{\textsf{#1}}\fi
+\ifx \betal  \undefined \def \betal{\textit{et al.}}\fi
+\ifx \binstitute  \undefined \def \binstitute#1{#1}\fi
+\ifx \binstitutionaled  \undefined \def \binstitutionaled#1{#1}\fi
+\ifx \bctitle  \undefined \def \bctitle#1{#1}\fi
+\ifx \beditor  \undefined \def \beditor#1{#1}\fi
+\ifx \bpublisher  \undefined \def \bpublisher#1{#1}\fi
+\ifx \bbtitle  \undefined \def \bbtitle#1{#1}\fi
+\ifx \bedition  \undefined \def \bedition#1{#1}\fi
+\ifx \bseriesno  \undefined \def \bseriesno#1{#1}\fi
+\ifx \blocation  \undefined \def \blocation#1{#1}\fi
+\ifx \bsertitle  \undefined \def \bsertitle#1{#1}\fi
+\ifx \bsnm \undefined \def \bsnm#1{#1}\fi
+\ifx \bsuffix \undefined \def \bsuffix#1{#1}\fi
+\ifx \bparticle \undefined \def \bparticle#1{#1}\fi
+\ifx \barticle \undefined \def \barticle#1{#1}\fi
+\ifx \bconfdate \undefined \def \bconfdate #1{#1}\fi
+\ifx \botherref \undefined \def \botherref #1{#1}\fi
+\ifx \url \undefined \def \url#1{\textsf{#1}}\fi
+\ifx \bchapter \undefined \def \bchapter#1{#1}\fi
+\ifx \bbook \undefined \def \bbook#1{#1}\fi
+\ifx \bcomment \undefined \def \bcomment#1{#1}\fi
+\ifx \oauthor \undefined \def \oauthor#1{#1}\fi
+\ifx \citeauthoryear \undefined \def \citeauthoryear#1{#1}\fi
+\ifx \endbibitem  \undefined \def \endbibitem {}\fi
+\ifx \bconflocation  \undefined \def \bconflocation#1{#1}\fi
+\ifx \arxivurl  \undefined \def \arxivurl#1{\textsf{#1}}\fi
+\csname PreBibitemsHook\endcsname
+
+%%% 1
+\bibitem{Landsend2021}
+\begin{botherref}
+\oauthor{\bsnm{Landsend}, \binits{E.C.S.}},
+\oauthor{\bsnm{Lagali}, \binits{N.}},
+\oauthor{\bsnm{Utheim}, \binits{T.P.}}:
+Congenital aniridia – A comprehensive review of clinical features and therapeutic approaches
+(2021).
+doi:\doiurl{10.1016/j.survophthal.2021.02.011}
+\end{botherref}
+\endbibitem
+
+%%% 2
+\bibitem{BLACK2022389}
+\begin{bchapter}
+\bauthor{\bsnm{Black}, \binits{G.C.M.}},
+\bauthor{\bsnm{Moosajee}, \binits{M.}}:
+\bctitle{Chapter 17 - aniridia}.
+In: \beditor{\bsnm{Black}, \binits{G.C.M.}},
+\beditor{\bsnm{Ashworth}, \binits{J.L.}},
+\beditor{\bsnm{Sergouniotis}, \binits{P.I.}} (eds.)
+\bbtitle{Clinical Ophthalmic Genetics and Genomics},
+pp. \bfpage{389}--\blpage{391}.
+\bpublisher{Academic Press}, \blocation{???}
+(\byear{2022}).
+doi:\doiurl{10.1016/B978-0-12-813944-8.00017-2}.
+\burl{https://www.sciencedirect.com/science/article/pii/B9780128139448000172}
+\end{bchapter}
+\endbibitem
+
+%%% 3
+\bibitem{lopezrelacion}
+\begin{botherref}
+\oauthor{\bsnm{L{\'o}pez}, \binits{M.}}:
+Relaci{\'o}n entre aniridia y otras patolog{\'\i}as no oculares
+\end{botherref}
+\endbibitem
+
+%%% 4
+\bibitem{Law2011}
+\begin{barticle}
+\bauthor{\bsnm{Law}, \binits{S.K.}},
+\bauthor{\bsnm{Sami}, \binits{M.}},
+\bauthor{\bsnm{Piri}, \binits{N.}},
+\bauthor{\bsnm{Coleman}, \binits{A.L.}},
+\bauthor{\bsnm{Caprioli}, \binits{J.}}:
+\batitle{Asymmetric phenotype of axenfeld-rieger anomaly and aniridia associated with a novel pitx2 mutation}.
+\bjtitle{Molecular Vision}
+\bvolume{17},
+\bfpage{1231}--\blpage{1238}
+(\byear{2011})
+\end{barticle}
+\endbibitem
+
+%%% 5
+\bibitem{robles_lopez_2012}
+\begin{botherref}
+\oauthor{\bsnm{Robles~López}, \binits{K.L.}},
+\oauthor{\bparticle{González~del} \bsnm{Ángel}, \binits{A.E.}}:
+Análisis molecular del Gen PAX6 con alteraciones oculares compatibles con disgenesias de segmento anterior.
+Trabajo terminal, especialidad.
+Acceso Abierto; Palabras clave: Medicina y Ciencias de la Salud; Anomalías del ojo
+(2012).
+\url{http://repositorio.pediatria.gob.mx:8180/handle/20.500.12103/3129}
+\end{botherref}
+\endbibitem
+
+%%% 6
+\bibitem{CalvaoPires2014}
+\begin{barticle}
+\bauthor{\bsnm{Calv{\~a}o-Pires}, \binits{P.}},
+\bauthor{\bsnm{Santos-Silva}, \binits{R.}},
+\bauthor{\bsnm{Falc{\~a}o-Reis}, \binits{F.}},
+\bauthor{\bsnm{Rocha-Sousa}, \binits{A.}}:
+\batitle{Congenital aniridia: Clinic, genetics, therapeutics, and prognosis}.
+\bjtitle{International Scholarly Research Notices}
+\bvolume{2014},
+\bfpage{305350}
+(\byear{2014}).
+doi:\doiurl{10.1155/2014/305350}
+\end{barticle}
+\endbibitem
+
+%%% 7
+\bibitem{Reis2023}
+\begin{barticle}
+\bauthor{\bsnm{Reis}, \binits{L.M.}},
+\bauthor{\bsnm{Maheshwari}, \binits{M.}},
+\bauthor{\bsnm{Capasso}, \binits{J.}},
+\bauthor{\bsnm{Atilla}, \binits{H.}},
+\bauthor{\bsnm{Dudakova}, \binits{L.}},
+\bauthor{\bsnm{Thompson}, \binits{S.}},
+\bauthor{\bsnm{Zitano}, \binits{L.}},
+\bauthor{\bsnm{Lay-Son}, \binits{G.}},
+\bauthor{\bsnm{Lowry}, \binits{R.B.}},
+\bauthor{\bsnm{Black}, \binits{J.}},
+\bauthor{\bsnm{Lee}, \binits{J.}},
+\bauthor{\bsnm{Shue}, \binits{A.}},
+\bauthor{\bsnm{Kremlikova~Pourova}, \binits{R.}},
+\bauthor{\bsnm{Vaneckova}, \binits{M.}},
+\bauthor{\bsnm{Skalicka}, \binits{P.}},
+\bauthor{\bsnm{Jedlickova}, \binits{J.}},
+\bauthor{\bsnm{Trkova}, \binits{M.}},
+\bauthor{\bsnm{Williams}, \binits{B.}},
+\bauthor{\bsnm{Richard}, \binits{G.}},
+\bauthor{\bsnm{Bachman}, \binits{K.}},
+\bauthor{\bsnm{Seeley}, \binits{A.H.}},
+\bauthor{\bsnm{Costakos}, \binits{D.}},
+\bauthor{\bsnm{Glaser}, \binits{T.M.}},
+\bauthor{\bsnm{Levin}, \binits{A.V.}},
+\bauthor{\bsnm{Liskova}, \binits{P.}},
+\bauthor{\bsnm{Murray}, \binits{J.C.}},
+\bauthor{\bsnm{Semina}, \binits{E.V.}}:
+\batitle{Axenfeld-rieger syndrome: more than meets the eye}.
+\bjtitle{Journal of Medical Genetics}
+\bvolume{60}(\bissue{4}),
+\bfpage{368}--\blpage{379}
+(\byear{2023}).
+doi:\doiurl{10.1136/jmg-2022-108646}
+\end{barticle}
+\endbibitem
+
+%%% 8
+\bibitem{Pelletier1991}
+\begin{barticle}
+\bauthor{\bsnm{Pelletier}, \binits{J.}},
+\bauthor{\bsnm{Bruening}, \binits{W.}},
+\bauthor{\bsnm{Li}, \binits{F.}}, \betal:
+\batitle{Wt1 mutations contribute to abnormal genital system development and hereditary wilms' tumour}.
+\bjtitle{Nature}
+\bvolume{353},
+\bfpage{431}--\blpage{434}
+(\byear{1991}).
+doi:\doiurl{10.1038/353431a0}
+\end{barticle}
+\endbibitem
+
+%%% 9
+\bibitem{Vahedi2011}
+\begin{barticle}
+\bauthor{\bsnm{Vahedi}, \binits{K.}},
+\bauthor{\bsnm{Alamowitch}, \binits{S.}}:
+\batitle{Clinical spectrum of type iv collagen (col4a1) mutations: a novel genetic multisystem disease}.
+\bjtitle{Current Opinion in Neurology}
+\bvolume{24}(\bissue{1}),
+\bfpage{63}--\blpage{68}
+(\byear{2011}).
+doi:\doiurl{10.1097/WCO.0b013e32834232c6}
+\end{barticle}
+\endbibitem
+
+%%% 10
+\bibitem{French2021}
+\begin{barticle}
+\bauthor{\bsnm{French}, \binits{C.R.}}:
+\batitle{Mechanistic insights into axenfeld-rieger syndrome from zebrafish foxc1 and pitx2 mutants}.
+\bjtitle{International Journal of Molecular Sciences}
+\bvolume{22}(\bissue{18}),
+\bfpage{10001}
+(\byear{2021}).
+doi:\doiurl{10.3390/ijms221810001}
+\end{barticle}
+\endbibitem
+
+%%% 11
+\bibitem{ben1999clustering}
+\begin{bchapter}
+\bauthor{\bsnm{Ben-Dor}, \binits{A.}},
+\bauthor{\bsnm{Yakhini}, \binits{Z.}}:
+\bctitle{Clustering gene expression patterns}.
+In: \bbtitle{Proceedings of the Third Annual International Conference on Computational Molecular Biology},
+pp. \bfpage{33}--\blpage{42}
+(\byear{1999})
+\end{bchapter}
+\endbibitem
+
+%%% 12
+\bibitem{FloresCamacho2009}
+\begin{botherref}
+\oauthor{\bsnm{Flores~Camacho}, \binits{F.}}:
+'mecanismos funcionales' para explicar los fenómenos: una perspectiva de análisis desde los recursos conceptuales.
+Enseñanza de las ciencias
+(Núm. Extra),
+1521--1524
+(2009).
+[Consulta: 16 octubre 2024]
+\end{botherref}
+\endbibitem
+
+\end{thebibliography}
+
+\newcommand{\BMCxmlcomment}[1]{}
+
+\BMCxmlcomment{
+
+<refgrp>
+
+<bibl id="B1">
+  <title><p>Congenital aniridia – A comprehensive review of clinical features and therapeutic approaches</p></title>
+  <aug>
+    <au><snm>Landsend</snm><fnm>EC</fnm></au>
+    <au><snm>Lagali</snm><fnm>N</fnm></au>
+    <au><snm>Utheim</snm><fnm>TP</fnm></au>
+  </aug>
+  <source>Survey of Ophthalmology</source>
+  <pubdate>2021</pubdate>
+  <volume>66</volume>
+</bibl>
+
+<bibl id="B2">
+  <title><p>Chapter 17 - Aniridia</p></title>
+  <aug>
+    <au><snm>Black</snm><fnm>GC</fnm></au>
+    <au><snm>Moosajee</snm><fnm>M</fnm></au>
+  </aug>
+  <source>Clinical Ophthalmic Genetics and Genomics</source>
+  <publisher>Academic Press</publisher>
+  <editor>Graeme C.M. Black and Jane L. Ashworth and Panagiotis I. Sergouniotis</editor>
+  <pubdate>2022</pubdate>
+  <fpage>389</fpage>
+  <lpage>391</lpage>
+  <url>https://www.sciencedirect.com/science/article/pii/B9780128139448000172</url>
+</bibl>
+
+<bibl id="B3">
+  <title><p>Relaci{\'o}n entre aniridia y otras patolog{\'\i}as no oculares</p></title>
+  <aug>
+    <au><snm>L{\'o}pez</snm><fnm>M</fnm></au>
+  </aug>
+</bibl>
+
+<bibl id="B4">
+  <title><p>Asymmetric phenotype of Axenfeld-Rieger anomaly and aniridia associated with a novel PITX2 mutation</p></title>
+  <aug>
+    <au><snm>Law</snm><fnm>SK</fnm></au>
+    <au><snm>Sami</snm><fnm>M</fnm></au>
+    <au><snm>Piri</snm><fnm>N</fnm></au>
+    <au><snm>Coleman</snm><fnm>AL</fnm></au>
+    <au><snm>Caprioli</snm><fnm>J</fnm></au>
+  </aug>
+  <source>Molecular Vision</source>
+  <pubdate>2011</pubdate>
+  <volume>17</volume>
+  <fpage>1231</fpage>
+  <lpage>-1238</lpage>
+</bibl>
+
+<bibl id="B5">
+  <title><p>Análisis molecular del Gen PAX6 con alteraciones oculares compatibles con disgenesias de segmento anterior</p></title>
+  <aug>
+    <au><snm>Robles López</snm><fnm>KL</fnm></au>
+    <au><snm>Ángel</snm><fnm>AE</fnm></au>
+  </aug>
+  <source>Trabajo terminal, especialidad</source>
+  <pubdate>2012</pubdate>
+  <url>http://repositorio.pediatria.gob.mx:8180/handle/20.500.12103/3129</url>
+  <note>Acceso Abierto; Palabras clave: Medicina y Ciencias de la Salud; Anomalías del ojo</note>
+</bibl>
+
+<bibl id="B6">
+  <title><p>Congenital Aniridia: Clinic, Genetics, Therapeutics, and Prognosis</p></title>
+  <aug>
+    <au><snm>Calv{\~a}o Pires</snm><fnm>P</fnm></au>
+    <au><snm>Santos Silva</snm><fnm>R.</fnm></au>
+    <au><snm>Falc{\~a}o Reis</snm><fnm>F.</fnm></au>
+    <au><snm>Rocha Sousa</snm><fnm>A.</fnm></au>
+  </aug>
+  <source>International Scholarly Research Notices</source>
+  <pubdate>2014</pubdate>
+  <volume>2014</volume>
+  <fpage>305350</fpage>
+</bibl>
+
+<bibl id="B7">
+  <title><p>Axenfeld-Rieger syndrome: more than meets the eye</p></title>
+  <aug>
+    <au><snm>Reis</snm><fnm>L. M.</fnm></au>
+    <au><snm>Maheshwari</snm><fnm>M.</fnm></au>
+    <au><snm>Capasso</snm><fnm>J.</fnm></au>
+    <au><snm>Atilla</snm><fnm>H.</fnm></au>
+    <au><snm>Dudakova</snm><fnm>L.</fnm></au>
+    <au><snm>Thompson</snm><fnm>S.</fnm></au>
+    <au><snm>Zitano</snm><fnm>L.</fnm></au>
+    <au><snm>Lay Son</snm><fnm>G.</fnm></au>
+    <au><snm>Lowry</snm><fnm>R. B.</fnm></au>
+    <au><snm>Black</snm><fnm>J.</fnm></au>
+    <au><snm>Lee</snm><fnm>J.</fnm></au>
+    <au><snm>Shue</snm><fnm>A.</fnm></au>
+    <au><snm>Kremlikova Pourova</snm><fnm>R.</fnm></au>
+    <au><snm>Vaneckova</snm><fnm>M.</fnm></au>
+    <au><snm>Skalicka</snm><fnm>P.</fnm></au>
+    <au><snm>Jedlickova</snm><fnm>J.</fnm></au>
+    <au><snm>Trkova</snm><fnm>M.</fnm></au>
+    <au><snm>Williams</snm><fnm>B.</fnm></au>
+    <au><snm>Richard</snm><fnm>G.</fnm></au>
+    <au><snm>Bachman</snm><fnm>K.</fnm></au>
+    <au><snm>Seeley</snm><fnm>A. H.</fnm></au>
+    <au><snm>Costakos</snm><fnm>D.</fnm></au>
+    <au><snm>Glaser</snm><fnm>T. M.</fnm></au>
+    <au><snm>Levin</snm><fnm>A. V.</fnm></au>
+    <au><snm>Liskova</snm><fnm>P.</fnm></au>
+    <au><snm>Murray</snm><fnm>J. C.</fnm></au>
+    <au><snm>Semina</snm><fnm>E. V.</fnm></au>
+  </aug>
+  <source>Journal of Medical Genetics</source>
+  <pubdate>2023</pubdate>
+  <volume>60</volume>
+  <issue>4</issue>
+  <fpage>368</fpage>
+  <lpage>-379</lpage>
+</bibl>
+
+<bibl id="B8">
+  <title><p>WT1 mutations contribute to abnormal genital system development and hereditary Wilms' tumour</p></title>
+  <aug>
+    <au><snm>Pelletier</snm><fnm>J.</fnm></au>
+    <au><snm>Bruening</snm><fnm>W.</fnm></au>
+    <au><snm>Li</snm><fnm>F.</fnm></au>
+    <au><cnm>others</cnm></au>
+  </aug>
+  <source>Nature</source>
+  <pubdate>1991</pubdate>
+  <volume>353</volume>
+  <fpage>431</fpage>
+  <lpage>-434</lpage>
+</bibl>
+
+<bibl id="B9">
+  <title><p>Clinical spectrum of type IV collagen (COL4A1) mutations: a novel genetic multisystem disease</p></title>
+  <aug>
+    <au><snm>Vahedi</snm><fnm>K</fnm></au>
+    <au><snm>Alamowitch</snm><fnm>S</fnm></au>
+  </aug>
+  <source>Current Opinion in Neurology</source>
+  <publisher>England: Lippincott Williams \& Wilkins</publisher>
+  <pubdate>2011</pubdate>
+  <volume>24</volume>
+  <issue>1</issue>
+  <fpage>63</fpage>
+  <lpage>-68</lpage>
+</bibl>
+
+<bibl id="B10">
+  <title><p>Mechanistic Insights into Axenfeld-Rieger Syndrome from Zebrafish foxc1 and pitx2 Mutants</p></title>
+  <aug>
+    <au><snm>French</snm><fnm>C. R.</fnm></au>
+  </aug>
+  <source>International Journal of Molecular Sciences</source>
+  <pubdate>2021</pubdate>
+  <volume>22</volume>
+  <issue>18</issue>
+  <fpage>10001</fpage>
+</bibl>
+
+<bibl id="B11">
+  <title><p>Clustering gene expression patterns</p></title>
+  <aug>
+    <au><snm>Ben Dor</snm><fnm>A</fnm></au>
+    <au><snm>Yakhini</snm><fnm>Z</fnm></au>
+  </aug>
+  <source>Proceedings of the third annual international conference on Computational molecular biology</source>
+  <pubdate>1999</pubdate>
+  <fpage>33</fpage>
+  <lpage>-42</lpage>
+</bibl>
+
+<bibl id="B12">
+  <title><p>'Mecanismos funcionales' para explicar los fenómenos: una perspectiva de análisis desde los recursos conceptuales</p></title>
+  <aug>
+    <au><snm>Flores Camacho</snm><fnm>F.</fnm></au>
+  </aug>
+  <source>Enseñanza de las ciencias</source>
+  <pubdate>2009</pubdate>
+  <issue>Núm. Extra</issue>
+  <fpage>1521</fpage>
+  <lpage>-1524</lpage>
+  <url>https://ddd.uab.cat/record/129814</url>
+  <note>[Consulta: 16 octubre 2024]</note>
+</bibl>
+
+</refgrp>
+} % end of \BMCxmlcomment
