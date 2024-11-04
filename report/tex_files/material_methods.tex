@@ -61,6 +61,25 @@ Además, el \textbf{algoritmo de propagación de etiquetas} es una técnica que 
 
 Por último, el \textbf{algoritmo de Louvain} se basa en el concepto de modularidad, es decir, tiene como objetivo maximizar el número de aristas dentro de una comunidad y minimizar el número de relaciones entre distintas comunidades. Este algoritmo es muy recomendable para sistemas biológicos muy amplios, ya que se obtienen comunidades compactas y bien definidas.
 
+\subsection{Métodos}
+
+Para la identificación de genes asociados a la aniridia, implementamos una función en Python que hace uso de la API de Human Phenotype Ontology (HPO). Esta función recibe como parámetro el código HPO del fenotipo de interés, en este caso la aniridia, cuyo código es HP:0000526. Con este código realiza una solicitud GET a la API de HPO para recuperar información sobre los genes asociados. Si la respuesta es satisfactoria (código de estado 200), extrae y devuelve la lista de genes vinculados al fenotipo. En caso contrario, se imprime un mensaje de error y se devuelve una lista vacía.
+
+Posteriormente, construimos una URL utilizando los símbolos de los genes obtenidos, para hacer una solicitud GET a la API de StringDB. Esta API proporciona datos sobre interacciones de proteínas. La solicitud devuelve una red de interacciones de proteínas, la cual almacenamos en la imagen .
+
+También analizamos y filtramos los resultados de enriquecimiento en categorías relevantes. Las búsquedas específicas en estos resultados de enfermedades y genes se realizan mediante palabras clave y patrones relevantes, y los resultados se guardan en archivos CSV para facilitar su análisis posterior.
+
+Finalmente, descargamos la red de interacciones en formato TSV usando otra solicitud GET a la API de StringDB. Si la descarga es exitosa, el archivo se guarda con el nombre de archivo especificado o, en caso contrario, con el nombre predeterminado reddescargada.tsv. Ante cualquier error en la descarga, se imprime un mensaje de advertencia.
+
+Al cargar el archivo TSV descargado, seleccionamos las columnas de nombres preferidos y eliminamos las filas duplicadas. Estos datos se guardan en un archivo de texto llamado genesigraph.txt, que contiene únicamente los nombres de los genes relevantes para un análisis adicional de la red biológica.
+
+
+
+
+
+
+
+
 \subsection{Otras librerías empleadas}
 
 \subsection{Software empleado para la generación de diagramas}
