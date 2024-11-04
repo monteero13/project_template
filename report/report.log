@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.9.22)  4 NOV 2024 19:29
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.9.22)  4 NOV 2024 23:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -365,34 +365,35 @@ LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <8> not available
 (Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 29.
  [1{C:/Users/lili1/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}
 
-]
-Underfull \hbox (badness 6575) in paragraph at lines 45--47
-\OT1/cmr/m/n/10 del col^^Sageno tipo IV, es es-en-cial
- []
-
-) (tex_files/material_methods.tex
+]) (tex_files/material_methods.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [2]
-[3]
-<figures/red_interaccion_aniridia.png, id=20, 748.29562pt x 828.09375pt>
+[3] [4] [5]
+<figures/red_interaccion_aniridia.png, id=27, 748.29562pt x 828.09375pt>
 File: figures/red_interaccion_aniridia.png Graphic file (type png)
 <use figures/red_interaccion_aniridia.png>
 Package pdftex.def Info: figures/red_interaccion_aniridia.png  used on input li
-ne 34.
+ne 70.
 (pdftex.def)             Requested size: 361.0pt x 399.5022pt.
 
-Overfull \hbox (12.5pt too wide) in paragraph at lines 34--35
+Overfull \hbox (12.5pt too wide) in paragraph at lines 70--71
  [][] 
  []
 
-[4 <./figures/red_interaccion_aniridia.png>]) (tex_files/resultados.tex)
-(tex_files/discusion.tex) (tex_files/conclusiones.tex) [5] (report.bbl
+
+Underfull \hbox (badness 1303) in paragraph at lines 78--80
+[]\OT1/cmr/m/n/10 Posteriormente, con-stru-imos una URL uti-lizando los s^^S^^P
+mbolos de los genes
+ []
+
+[6 <./figures/red_interaccion_aniridia.png>]) (tex_files/resultados.tex)
+(tex_files/discusion.tex) (tex_files/conclusiones.tex) (report.bbl
 LaTeX Font Info:    Font shape `OT1/cmss/m/it' in size <7> not available
 (Font)              Font shape `OT1/cmss/m/sl' tried instead on input line 187.
 
-)
-[6] 
+ [7])
+[8] 
 enddocument/afterlastpage: lastpage setting LastPage.
 (report.aux)
  ***********
@@ -409,13 +410,13 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 4182 strings out of 474485
- 67920 string characters out of 5743734
- 1940542 words of memory out of 5000000
- 26397 multiletter control sequences out of 15000+600000
- 565850 words of font info for 63 fonts, out of 8000000 for 9000
+ 4186 strings out of 474485
+ 67969 string characters out of 5743734
+ 1941542 words of memory out of 5000000
+ 26400 multiletter control sequences out of 15000+600000
+ 566196 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,9n,79p,681b,453s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 85i,10n,79p,750b,520s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\lili1\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm
 1000.pk><C:/Users/lili1/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
 ts/cm/cmbx10.pfb><C:/Users/lili1/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -427,10 +428,11 @@ l/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Users/lili1/AppD
 ata/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><C:/Users
 /lili1/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmssi8.pfb>
 <C:/Users/lili1/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
-tt8.pfb>
-Output written on report.pdf (6 pages, 511653 bytes).
+ti10.pfb><C:/Users/lili1/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmtt8.pfb>
+Output written on report.pdf (8 pages, 533314 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
+ 87 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
