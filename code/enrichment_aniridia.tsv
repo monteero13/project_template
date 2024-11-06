@@ -1,0 +1,78 @@
+<!DOCTYPE html><html lang='en'>
+
+<head>
+<script async src='/javascript/ga4.client.code_py9183.js'></script><script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-P87S7MWQRL', {transport_url: 'https://gtm.string-db.org',});</script><script type='text/javascript'>window.onerror = function(message, url, line, column) {if (url.includes('chrome-extension'))   { return None }if (url.includes('safari-extension'))   { return None }if (message.includes('ResizeObserver')) { return None } if (message.includes('googletag'))      { return None } if (message.includes('@context'))       { return None } var messageEncoded = encodeURIComponent(message);var jsUrlEncoded = encodeURIComponent(url);var webUrlEncoded = encodeURIComponent(window.location.href);var useragentEncoded = encodeURIComponent(navigator.userAgent);var xmlhttp = new XMLHttpRequest ();xmlhttp.open('POST', '/cgi/logjserror', true);xmlhttp.setRequestHeader ('Content-type', 'application/x-www-form-urlencoded');var params = 'logJsMessage=' + messageEncoded + '&logJsUrl=' + jsUrlEncoded + '&logJsLine=' + line + '&logJsColumn=' + column + '&logJsWebUrl=' + webUrlEncoded + '&logJsUseragent=' + useragentEncoded;xmlhttp.send(params);};</script><script>var startTime = new Date();function retryLoad(filePath, fileType, attempt) {    if (attempt > 3) { return };    var script = document.createElement('script');    var endTime = new Date();    var elapsedTime = (endTime.getTime() - startTime.getTime()) / 1000;    script.src = filePath;    document.head.appendChild(script);    script.onload = function () {        var endTime = new Date();        var elapsedTime = (endTime.getTime() - startTime.getTime()) / 1000;    };    script.onerror = function () {        retryLoad(filePath, fileType, attempt+1)    };}</script><script>
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//tr-denbi.embl.de/heimdall/";
+    _paq.push(['setTrackerUrl', u+'p.php']);
+    _paq.push(['setSiteId', '2']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'p.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<meta name='theme-color' content='transparent'>
+<link rel='shortcut icon' href='/images/favicon.png' />
+<title>error ... STRING: functional protein association networks</title><link href='/css/combined_stylesheets.vpy8499.css' rel='stylesheet' type='text/css' onerror='javascript:retryLoad(/css/combined_stylesheets.vpy8499.css, CSS, 1)'/> <script>var js_comm_globals = {  root_address: 'https://string-db.org', web_cgi_dir: '/cgi',  web_images_dir: '/images', web_sse_dir: '/sse',  help_info_url: '/cgi/help?sessionId=bwsh5rkkxSrT', website_name: 'STRING',  task_id: '_notask', session_id: 'bwsh5rkkxSrT',  login_url: 'https://string-db.eu.auth0.com/authorize?client_id=V6E4n1vLLdhvu4HEvX1OBkrRDrLj5YLZ&response_type=code&redirect_uri=https%3A//string-db.org/cgi/login%3Fscript_name%3Derror404', logout_url: 'https://string-db.eu.auth0.com/v2/logout?client_id=V6E4n1vLLdhvu4HEvX1OBkrRDrLj5YLZ&returnTo=https%3A//string-db.org/cgi/logout%3Fscript_name%3Derror404%26show_logout_message%3D1', autocomplete_running_nr: 1,   targetmode: 'proteins', calling_script: 'error404',  web_js_dir: '/javascript', js_script_version: 'py9183',  string_database_version_dotted: '12.0',  bot_query: 'False', edge_version: 'None'};
+</script>
+<script src='/javascript/combined_navigation_scripts_py9183.js' onerror='javascript:retryLoad("/javascript/combined_navigation_scripts_py9183.js", "JAVASCRIPT", 1)'></script>
+</head>
+
+<body id='stringBodyTag'><div style='position:absolute;' class='nodeInfoDivStyle' id='fpWindowDiv' onmouseout='window.status=""; return true;'></div>
+<div style='position:absolute;' class='nodeInfoDivStyle' id='LinkWindowDiv' onmouseout='window.status=""; return true;'></div>
+<div class='top_bar'><div class='container'><div class='left'><ul class='top_bar_list'><li class='header'>Version:</li>
+<li class='last'><a style='font-size:13px;' href='/cgi/access?sessionId=bwsh5rkkxSrT&footer_active_subpage=archive'>12.0</a></ul></div><div class='right'><ul class='top_bar_list'><li><a id='login_display_tag' href='https://string-db.eu.auth0.com/authorize?client_id=V6E4n1vLLdhvu4HEvX1OBkrRDrLj5YLZ&response_type=code&redirect_uri=https%3A//string-db.org/cgi/login%3Fscript_name%3Derror404'>Login</a></li> <li><a id='logout_display_tag' href='https://string-db.org/cgi/register?sessionId=bwsh5rkkxSrT'>Register</a></li> <li><a id='logout_display_tag' href='https://forms.gle/hJ1Guc6N6MLU8Xgk8' target='_blank'>Survey</a></li></ul></div></div></div><div class='main_header'><div class='container'><a id='string_logo_left' class='input_switch_to_home' href='/cgi/input?sessionId=bwsh5rkkxSrT&input_page_show_search=on' >STRING</a><a id='string_logo_right' href='/cgi/input?sessionId=bwsh5rkkxSrT&input_page_show_search=on' >STRING</a><div class='main_nav'><ul><li><div class='main_nav_item input_switch_to_search'><a class='main_nav_tag' href='/cgi/input?sessionId=bwsh5rkkxSrT&input_page_show_search=on'  id='search'>Search</a></div></li><li><div class='main_nav_item'><a class='main_nav_tag' href='/cgi/download?sessionId=bwsh5rkkxSrT'>Download</a></div></li><li><div class='main_nav_item'><a class='main_nav_tag' href='/cgi/help?sessionId=bwsh5rkkxSrT'>Help</a></div></li><li><div class='main_nav_item'><a class='main_nav_tag' href='/cgi/my?sessionId=bwsh5rkkxSrT'>My&nbsp;Data</a></div></li></ul>
+</div><!-- end main_nav --></div>
+<div class='shadow'></div></div>
+<div class='error_info_wrap' style='margin-top:25px;margin-bottom:25px;max-width:500px;'><div class='error_info_box'><div class='box_title'>404 Error ...</div><div class='box_body'>
+<div class='error_info_message'>Sorry, this page cannot be found ... please check the URL.</div><div class='error_info_separator'></div><div style='width:100%;text-align:center;'><a class='button' onclick='history.go(-1)'>&lt;- Go Back</a>&nbsp;&nbsp;<a class='button' href='/cgi/input?sessionId=bwsh5rkkxSrT' id='error_form'>Start Over</a></div>
+</div></div></div>
+<div class='main_footer' style='display:block;'><div class='shadow'></div><div id='main_nav_footer_container' class='container'><div class='column first'>
+<h2>&copy; STRING Consortium 2023</h2>
+<ul>
+<li id='SIB_logo'><a href='https://www.isb-sib.ch/'><span></span>SIB - Swiss Institute of Bioinformatics</a></li>
+<li id='CPR_logo'><a href='https://www.cpr.ku.dk/'><span></span>CPR - Novo Nordisk Foundation Center Protein Research</a></li>
+<li id='EMBL_logo'><a href='https://www.embl.de/'><span></span>EMBL - European Molecular Biology Laboratory</a></li>
+</ul>
+</div>
+<div class='column last'>
+<h2><a href='/cgi/credits'>Credits</a></h2>
+<ul>
+<li><a href='/cgi/credits?footer_active_subpage=funding'>Funding</a></li>
+<li><a href='/cgi/credits?footer_active_subpage=datasources'>Datasources</a></li>
+<li><a href='/cgi/credits?footer_active_subpage=partners'>Partners</a></li>
+<li><a href='/cgi/credits?footer_active_subpage=libraries'>Software</a></li>
+</ul>
+</div>
+<div class='column'>
+<h2><a href='/cgi/access'>Access</a></h2>
+<ul>
+<li><a href='/cgi/access?footer_active_subpage=archive'>Versions</a></li>
+<li><a href='/cgi/access?footer_active_subpage=apis'>APIs</a></li>
+<li><a href='/cgi/access?footer_active_subpage=licensing'>Licensing</a></li>
+<li><a href='/cgi/access?footer_active_subpage=usage'>Usage</a></li>
+</ul>
+</div>
+<div class='column'>
+<h2><a href='/cgi/info'>Info</a></h2>
+<ul>
+<li><a href='/cgi/info?footer_active_subpage=scores'>Scores</a></li>
+<li><a href='/cgi/info?footer_active_subpage=scenarios'>Use scenarios</a></li>
+<li><a href='/cgi/info?footer_active_subpage=faqs'>FAQs</a></li>
+<li><a href='/cgi/info?footer_active_subpage=cookies'>Cookies/Privacy</a></li>
+</ul>
+</div>
+<div class='column'>
+<h2><a href='/cgi/about'>About</a></h2>
+<ul>
+<li><a href='/cgi/about?footer_active_subpage=content'>Content</a></li>
+<li><a href='/cgi/about?footer_active_subpage=references'>References</a></li>
+<li><a href='/cgi/about?footer_active_subpage=contributors'>People</a></li>
+<li><a href='/cgi/about?footer_active_subpage=statistics'>Statistics</a></li>
+</ul>
+</div>
+</div>
+<div class='elixir_container'><div class='elixir_cdr_message'>STRING is a Core Data Resource as designated by <a href='https://globalbiodata.org/scientific-activities/global-core-biodata-resources/'>Global Biodata Coalition</a> and <a href='https://www.elixir-europe.org/platforms/data/core-data-resources'>ELIXIR</a>.</div></div>
+</div></body></html>
