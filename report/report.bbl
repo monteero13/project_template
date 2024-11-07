@@ -1,6 +1,6 @@
 %% BioMed_Central_Bib_Style_v1.01
 
-\begin{thebibliography}{13}
+\begin{thebibliography}{12}
 % BibTex style file: bmc-mathphys.bst (version 2.1), 2014-07-24
 \ifx \bisbn   \undefined \def \bisbn  #1{ISBN #1}\fi
 \ifx \binits  \undefined \def \binits#1{#1}\fi
@@ -48,8 +48,7 @@
 \oauthor{\bsnm{Landsend}, \binits{E.C.S.}},
 \oauthor{\bsnm{Lagali}, \binits{N.}},
 \oauthor{\bsnm{Utheim}, \binits{T.P.}}:
-Congenital aniridia – A comprehensive review of clinical features and
-  therapeutic approaches
+Congenital aniridia – A comprehensive review of clinical features and therapeutic approaches
 (2021).
 doi:\doiurl{10.1016/j.survophthal.2021.02.011}
 \end{botherref}
@@ -89,8 +88,7 @@ Relaci{\'o}n entre aniridia y otras patolog{\'\i}as no oculares
 \bauthor{\bsnm{Piri}, \binits{N.}},
 \bauthor{\bsnm{Coleman}, \binits{A.L.}},
 \bauthor{\bsnm{Caprioli}, \binits{J.}}:
-\batitle{Asymmetric phenotype of axenfeld-rieger anomaly and aniridia
-  associated with a novel pitx2 mutation}.
+\batitle{Asymmetric phenotype of axenfeld-rieger anomaly and aniridia associated with a novel pitx2 mutation}.
 \bjtitle{Molecular Vision}
 \bvolume{17},
 \bfpage{1231}--\blpage{1238}
@@ -103,11 +101,9 @@ Relaci{\'o}n entre aniridia y otras patolog{\'\i}as no oculares
 \begin{botherref}
 \oauthor{\bsnm{Robles~López}, \binits{K.L.}},
 \oauthor{\bparticle{González~del} \bsnm{Ángel}, \binits{A.E.}}:
-Análisis molecular del Gen PAX6 con alteraciones oculares compatibles con
-  disgenesias de segmento anterior.
+Análisis molecular del Gen PAX6 con alteraciones oculares compatibles con disgenesias de segmento anterior.
 Trabajo terminal, especialidad.
-Acceso Abierto; Palabras clave: Medicina y Ciencias de la Salud; Anomalías del
-  ojo
+Acceso Abierto; Palabras clave: Medicina y Ciencias de la Salud; Anomalías del ojo
 (2012).
 \url{http://repositorio.pediatria.gob.mx:8180/handle/20.500.12103/3129}
 \end{botherref}
@@ -185,8 +181,7 @@ doi:\doiurl{10.1136/jmg-2022-108646}
 \bauthor{\bsnm{Pelletier}, \binits{J.}},
 \bauthor{\bsnm{Bruening}, \binits{W.}},
 \bauthor{\bsnm{Li}, \binits{F.}}, \betal:
-\batitle{Wt1 mutations contribute to abnormal genital system development and
-  hereditary wilms' tumour}.
+\batitle{Wt1 mutations contribute to abnormal genital system development and hereditary wilms' tumour}.
 \bjtitle{Nature}
 \bvolume{353},
 \bfpage{431}--\blpage{434}
@@ -196,26 +191,10 @@ doi:\doiurl{10.1038/353431a0}
 \endbibitem
 
 %%% 10
-\bibitem{Vahedi2011}
-\begin{barticle}
-\bauthor{\bsnm{Vahedi}, \binits{K.}},
-\bauthor{\bsnm{Alamowitch}, \binits{S.}}:
-\batitle{Clinical spectrum of type iv collagen (col4a1) mutations: a novel
-  genetic multisystem disease}.
-\bjtitle{Current Opinion in Neurology}
-\bvolume{24}(\bissue{1}),
-\bfpage{63}--\blpage{68}
-(\byear{2011}).
-doi:\doiurl{10.1097/WCO.0b013e32834232c6}
-\end{barticle}
-\endbibitem
-
-%%% 11
 \bibitem{French2021}
 \begin{barticle}
 \bauthor{\bsnm{French}, \binits{C.R.}}:
-\batitle{Mechanistic insights into axenfeld-rieger syndrome from zebrafish
-  foxc1 and pitx2 mutants}.
+\batitle{Mechanistic insights into axenfeld-rieger syndrome from zebrafish foxc1 and pitx2 mutants}.
 \bjtitle{International Journal of Molecular Sciences}
 \bvolume{22}(\bissue{18}),
 \bfpage{10001}
@@ -224,25 +203,23 @@ doi:\doiurl{10.3390/ijms221810001}
 \end{barticle}
 \endbibitem
 
-%%% 12
+%%% 11
 \bibitem{ben1999clustering}
 \begin{bchapter}
 \bauthor{\bsnm{Ben-Dor}, \binits{A.}},
 \bauthor{\bsnm{Yakhini}, \binits{Z.}}:
 \bctitle{Clustering gene expression patterns}.
-In: \bbtitle{Proceedings of the Third Annual International Conference on
-  Computational Molecular Biology},
+In: \bbtitle{Proceedings of the Third Annual International Conference on Computational Molecular Biology},
 pp. \bfpage{33}--\blpage{42}
 (\byear{1999})
 \end{bchapter}
 \endbibitem
 
-%%% 13
+%%% 12
 \bibitem{FloresCamacho2009}
 \begin{botherref}
 \oauthor{\bsnm{Flores~Camacho}, \binits{F.}}:
-'mecanismos funcionales' para explicar los fenómenos: una perspectiva de
-  análisis desde los recursos conceptuales.
+'mecanismos funcionales' para explicar los fenómenos: una perspectiva de análisis desde los recursos conceptuales.
 Enseñanza de las ciencias
 (Núm. Extra),
 1521--1524
@@ -260,8 +237,7 @@ Enseñanza de las ciencias
 <refgrp>
 
 <bibl id="B1">
-  <title><p>Congenital aniridia – A comprehensive review of clinical features
-  and therapeutic approaches</p></title>
+  <title><p>Congenital aniridia – A comprehensive review of clinical features and therapeutic approaches</p></title>
   <aug>
     <au><snm>Landsend</snm><fnm>EC</fnm></au>
     <au><snm>Lagali</snm><fnm>N</fnm></au>
@@ -280,8 +256,7 @@ Enseñanza de las ciencias
   </aug>
   <source>Clinical Ophthalmic Genetics and Genomics</source>
   <publisher>Academic Press</publisher>
-  <editor>Graeme C.M. Black and Jane L. Ashworth and Panagiotis I.
-  Sergouniotis</editor>
+  <editor>Graeme C.M. Black and Jane L. Ashworth and Panagiotis I. Sergouniotis</editor>
   <pubdate>2022</pubdate>
   <fpage>389</fpage>
   <lpage>391</lpage>
@@ -289,16 +264,14 @@ Enseñanza de las ciencias
 </bibl>
 
 <bibl id="B3">
-  <title><p>Relaci{\'o}n entre aniridia y otras patolog{\'\i}as no
-  oculares</p></title>
+  <title><p>Relaci{\'o}n entre aniridia y otras patolog{\'\i}as no oculares</p></title>
   <aug>
     <au><snm>L{\'o}pez</snm><fnm>M</fnm></au>
   </aug>
 </bibl>
 
 <bibl id="B4">
-  <title><p>Asymmetric phenotype of Axenfeld-Rieger anomaly and aniridia
-  associated with a novel PITX2 mutation</p></title>
+  <title><p>Asymmetric phenotype of Axenfeld-Rieger anomaly and aniridia associated with a novel PITX2 mutation</p></title>
   <aug>
     <au><snm>Law</snm><fnm>SK</fnm></au>
     <au><snm>Sami</snm><fnm>M</fnm></au>
@@ -314,8 +287,7 @@ Enseñanza de las ciencias
 </bibl>
 
 <bibl id="B5">
-  <title><p>Análisis molecular del Gen PAX6 con alteraciones oculares
-  compatibles con disgenesias de segmento anterior</p></title>
+  <title><p>Análisis molecular del Gen PAX6 con alteraciones oculares compatibles con disgenesias de segmento anterior</p></title>
   <aug>
     <au><snm>Robles López</snm><fnm>KL</fnm></au>
     <au><snm>Ángel</snm><fnm>AE</fnm></au>
@@ -323,13 +295,11 @@ Enseñanza de las ciencias
   <source>Trabajo terminal, especialidad</source>
   <pubdate>2012</pubdate>
   <url>http://repositorio.pediatria.gob.mx:8180/handle/20.500.12103/3129</url>
-  <note>Acceso Abierto; Palabras clave: Medicina y Ciencias de la Salud;
-  Anomalías del ojo</note>
+  <note>Acceso Abierto; Palabras clave: Medicina y Ciencias de la Salud; Anomalías del ojo</note>
 </bibl>
 
 <bibl id="B6">
-  <title><p>Congenital Aniridia: Clinic, Genetics, Therapeutics, and
-  Prognosis</p></title>
+  <title><p>Congenital Aniridia: Clinic, Genetics, Therapeutics, and Prognosis</p></title>
   <aug>
     <au><snm>Calv{\~a}o Pires</snm><fnm>P</fnm></au>
     <au><snm>Santos Silva</snm><fnm>R.</fnm></au>
@@ -392,8 +362,7 @@ Enseñanza de las ciencias
 </bibl>
 
 <bibl id="B9">
-  <title><p>WT1 mutations contribute to abnormal genital system development and
-  hereditary Wilms' tumour</p></title>
+  <title><p>WT1 mutations contribute to abnormal genital system development and hereditary Wilms' tumour</p></title>
   <aug>
     <au><snm>Pelletier</snm><fnm>J.</fnm></au>
     <au><snm>Bruening</snm><fnm>W.</fnm></au>
@@ -408,24 +377,7 @@ Enseñanza de las ciencias
 </bibl>
 
 <bibl id="B10">
-  <title><p>Clinical spectrum of type IV collagen (COL4A1) mutations: a novel
-  genetic multisystem disease</p></title>
-  <aug>
-    <au><snm>Vahedi</snm><fnm>K</fnm></au>
-    <au><snm>Alamowitch</snm><fnm>S</fnm></au>
-  </aug>
-  <source>Current Opinion in Neurology</source>
-  <publisher>England: Lippincott Williams \& Wilkins</publisher>
-  <pubdate>2011</pubdate>
-  <volume>24</volume>
-  <issue>1</issue>
-  <fpage>63</fpage>
-  <lpage>-68</lpage>
-</bibl>
-
-<bibl id="B11">
-  <title><p>Mechanistic Insights into Axenfeld-Rieger Syndrome from Zebrafish
-  foxc1 and pitx2 Mutants</p></title>
+  <title><p>Mechanistic Insights into Axenfeld-Rieger Syndrome from Zebrafish foxc1 and pitx2 Mutants</p></title>
   <aug>
     <au><snm>French</snm><fnm>C. R.</fnm></au>
   </aug>
@@ -436,22 +388,20 @@ Enseñanza de las ciencias
   <fpage>10001</fpage>
 </bibl>
 
-<bibl id="B12">
+<bibl id="B11">
   <title><p>Clustering gene expression patterns</p></title>
   <aug>
     <au><snm>Ben Dor</snm><fnm>A</fnm></au>
     <au><snm>Yakhini</snm><fnm>Z</fnm></au>
   </aug>
-  <source>Proceedings of the third annual international conference on
-  Computational molecular biology</source>
+  <source>Proceedings of the third annual international conference on Computational molecular biology</source>
   <pubdate>1999</pubdate>
   <fpage>33</fpage>
   <lpage>-42</lpage>
 </bibl>
 
-<bibl id="B13">
-  <title><p>'Mecanismos funcionales' para explicar los fenómenos: una
-  perspectiva de análisis desde los recursos conceptuales</p></title>
+<bibl id="B12">
+  <title><p>'Mecanismos funcionales' para explicar los fenómenos: una perspectiva de análisis desde los recursos conceptuales</p></title>
   <aug>
     <au><snm>Flores Camacho</snm><fnm>F.</fnm></au>
   </aug>

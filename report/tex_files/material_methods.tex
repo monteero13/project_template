@@ -84,4 +84,58 @@ Al cargar el archivo TSV descargado, seleccionamos las columnas de nombres prefe
 
 \subsubsection{Flujo de trabajo}
 
+\newpage
 
+\section{Tipo de metodología}
+
+En esta sección se describe la metodología detallada para el análisis de redes génicas en el contexto de la aniridia, empleando el algoritmo DIAMOnD (Disease Module Detection) y técnicas de clustering para identificar genes asociados funcionalmente con PAX6. El objetivo de este análisis es comprender cómo las interacciones entre estos genes pueden influir en la manifestación clínica de la aniridia y en su relación con otros trastornos sistémicos.
+
+\subsection{Construcción de la red de interacciones génicas}
+
+\subsubsection{Obtención de Datos de Interacción Génica}
+
+Se recopilaron datos de interacción génica a partir de STRINGdb (v11.5) para construir una red basada en las interacciones conocidas de PAX6 y otros genes asociados a la aniridia. La base de datos STRINGdb proporciona un puntaje de confiabilidad para cada interacción basado en evidencia experimental, coexpresión, bases de datos de conocimiento, y otros criterios. Para garantizar la relevancia biológica en el contexto de la aniridia, solo se seleccionaron interacciones con un puntaje de confianza superior a 0.7 (umbral que indica alta probabilidad de interacción funcional).
+
+\subsubsection{Construcción de la Red Inicial}
+
+A partir de los datos obtenidos, se construyó una red de interacciones en Python utilizando la librería NetworkX. En esta red, los nodos representan genes y las aristas indican interacciones funcionales entre ellos. Los genes de interés fueron seleccionados como puntos de partida o "semillas" para el análisis de módulos funcionales. Estos incluyeron no solo a PAX6, sino también genes que, de acuerdo con estudios previos, tienen relevancia funcional en la aniridia, como FOXC1, WT1, COL4A1 y PITX2. Estos genes semilla fueron elegidos en base a su relación funcional conocida con PAX6 y su implicación en el desarrollo ocular y otras funciones biológicas relevantes para la patología.
+
+\subsection{Aplicación del Algoritmo DIAMOnD para la Identificación de Módulos de Enfermedad}
+\subsubsection{Implementación del Algoritmo DIAMOnD}
+
+El análisis del módulo de enfermedad se llevó a cabo mediante la implementación del algoritmo DIAMOnD (Disease Module Detection) en la red génica construida. DIAMOnD fue diseñado para detectar módulos de enfermedad mediante la expansión progresiva de un conjunto de genes basado en la conectividad. Este algoritmo prioriza aquellos genes que muestran mayor número de conexiones hacia el módulo de interés, permitiendo identificar aquellos que, aunque no están directamente implicados en la patología, poseen relaciones funcionales clave.
+
+\subsubsection{Parámetros de Configuración en DIAMOnD}
+
+El algoritmo se configuró para comenzar con los genes semilla seleccionados (PAX6, FOXC1, WT1, COL4A1, y PITX2) y expandir el módulo añadiendo genes en iteraciones. En cada iteración, se evalúan los genes adyacentes a los genes del módulo existente, y se priorizan aquellos con el mayor número de conexiones (o "vecinos") hacia los genes en el módulo. Este proceso se repite hasta alcanzar un tamaño predefinido para el módulo o hasta que se agoten los genes candidatos que cumplen con el criterio de conectividad.
+
+\subsubsection{Resultados de la Expansión del Módulo}
+
+Al finalizar las iteraciones, se obtiene un módulo expandido de genes que presentan una posible relación funcional con la aniridia. Este módulo incluye no solo los genes semilla, sino también genes adicionales con alta conectividad hacia estos y que podrían estar implicados en vías y funciones relevantes para la patología. Los genes identificados en este módulo se consideran candidatos para un análisis posterior de funciones y vías.
+
+\subsection{Análisis de Clustering para la Identificación de Submódulos Funcionales}
+\subsubsection{Aplicación de Clustering en el Módulo Expandido}
+
+Para analizar la estructura interna del módulo expandido, se aplicaron técnicas de clustering en la red de genes seleccionados. Se utilizó el método de clustering jerárquico (enfoque de Ben-Dor et al., 1999) para identificar subgrupos dentro del módulo. Este enfoque permite agrupar genes en función de su similitud de conectividad y su co-ocurrencia en rutas biológicas. El clustering jerárquico es especialmente útil para identificar genes que, aunque puedan estar en el mismo módulo, desempeñan roles en funciones o rutas específicas.
+
+\subsubsection{Interpretación de los Clusters}
+
+Cada cluster resultante fue interpretado en función de las funciones y vías asociadas a los genes incluidos. Este análisis permite observar si ciertos grupos de genes comparten funciones específicas o están involucrados en vías biológicas que podrían contribuir a la patología de la aniridia. Los clusters identificados se utilizan como base para el análisis de enriquecimiento funcional descrito a continuación.
+
+\subsection{Análisis de Enriquecimiento Funcional de los Clusters}
+\subsubsection{Herramientas y Procedimiento para el Enriquecimiento Funcional}
+
+El análisis de enriquecimiento funcional se llevó a cabo utilizando GOATOOLS y Enrichr, herramientas que permiten realizar análisis de sobre-representación de términos del Gene Ontology (GO) y otras bases de datos de rutas y procesos biológicos. En este análisis, se seleccionaron las categorías de procesos biológicos, funciones moleculares y componentes celulares, permitiendo observar qué términos están significativamente sobre-representados en cada cluster.
+
+\subsubsection{Identificación de Funciones y Vías Clave}
+
+Se calcularon p-valores ajustados mediante el método de FDR (False Discovery Rate) para los términos enriquecidos, considerando significativos aquellos con valores inferiores a 0.05. Este análisis permite identificar procesos y vías específicas en las que los genes del módulo están implicados, lo cual es esencial para entender cómo la disfunción en estas interacciones contribuye a la presentación clínica de la aniridia. En particular, el análisis se enfocó en vías de desarrollo ocular, rutas de señalización y procesos morfogenéticos.
+
+\subsection{Validación de los Resultados y Control de Calidad}
+\subsubsection{Validación con Estudios Previos y Datos Experimentales}
+
+Los resultados obtenidos se compararon con la literatura y datos previos sobre PAX6 y genes asociados. Los genes y las funciones identificadas en el análisis de DIAMOnD y de enriquecimiento funcional fueron cotejados con estudios experimentales previos para validar su relevancia en el contexto de la aniridia. Esta etapa de validación es crucial para confirmar que los genes incluidos en el módulo son relevantes y para reducir falsos positivos en el análisis.
+
+\subsubsection{Control de Calidad y Ajuste de Parámetros}
+
+Se realizaron análisis de sensibilidad ajustando parámetros clave, como el puntaje de interacción de STRINGdb y el tamaño del módulo, para evaluar la robustez de los resultados. Se examinó el efecto de estos ajustes en la composición del módulo y en los términos de enriquecimiento funcional, asegurando así que los resultados sean consistentes y representativos.
