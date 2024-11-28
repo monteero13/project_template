@@ -9,16 +9,15 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Clustering Basado en centralidad de intermediación de enlaces
 ```{r cars}
 library(igraph)
 
-# Leer la red desde un archivo TSV (reemplaza 'network.tsv' con la ruta de tu archivo)
-# Si el archivo tiene una columna de pesos, inclúyela; de lo contrario, ignórala
-network_file <- "network.tsv"
+# Leer la red desde un archivo TSV 
+network_file <- "string_interactions_short.tsv"
 edges <- read.table(network_file, header = TRUE, sep = "\t")
 
 # Crear el grafo desde el TSV
-# Si tiene pesos, asegúrate de que estén incluidos; de lo contrario, ignora la columna de peso
 if ("weight" %in% colnames(edges)) {
   g <- graph_from_data_frame(edges, directed = FALSE)
   E(g)$weight <- edges$weight
@@ -66,4 +65,59 @@ for (i in 1:20) {
        edge.width = ifelse(rank(-edge_btw) <= 1, 4, 1),  # Resalta la siguiente arista con mayor betweenness
        edge.color = ifelse(rank(-edge_btw) <= 1, "red", "gray"), edge.width = 1)
 }
+```
+
+# Clustering Basado en Walktrap
+```{r cars2}
+library(igraph)
+
+# Leer la red desde un archivo TSV
+network_file <- "string_interactions_short.tsv"
+edges <- read.table(network_file, header = TRUE, sep = "\t")
+
+# Crear el grafo desde el archivo TSV
+if ("weight" %in% colnames(edges)) {
+  g <- graph_from_data_frame(edges, directed = FALSE)
+  E(g)$weight <- edges$weight  # Si hay una columna "weight", asignarla
+} else {
+  g <- graph_from_data_frame(edges, directed = FALSE)
+}
+
+# Aplicar Walktrap clustering
+wc <- cluster_walktrap(g)
+
+# Visualizar las comunidades detectadas
+plot(
+  g,
+  vertex.color = membership(wc),
+  vertex.size = 5,
+  layout = layout_with_fr(g),
+  edge.arrow.size = 0.5,
+  main = "Clustering basado en Walktrap"
+)
+
+# Evaluar modularidad
+modularity(wc)
+
+# Visualizar la progresión de Walktrap (seleccionar algunos pasos clave)
+plot_walktrap_progression <- function(graph, walktrap, step) {
+  memberships <- cut_at(walktrap, no = step)  # Membresías de los nodos en este paso
+  node_colors <- rainbow(max(memberships))[memberships]  # Colorear los nodos por comunidad
+  
+  plot(graph, 
+       vertex.color = node_colors, 
+       vertex.label = NA, 
+       main = paste("Step", length(walktrap$merges) - step + 1, 
+                    "-", step, "Clusters"),
+       layout = layout_with_fr)
+}
+
+# Visualizar los pasos clave de la progresión de Walktrap
+for (step in c(1, 2, 3, 4)) {  # Seleccionar pasos clave para ilustrar la progresión
+  plot_walktrap_progression(g, wc, step)
+}
+
+# Visualizar el dendrograma
+par(mfrow = c(1, 1))
+plot_dendrogram(wc, main = "Walktrap Dendrogram")
 ```
