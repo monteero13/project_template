@@ -156,3 +156,18 @@ La primera red que se grafica es la original, destacando las aristas de mayor be
 
 Lo siguiente será eliminar de manera iterativa las aristas de mayor betwennes. A medida que se elimina cada arista también se va a calcular la \textbf{modularidad} del grafo, es decir, cómo de bien está la red dividida en comunidades, siendo un valor cercano a 1 una buena división. Por último, resaltar que, después de eliminar cada arista se va a graficar la nueva red.
 
+\subsubsection{Clustering Basado en Walktrap}
+
+Este es un algoritmo de agrupamiento usado para identificar comunidades en redes o grafos basado en el concepto de \textbf{"camino aleatorio"}, y su objetivo es agrupar nodos en comunidades que estén más fuertemente unidas entre sí que con el resto de la red.
+
+Los caminos aleatorios se generan eligiendo al azar el siguiente nodo vecino desde el actual. Se calcula la probabilidad de que un camino vaya de un nodo al elegido al azar y, si la probabilidad es alta, es probable que estén en la misma comunidad. Es decir, los nodos de la misma comunidad suelen tener caminos aleatorios muy similares.
+
+La similitud entre nodos se evalúa con una matriz de transición que indica la probabilidad de llegar de un nodo a otro en uno o más pasos de un camino aleatorio.
+
+Este algoritmo es jerárquico, pues comienza con cada nodo como una comunidad distinta y después agrupa iterativamente aquellas más cercanas hasta que toda la red se agrupa en una sola comunidad o hasta un número de comunidades preestablecido. 
+
+Con este algoritmo, se obtendrá un dendograma; este es un gráfico que representa como las comunidades se van combinando.
+
+En términos generales, la implementación del algoritmo es la siguiente.
+
+Primero se crea un grafo no dirigido a partir de los datos de interacción proporcionados en un archivo TSV. Después, se aplica el agortimo Walktrap para hacer el agrupamiento en la red. Luego, se visualizan las comunidades, para lo que se representará cada una con un color diferente. Además, se podrá visualizar el dondograma.
