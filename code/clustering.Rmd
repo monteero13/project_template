@@ -121,3 +121,34 @@ for (step in c(1, 2, 3, 4)) {  # Seleccionar pasos clave para ilustrar la progre
 par(mfrow = c(1, 1))
 plot_dendrogram(wc, main = "Walktrap Dendrogram")
 ```
+
+# Clustering Basado en el Algoritmo Fast Greedy
+```{r cars3}
+library(igraph)
+
+# Leer la red desde un archivo TXT
+network_file <- "string_interactions_short.tsv"
+edges <- read.table(network_file, header = FALSE, sep = "\t")
+
+# Extraer solo las dos primeras columnas (V1 y V2), que representan los nodos de las aristas
+edges <- edges[, c(1, 2)]
+
+# Crear el grafo desde las dos primeras columnas (nodo1, nodo2)
+g <- graph_from_edgelist(as.matrix(edges), directed = FALSE)
+
+# Aplicar el algoritmo Fast Greedy para encontrar las comunidades
+fc <- cluster_fast_greedy(g)
+
+# Visualizar las comunidades
+plot(
+  g,
+  vertex.color = membership(fc),  # Colorear nodos según las comunidades
+  layout = layout_with_fr(g),  # Layout Fruchterman-Reingold para visualizar la red
+  vertex.size = 5,  # Tamaño de los nodos
+  main = "Clustering Basado en Fast Greedy"
+)
+
+# Mostrar la modularidad de la partición
+cat("Modularidad:", modularity(fc), "\n")
+
+```
