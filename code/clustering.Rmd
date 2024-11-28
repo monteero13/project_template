@@ -1,0 +1,69 @@
+---
+title: "Untitled"
+author: "Alexandra"
+date: "2024-11-28"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r cars}
+library(igraph)
+
+# Leer la red desde un archivo TSV (reemplaza 'network.tsv' con la ruta de tu archivo)
+# Si el archivo tiene una columna de pesos, inclúyela; de lo contrario, ignórala
+network_file <- "network.tsv"
+edges <- read.table(network_file, header = TRUE, sep = "\t")
+
+# Crear el grafo desde el TSV
+# Si tiene pesos, asegúrate de que estén incluidos; de lo contrario, ignora la columna de peso
+if ("weight" %in% colnames(edges)) {
+  g <- graph_from_data_frame(edges, directed = FALSE)
+  E(g)$weight <- edges$weight
+} else {
+  g <- graph_from_data_frame(edges, directed = FALSE)
+}
+
+# Calcular la betweenness de las aristas
+edge_btw <- edge_betweenness(g)
+top_edges <- order(edge_btw, decreasing = TRUE)
+
+# Configuración del layout para graficar
+layout <- layout_with_fr(g)  # Fruchterman-Reingold layout
+
+# Graficar la red original con las aristas de mayor betweenness resaltadas
+plot(g, layout = layout, main = "Red Original con Aristas de Alta Betweenness",
+     edge.width = ifelse(rank(-edge_btw) <= 1, 4, 1),  # Resalta la arista con mayor betweenness
+     edge.color = ifelse(rank(-edge_btw) <= 1, "red", "gray"),
+     vertex.color = "skyblue", vertex.size = 10, vertex.label = NA)
+
+# Remover aristas con mayor betweenness iterativamente y graficar
+edge_to_remove <- which.max(edge_btw)
+for (i in 1:20) {
+  cat("Quitando enlace con la ", i, " mayor betweenness\n")
+  
+  # Remover la arista con mayor betweenness
+  g <- delete_edges(g, E(g)[edge_to_remove])
+  
+  # Recalcular los componentes conectados
+  components <- clusters(g)
+  
+  # Calcular y mostrar la modularidad
+  mod <- modularity(g, components$membership)
+  
+  # Asignar colores a los componentes
+  component_colors <- rainbow(components$no)[components$membership]
+  
+  # Recalcular betweenness para el siguiente paso
+  edge_btw <- edge_betweenness(g)
+  edge_to_remove <- which.max(edge_btw)
+  
+  # Graficar el grafo actualizado
+  plot(g, layout = layout, main = paste("Después de quitar la ", i, " mayor betweenness\n Modularity =", mod, "\n Clusters:", components$no),
+       vertex.color = component_colors, vertex.size = 10, vertex.label = NA,
+       edge.width = ifelse(rank(-edge_btw) <= 1, 4, 1),  # Resalta la siguiente arista con mayor betweenness
+       edge.color = ifelse(rank(-edge_btw) <= 1, "red", "gray"), edge.width = 1)
+}
+```
