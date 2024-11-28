@@ -1,29 +1,19 @@
 \section{Materiales y métodos}
 
-En esta sección serán expuestos las diferentes herramientas y métodos utilizados para llevar a cabo el proyecto, así como los resultados obtenidos con cada una de ellas.
+En esta sección serán expuestos las diferentes herramientas y métodos utilizados para llevar a cabo el proyecto.
 
-\subsection{Materiales}
+\subsection{\textbf{Materiales}}
 \subsubsection{Human Phenotype Ontology}
 
-La \textbf{Human Phenotype Ontology (HPO)} es un proyecto que desarrolla un vocabulario estandarizado y jerárquico para describir fenotipos humanos, con el objetivo de apoyar el diagnóstico y la investigación de enfermedades genéticas. Además de definir y organizar características fenotípicas específicas, la HPO permite identificar los genes y variantes genéticas asociadas a cada fenotipo, de esta manera facilita el análisis de correlaciones genotipo-fenotipo a los usuarios.
+La \textbf{Human Phenotype Ontology (HPO)} es unua base de datos estructurada que organiza y describe las características clínicas (fenotipos) observadas en humanos, utilizando términos estandarizados y jerárquicos. Puedes encontrar más información sobre la Human Phenotype Ontology (HPO) en su sitio web oficial: https://hpo.jax.org/.
 
 \subsubsection{STRING}
 
-\textbf{STRING} es una base de datos que integra distintas fuentes de información y que además permite analizar y visualizar interacciones entre proteínas y genes. Pueden ser de dos tipos: interacciones físicas o interacciones funcionales. Las interacciones físicas permiten identificar compatibilidades y relaciones, mientras que las funcionales determinan si dos o más proteínas son compatibles aún sin tener interacción directa. Así pues, se pueden realizar perfiles filogenéticos y conocer genes con patrones similares, además de aportar información sobre patrones moleculares, mapas bioquímicos y mejorar la compresión de los sistemas biológicos.
+La \textbf{STRING Database} es una base de datos que integra información sobre interacciones entre proteínas, incluyendo interacciones físicas y funcionales, en una amplia variedad de organismos.  Para más información, visita su sitio web oficial: https://string-db.org/.
 
 \subsubsection{Python}
-\textbf{Python} es uno de los lenguajes de programación más usados del mundo. Se trata de un lenguaje de alto nivel con una sintaxis sencilla y fácil de entender que dispone de multitud de paquetes de código abierto. Se caracteriza por ser interpretado, es decir, no se requiere de compilación previa a instrucciones de lenguaje máquina ya que se emplea un entorno o intérprete para ejecutar el código. La versión utilizada en este proyecto es ?.
 
-\subsubsection{R}
-\textbf{R} es otro de los lenguajes de programación más importantes en el campo de la estadística. Es un entorno de software libre y también es un lenguaje interpretado. A diferencia de otros softwares de análisis de datos, R tiene un entorno completamente integrado y coherente. Proporciona una amplia gama de técnicas estadísticas y gráficas. La versión utilizada en este proyecto es ?.
-
-\subsubsection{iGraph}
-\textbf{iGraph} es una biblioteca de código abierto utilizada para el análisis y visualización de redes complejas. Es una herramienta muy útil para el estudio de los sistemas biológicos ya que estos están compuestos por genes, moléculas, proteínas, etc, que interactúan formando grafos complejos de analizar a simple vista. Está implementado en C, aunque también puede ser utilizado en otros lenguajes como R y Python. 
-
-Esta herramienta presenta muchas ventajas, entre las que destacamos: la integración de todo tipo de datos ómicos, la visualización de datos de forma interactiva, mejora la comprensión de las relaciones entre las distintas biomoléculas del sistema, permite la identificación de nodos clave en la red biológica, facilita el descubrimiento de grupos funcionales de genes o proteínas y predice cómo ciertas modificaciones podrían perturbar los sistemas.
-
-\subsubsection{Pandas}
-\textbf{Pandas} se trata de una popular librería de Python de código abierto muy necesaria para el ámbito de Data Science y Machine Learning. Proporciona unas estructuras poderosas y flexibles implementando todas las herramientas necesarias para el análisis de datos, ya que permite la carga, modelado, análisis, manipulación y preparación de datos.
+\textbf{Python} es un lenguaje de programación versátil, fácil de aprender y ampliamente usado en desarrollo web, ciencia de datos, IA y más, gracias a su sintaxis clara y su gran ecosistema de herramientas. Puedes encontrar más información sobre Python en su sitio web oficial: https://www.python.org/.
 
 \subsubsection{Algoritmos de clusterización}
 En el presente proyecto, uno de los objetivos es la identificación de patrones entre los distintos genes asociados al fenotipo de la aniridia. Para ello, es necesario el agrupamiento de aquellas biomoléculas con mayor similitud dentro nuestra red biológica, así que se aplicarán algoritmos nos permitan detectar estructuras sin necesidad de tener conocimiento previo. Vamos a hablar de los algoritmos de Givan-Newman, de optimización voraz, de propagación de etiquetas y de Louvain.
@@ -36,43 +26,50 @@ Además, el \textbf{algoritmo de propagación de etiquetas} es una técnica que 
 
 Por último, el \textbf{algoritmo de Louvain} se basa en el concepto de modularidad, es decir, tiene como objetivo maximizar el número de aristas dentro de una comunidad y minimizar el número de relaciones entre distintas comunidades. Este algoritmo es muy recomendable para sistemas biológicos muy amplios, ya que se obtienen comunidades compactas y bien definidas.
 
-\subsubsection{Otras librerías empleadas}
 
-\subsubsection{Software empleado para la generación de diagramas}
 
-\subsubsection{GitHub?}
 
-\vspace{3pt}
-\subsection{Métodos}
-BORRADOR:
-*OPCIÓN 1*
-Para realizar este estudio, el primer paso que se llevó a cabo fue la obtención de los genes relacionados con el fenotipo. Los descargamos de la página Human Phenotype Ontology mediante la introducción del ID del fenotipo, en nuestro caso "HP:0000526". Una vez obtenidos los genes, realizamos una red de interacción de los genes asociados a nuestro fenotipo mediante la herramienta STRINGDB.
+\subsection{\textbf{Metodología}}
 
-A continuación, se muestran los pasos llevados a cabo para obtener una red de interacción de los genes de un fenotipo concreto:
+\subsubsection{Obtención de genes}
 
-\begin{itemize}
-	\item Visitamos la página de STRING
-	\item Seleccionamos la opción para intnroducir múltiples proteínas
-	\item Introducimos solo los nombres de los genes descargados de Human Phenotype Ontology.
-	\item Especificamos la especie, en este caso, Homo sapiens.
-	\item STRING generará una red de interacciones, mostrando conexiones basadas en interacciones experimentales, predicciones y bases de datos de coexpresión.
-	\item Se guarda como imagen la red obtenida.
-\end{itemize}
+El primer paso que se llevó a cabo para comenzar el proyecto es la obtención de los genes relacionados con el fenotipo seleccionado. Para ello se visitó directamente la web de HPO (https://hpo.jax.org/) y se introdujo el identificador del fenotipo, HP:0000526 en este caso. Como resultado de la busqueda se obtuvo el conjunto de genes relacionados con la aniridia. Finalmente descargamos el conjunto de genes resultante de HPO.  
 
-Entre los objetivos del uso de STRING están visualizar las interacciones proteicas conocidas y predichas, identificar posibles proteínas clave o "hubs" dentro de la red y evaluar la conectividad y la funcionalidad de los genes en el contexto del fenotipo elegido.
 
-Tras introducir el nombre de todos los genes asociados a nuestro fenotipo obtuvimos la siguiente red de interacciones:
+\subsubsection{Obtención de la red de interacciones inicial}
+
+Tras descargar los genes, se utilizó la pagina web de STRING para obtener su red de interacciones (https://string-db.org/). Para ello es necesario seleccionar la opción para introducir múltiples proteínas y especificar la especie, en este caso Homo Sapiens. Se introdujo la lista de genes obtenida de HPO. Finalmente, dandole a exportar aparecen varias opciones. En el caso de este estudio se descargó la imagenen formato PNG de la red de interacciones. Además se descargaron los datos de la red como salida de texto en formato tsv.
+
+
+\subsubsection{Análisis de la red de interacciones}
+
+En este punto del proyecto se llevó a cabo un análisis exaustivo de la red de interacciones de todos los genes implicados en el fenotipo. El análisis de dicha red  implica examinar cómo los genes están conectados entre sí para identificar patrones, relaciones funcionales y estructuras que revelen información clave. 
+
+Se calcularon métricas clave como el grado de los nodos, la centralidad y la modularidad, con el objetivo de identificar los nodos más importantes dentro de la red. A través del análisis estructural y funcional, se detectaron los nodos clave, aquellos que desempeñan un papel central en la red.
+
+El resto del proyecto gira en torno a los genes clave seleccionados tras el análisis de la red.
+
+\subsubsection{Propagación de red}
+
+Con los genes clave seleccionados creamos una red de propagación. Para llevar a cabo esta tarea fue necesario desarrollar un algoritmo que permitiese propagar una red a partir de unos genes semilla.
+
+\subsubsection{Clustering}
+
+Para continuar con el análisis se desarrolló un algoritmo de clustering con el objetivo de identificar agrupaciones en la red de genes obtenida en el apartado anterior.
+
+
+\subsubsection{Enriquecimiento funcional de los clusters}
+
+
+
+
 
 \newpage
+\newpage
 
-\begin{figure}[h] % [h] indica que queremos la imagen aquí, en la posición actual
-	\centering
-	\includegraphics[width=1\textwidth]{figures/red_interaccion_aniridia.png} % Especifica la ruta y el tamaño
-	\caption{Red de interacción con los genes asociados al fenotipo HP:0000526} % Agrega una leyenda si deseas
-	\label{fig:mi-imagen} % Etiqueta para referenciar la imagen en el texto
-\end{figure}
 
-*OPCIÓN 2*
+***Opción 2***
+
 Para la identificación de genes asociados a la aniridia, implementamos una función en Python que hace uso de la API de Human Phenotype Ontology (HPO). Esta función recibe como parámetro el código HPO del fenotipo de interés, en este caso la aniridia, cuyo código es HP:0000526. Con este código realiza una solicitud GET a la API de HPO para recuperar información sobre los genes asociados. Si la respuesta es satisfactoria (código de estado 200), extrae y devuelve la lista de genes vinculados al fenotipo. En caso contrario, se imprime un mensaje de error y se devuelve una lista vacía.
 
 Posteriormente, construimos una URL utilizando los símbolos de los genes obtenidos, para hacer una solicitud GET a la API de StringDB. Esta API proporciona datos sobre interacciones de proteínas. La solicitud devuelve una red de interacciones de proteínas, la cual almacenamos en la imagen .
@@ -86,7 +83,7 @@ Al cargar el archivo TSV descargado, seleccionamos las columnas de nombres prefe
 
 \newpage
 
-\section{Tipo de metodología}
+\section{OPCION 3: Tipo de metodología}
 
 En esta sección se describe la metodología detallada para el análisis de redes génicas en el contexto de la aniridia, empleando el algoritmo DIAMOnD (Disease Module Detection) y técnicas de clustering para identificar genes asociados funcionalmente con PAX6. El objetivo de este análisis es comprender cómo las interacciones entre estos genes pueden influir en la manifestación clínica de la aniridia y en su relación con otros trastornos sistémicos.
 
