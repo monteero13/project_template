@@ -136,3 +136,14 @@ Los resultados obtenidos se compararon con la literatura y datos previos sobre P
 \subsubsection{Control de Calidad y Ajuste de Parámetros}
 
 Se realizaron análisis de sensibilidad ajustando parámetros clave, como el puntaje de interacción de STRINGdb y el tamaño del módulo, para evaluar la robustez de los resultados. Se examinó el efecto de estos ajustes en la composición del módulo y en los términos de enriquecimiento funcional, asegurando así que los resultados sean consistentes y representativos.
+
+\subsection{Clustering (ALEXANDRA)}
+\subsubsection{Clustering Basado en centralidad de intermediación de enlaces}
+
+Este es un enfoque jerárquico que se usa para identificar comunidades (grupos) dentro de una red. El método se basa en la \textbf{centralidad de intermediación (betweenness)}. Esta mide cuántos de los caminos más cortos entre nodos pasan por esa arista, es decir, permite identificar qué aristas son "críticas" para conectar diferentes partes de la red. Cuanto mayor sea este valor, más importante es la arista para el flujo de información entre los nodos.
+
+Es un proceso de clustering jerárquico porque identifica comunidades con un proceso iterativo de eliminación de aristas. Se basa en la idea de que, a medida que se eliminan las aristas con mayor betwenness la red se fragmenta en grupos más pequeños.
+
+Tras eliminar cada arista con mayor betwenness se recalculan las comunidades que quedan. En cada comunidad, los nodos están más conectados entre sí que con los de las otras comunidades (en esto se basa el clustering).
+
+Aplicado en el campo de la biología de sistemas, este método permite analizar redes complejas como las redes de interacción proteína-proteínas, rutas metabólicas y redes de regulación génica. A menudo, las comunidades identificadas con este tipo de clustering se corresponden a grupos de proteínas, genes (como es en este caso) o componentes moleculares que trabajan juntos para realizar una función específica.
