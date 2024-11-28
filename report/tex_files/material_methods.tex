@@ -147,3 +147,12 @@ Es un proceso de clustering jerárquico porque identifica comunidades con un pro
 Tras eliminar cada arista con mayor betwenness se recalculan las comunidades que quedan. En cada comunidad, los nodos están más conectados entre sí que con los de las otras comunidades (en esto se basa el clustering).
 
 Aplicado en el campo de la biología de sistemas, este método permite analizar redes complejas como las redes de interacción proteína-proteínas, rutas metabólicas y redes de regulación génica. A menudo, las comunidades identificadas con este tipo de clustering se corresponden a grupos de proteínas, genes (como es en este caso) o componentes moleculares que trabajan juntos para realizar una función específica.
+
+El código empleado para esto en el proyecto (clustering.Rmd) sigue el siguiente flujo.
+
+Se recibe la red en un archivo de tipo TSV. A continuación, se crea un grafo a partir de un dataframe cuyas columnas representan las aristas o conexiones entre nodos (se obtiene al leer el archivo TSV). El grafo creado será no dirigido. Después, se calcula la centralidad de intermediación de cada arista del grafo y se ordenan en función de esta de mayor a menos. Lo siguiente, es calcular las posiciones de los nodos con el \textbf{algoritmo de Fruchterman-Reingold}, lo que servirá para la representación gráfica.
+
+La primera red que se grafica es la original, destacando las aristas de mayor betwenness (aparecerán más gruesas y en rojo).
+
+Lo siguiente será eliminar de manera iterativa las aristas de mayor betwennes. A medida que se elimina cada arista también se va a calcular la \textbf{modularidad} del grafo, es decir, cómo de bien está la red dividida en comunidades, siendo un valor cercano a 1 una buena división. Por último, resaltar que, después de eliminar cada arista se va a graficar la nueva red.
+
