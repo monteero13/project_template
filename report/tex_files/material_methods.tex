@@ -15,19 +15,6 @@ La \textbf{STRING Database} es una base de datos que integra información sobre 
 
 \textbf{Python} es un lenguaje de programación versátil, fácil de aprender y ampliamente usado en desarrollo web, ciencia de datos, IA y más, gracias a su sintaxis clara y su gran ecosistema de herramientas \cite{Python2024}.
 
-\subsubsection{Algoritmos de clusterización}
-En el presente proyecto, uno de los objetivos es la identificación de patrones entre los distintos genes asociados al fenotipo de la aniridia. Para ello, es necesario el agrupamiento de aquellas biomoléculas con mayor similitud dentro nuestra red biológica, así que se aplicarán algoritmos nos permitan detectar estructuras sin necesidad de tener conocimiento previo. Vamos a hablar de los algoritmos de Givan-Newman, de optimización voraz, de propagación de etiquetas y de Louvain.
-
-Primero, tenemos el \textbf{algoritmo de Givan-Newman}, que es uno de los métodos más utilizados para la detección de comunidades dentro de sistemas complejos de datos. Su funcionamiento se basa en eliminar progresivamente aquellos enlaces que conectan grupos de nodos con mayor densidad dentro de la red, para visualizar finalmente subgrafos desconectados que representan las comunidades.
-
-Por otra parte, el \textbf{algoritmo de optimización voraz} es un algoritmo que dado un problema, elige aquellas decisiones localmente óptimas con el propósito de encontrar la solución más óptima globalmente. A medida que va tomando unas decisiones, el algoritmo no reconsidera ningún paso ya realizado.
-
-Además, el \textbf{algoritmo de propagación de etiquetas} es una técnica que nos permite encontrar comunidades dentro del sistema velozmente. El funcionamiento se basa en la asignación de etiquetas a nodos, que en cada iteración se van propagando por la red y converge finalmente cuando cada nodo posee la etiqueta perteceneciente a su vecino más cercano. Una de las ventajas de este algoritmo es que no es necesaria la predefinición de un número de clústers.
-
-Por último, el \textbf{algoritmo de Louvain} se basa en el concepto de modularidad, es decir, tiene como objetivo maximizar el número de aristas dentro de una comunidad y minimizar el número de relaciones entre distintas comunidades. Este algoritmo es muy recomendable para sistemas biológicos muy amplios, ya que se obtienen comunidades compactas y bien definidas.
-
-
-
 
 \subsection{\textbf{Metodología}}
 
@@ -53,97 +40,18 @@ El resto del proyecto gira en torno a los genes clave seleccionados tras el aná
 
 Con los genes clave seleccionados creamos una red de propagación. Para llevar a cabo esta tarea fue necesario desarrollar un algoritmo que permitiese propagar una red a partir de unos genes semilla.
 
-\subsubsection{Clustering}
+
+\subsubsection{Clustering (ALEXANDRA)}
+
 
 Para continuar con el análisis se desarrolló un algoritmo de clustering con el objetivo de identificar agrupaciones en la red de genes obtenida en el apartado anterior.
 
-
-\subsubsection{Enriquecimiento funcional de los clusters}
-
-
-
-
-
-\newpage
-\newpage
-
-
-***Opción 2***
-
-Para la identificación de genes asociados a la aniridia, implementamos una función en Python que hace uso de la API de Human Phenotype Ontology (HPO). Esta función recibe como parámetro el código HPO del fenotipo de interés, en este caso la aniridia, cuyo código es HP:0000526. Con este código realiza una solicitud GET a la API de HPO para recuperar información sobre los genes asociados. Si la respuesta es satisfactoria (código de estado 200), extrae y devuelve la lista de genes vinculados al fenotipo. En caso contrario, se imprime un mensaje de error y se devuelve una lista vacía.
-
-Posteriormente, construimos una URL utilizando los símbolos de los genes obtenidos, para hacer una solicitud GET a la API de StringDB. Esta API proporciona datos sobre interacciones de proteínas. La solicitud devuelve una red de interacciones de proteínas, la cual almacenamos en la imagen .
-También analizamos y filtramos los resultados de enriquecimiento en categorías relevantes. Las búsquedas específicas en estos resultados de enfermedades y genes se realizan mediante palabras clave y patrones relevantes, y los resultados se guardan en archivos CSV para facilitar su análisis posterior.
-
-Finalmente, descargamos la red de interacciones en formato TSV usando otra solicitud GET a la API de StringDB. Si la descarga es exitosa, el archivo se guarda con el nombre de archivo especificado o, en caso contrario, con el nombre predeterminado reddescargada.tsv. Ante cualquier error en la descarga, se imprime un mensaje de advertencia.
-
-Al cargar el archivo TSV descargado, seleccionamos las columnas de nombres preferidos y eliminamos las filas duplicadas. Estos datos se guardan en un archivo de texto llamado genesigraph.txt, que contiene únicamente los nombres de los genes relevantes para un análisis adicional de la red biológica.
-
-\subsubsection{Flujo de trabajo}
-
-\newpage
-
-\section{OPCION 3: Tipo de metodología}
-
-En esta sección se describe la metodología detallada para el análisis de redes génicas en el contexto de la aniridia, empleando el algoritmo DIAMOnD (Disease Module Detection) y técnicas de clustering para identificar genes asociados funcionalmente con PAX6. El objetivo de este análisis es comprender cómo las interacciones entre estos genes pueden influir en la manifestación clínica de la aniridia y en su relación con otros trastornos sistémicos.
-
-\subsection{Construcción de la red de interacciones génicas}
-
-\subsubsection{Obtención de Datos de Interacción Génica}
-
-Se recopilaron datos de interacción génica a partir de STRINGdb (v11.5) para construir una red basada en las interacciones conocidas de PAX6 y otros genes asociados a la aniridia. La base de datos STRINGdb proporciona un puntaje de confiabilidad para cada interacción basado en evidencia experimental, coexpresión, bases de datos de conocimiento, y otros criterios. Para garantizar la relevancia biológica en el contexto de la aniridia, solo se seleccionaron interacciones con un puntaje de confianza superior a 0.7 (umbral que indica alta probabilidad de interacción funcional).
-
-\subsubsection{Construcción de la Red Inicial}
-
-A partir de los datos obtenidos, se construyó una red de interacciones en Python utilizando la librería NetworkX. En esta red, los nodos representan genes y las aristas indican interacciones funcionales entre ellos. Los genes de interés fueron seleccionados como puntos de partida o "semillas" para el análisis de módulos funcionales. Estos incluyeron no solo a PAX6, sino también genes que, de acuerdo con estudios previos, tienen relevancia funcional en la aniridia, como FOXC1, WT1, COL4A1 y PITX2. Estos genes semilla fueron elegidos en base a su relación funcional conocida con PAX6 y su implicación en el desarrollo ocular y otras funciones biológicas relevantes para la patología.
-
-\subsection{Aplicación del Algoritmo DIAMOnD para la Identificación de Módulos de Enfermedad}
-\subsubsection{Implementación del Algoritmo DIAMOnD}
-
-El análisis del módulo de enfermedad se llevó a cabo mediante la implementación del algoritmo DIAMOnD (Disease Module Detection) en la red génica construida. DIAMOnD fue diseñado para detectar módulos de enfermedad mediante la expansión progresiva de un conjunto de genes basado en la conectividad. Este algoritmo prioriza aquellos genes que muestran mayor número de conexiones hacia el módulo de interés, permitiendo identificar aquellos que, aunque no están directamente implicados en la patología, poseen relaciones funcionales clave.
-
-\subsubsection{Parámetros de Configuración en DIAMOnD}
-
-El algoritmo se configuró para comenzar con los genes semilla seleccionados (PAX6, FOXC1, WT1, COL4A1, y PITX2) y expandir el módulo añadiendo genes en iteraciones. En cada iteración, se evalúan los genes adyacentes a los genes del módulo existente, y se priorizan aquellos con el mayor número de conexiones (o "vecinos") hacia los genes en el módulo. Este proceso se repite hasta alcanzar un tamaño predefinido para el módulo o hasta que se agoten los genes candidatos que cumplen con el criterio de conectividad.
-
-\subsubsection{Resultados de la Expansión del Módulo}
-
-Al finalizar las iteraciones, se obtiene un módulo expandido de genes que presentan una posible relación funcional con la aniridia. Este módulo incluye no solo los genes semilla, sino también genes adicionales con alta conectividad hacia estos y que podrían estar implicados en vías y funciones relevantes para la patología. Los genes identificados en este módulo se consideran candidatos para un análisis posterior de funciones y vías.
-
-\subsection{Análisis de Clustering para la Identificación de Submódulos Funcionales}
-\subsubsection{Aplicación de Clustering en el Módulo Expandido}
-
-Para analizar la estructura interna del módulo expandido, se aplicaron técnicas de clustering en la red de genes seleccionados. Se utilizó el método de clustering jerárquico (enfoque de Ben-Dor et al., 1999) para identificar subgrupos dentro del módulo. Este enfoque permite agrupar genes en función de su similitud de conectividad y su co-ocurrencia en rutas biológicas. El clustering jerárquico es especialmente útil para identificar genes que, aunque puedan estar en el mismo módulo, desempeñan roles en funciones o rutas específicas.
-
-\subsubsection{Interpretación de los Clusters}
-
-Cada cluster resultante fue interpretado en función de las funciones y vías asociadas a los genes incluidos. Este análisis permite observar si ciertos grupos de genes comparten funciones específicas o están involucrados en vías biológicas que podrían contribuir a la patología de la aniridia. Los clusters identificados se utilizan como base para el análisis de enriquecimiento funcional descrito a continuación.
-
-\subsection{Análisis de Enriquecimiento Funcional de los Clusters}
-\subsubsection{Herramientas y Procedimiento para el Enriquecimiento Funcional}
-
-El análisis de enriquecimiento funcional se llevó a cabo utilizando GOATOOLS y Enrichr, herramientas que permiten realizar análisis de sobre-representación de términos del Gene Ontology (GO) y otras bases de datos de rutas y procesos biológicos. En este análisis, se seleccionaron las categorías de procesos biológicos, funciones moleculares y componentes celulares, permitiendo observar qué términos están significativamente sobre-representados en cada cluster.
-
-\subsubsection{Identificación de Funciones y Vías Clave}
-
-Se calcularon p-valores ajustados mediante el método de FDR (False Discovery Rate) para los términos enriquecidos, considerando significativos aquellos con valores inferiores a 0.05. Este análisis permite identificar procesos y vías específicas en las que los genes del módulo están implicados, lo cual es esencial para entender cómo la disfunción en estas interacciones contribuye a la presentación clínica de la aniridia. En particular, el análisis se enfocó en vías de desarrollo ocular, rutas de señalización y procesos morfogenéticos.
-
-\subsection{Validación de los Resultados y Control de Calidad}
-\subsubsection{Validación con Estudios Previos y Datos Experimentales}
-
-Los resultados obtenidos se compararon con la literatura y datos previos sobre PAX6 y genes asociados. Los genes y las funciones identificadas en el análisis de DIAMOnD y de enriquecimiento funcional fueron cotejados con estudios experimentales previos para validar su relevancia en el contexto de la aniridia. Esta etapa de validación es crucial para confirmar que los genes incluidos en el módulo son relevantes y para reducir falsos positivos en el análisis.
-
-\subsubsection{Control de Calidad y Ajuste de Parámetros}
-
-Se realizaron análisis de sensibilidad ajustando parámetros clave, como el puntaje de interacción de STRINGdb y el tamaño del módulo, para evaluar la robustez de los resultados. Se examinó el efecto de estos ajustes en la composición del módulo y en los términos de enriquecimiento funcional, asegurando así que los resultados sean consistentes y representativos.
-
-\subsection{Clustering (ALEXANDRA)}
 
 El \textbf{clustering} consiste en dividir un conjunto de datos en grupos o comunidades, de forma que los nodos de un mismo grupo tengan mayor relación entre sí que con los de los demás grupos.
 
 Aplicado en el campo de la biología de sistemas, este método permite analizar redes complejas como las redes de interacción proteína-proteínas, rutas metabólicas y redes de regulación génica. A menudo, las comunidades identificadas con este tipo de clustering se corresponden a grupos de proteínas, genes (como es en este caso) o componentes moleculares que trabajan juntos para realizar una función específica.
 
-\subsubsection{Clustering Basado en centralidad de intermediación de enlaces}
+\textbf{Clustering Basado en centralidad de intermediación de enlaces}
 
 Este es un enfoque jerárquico que se usa para identificar comunidades (grupos) dentro de una red. El método se basa en la \textbf{centralidad de intermediación (betweenness)}. Esta mide cuántos de los caminos más cortos entre nodos pasan por esa arista, es decir, permite identificar qué aristas son "críticas" para conectar diferentes partes de la red. Cuanto mayor sea este valor, más importante es la arista para el flujo de información entre los nodos.
 
@@ -159,7 +67,7 @@ La primera red que se grafica es la original, destacando las aristas de mayor be
 
 Lo siguiente será eliminar de manera iterativa las aristas de mayor betwennes. A medida que se elimina cada arista también se va a calcular la \textbf{modularidad} del grafo, es decir, cómo de bien está la red dividida en comunidades, siendo un valor cercano a 1 una buena división. Por último, resaltar que, después de eliminar cada arista se va a graficar la nueva red.
 
-\subsubsection{Clustering Basado en Walktrap}
+\textbf{Clustering Basado en Walktrap}
 
 Este es un algoritmo de agrupamiento usado para identificar comunidades en redes o grafos basado en el concepto de \textbf{"camino aleatorio"}, y su objetivo es agrupar nodos en comunidades que estén más fuertemente unidas entre sí que con el resto de la red.
 
@@ -175,9 +83,12 @@ En términos generales, la implementación del algoritmo es la siguiente.
 
 Primero se crea un grafo no dirigido a partir de los datos de interacción proporcionados en un archivo TSV. Después, se aplica el agortimo Walktrap para hacer el agrupamiento en la red. Luego, se visualizan las comunidades, para lo que se representará cada una con un color diferente. Además, se podrá visualizar el dondograma.
 
-\subsubsection{Clustering Basado en el Algoritmo Fast Greedy}
+\textbf{Clustering Basado en el Algoritmo Fast Greedy}
 El clustering basado en el \textbf{algoritmo Fast Greedy} es un método para detectar comunidades en redes de interacción. Este algoritmo está diseñado para dividir un grafo en grupos o comunidades de nodos que están más densamente conectados entre sí que con otros nodos. El algoritmo de Fast Greedy se basa en la \textbf{modularidad} (explicada anteriormente).
 
 Por tanto, el objetivo de este algoritmo es maximizar la modularidad para encontrar la mejor partición posible del grafo en comunidades.
 
 El \textbf{algoritmo Fast Greedy} es un método aglomerativo que comienza con cada nodo como una comunidad individual. A continuación, calcula la modularidad para todas las posibles uniones de comunidades, es decir, evalúa si unir dos comunidades mejorará la modularidad. Por tanto, une las dos comunidades que mejoran más la modularidad y repite el proceso hasta que la modularidad sea inmejorable para la red.
+
+
+\subsubsection{Enriquecimiento funcional de los clusters}
