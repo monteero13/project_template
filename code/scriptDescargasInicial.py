@@ -12,10 +12,26 @@ def buscarGenesHPO(HPO):
         response.raise_for_status()
         data=response.json()
         genes_asociados = data.get('genes', [])
-        print(f'Obtenidos los genes asociados')
+        print(f'Se han obtenido los genes asociados')
     except requests.exceptions.RequestException as e:
         print(f"Error al conectarse a la API de HPO: {e}")
     return genes_asociados
+
+def guardarGenesEnArchivo(genes_asociados, HPO):
+    no, codigo=HPO.split(':')
+    directorio=f'../results/genes_for_HP_{codigo}'
+    try:
+        with open(directorio, "w", encoding='utf-8') as file:
+            # Escribir la cabecera
+            file.write("id\tname\n")
+            
+            # Escribir cada gen en una nueva línea
+            for gen in genes_asociados:
+                file.write(f"{gen['id']}\t{gen['name']}\n")
+        file.close()
+        print(f"Genes guardados en el archivo genes_for_HP_{codigo}.tsv")
+    except Exception as e:
+        print(f"Error al guardar los genes en el archivo: {e}")
 
 #El segundo paso es conectarnos a STRINGDB
 def descargarRedString(genes, especie, min_score):
@@ -36,13 +52,13 @@ def descargarRedString(genes, especie, min_score):
         os.makedirs('../results', exist_ok=True)
         with open('../results/red_inicial.tsv', 'w', encoding='utf-8') as file:
             file.write(response1.text)
-        print(f'Descargado el archivo .tsv de la red inicial')
+        print(f'Se ha descargado el archivo .tsv de la red inicial')
         
         response2=requests.get(urlImagen, params=parametros, stream=True)
         response2.raise_for_status()
         with open('../results/red_inicial.png', 'wb') as out_file:
             shutil.copyfileobj(response2.raw, out_file)
-        print(f'Descargado el archivo .png de la red inicial')
+        print(f'Se ha descargado el archivo .png de la red inicial')
         
     except requests.excceptions.RequestException as e:
         print(f"Error al conectarse a la API de STRINGDB: {e}")
@@ -67,6 +83,7 @@ min_score=0.4
 
 print(f'Buscando genes asociados a {fenotipo} en HPO...')
 genesAsociados=buscarGenesHPO(codigoFenotipo)
+guardarGenesEnArchivo(genesAsociados, codigoFenotipo)
 
 if genesAsociados:
     print(f'Descargando red de proteinas de STRINGDB...')
