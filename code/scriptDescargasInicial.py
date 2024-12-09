@@ -3,8 +3,8 @@ import shutil
 import os
 import pandas as pd
 
-#El primer paso es obtener los genes asociados al HPO dado (HP:0000526)
-def buscarGenesHPO(HPO):
+#El primer paso es obtener los genes y enfermedades asociadas al HPO dado (HP:0000526)
+def buscarGenesEnfermedadesHPO(HPO):
     url = f'https://ontology.jax.org/api/network/annotation/{HPO}'
     genes_asociados=[]
     try:
@@ -12,10 +12,11 @@ def buscarGenesHPO(HPO):
         response.raise_for_status()
         data=response.json()
         genes_asociados = data.get('genes', [])
-        print(f'Se han obtenido los genes asociados')
+        enfermedades_asociadas = data.get('diseases', [])
+        print(f'Se han obtenido los genes y enfermedades asociadas')
     except requests.exceptions.RequestException as e:
         print(f"Error al conectarse a la API de HPO: {e}")
-    return genes_asociados
+    return genes_asociados, enfermedades_asociadas
 
 def guardarGenesEnArchivo(genes_asociados, HPO):
     no, codigo=HPO.split(':')
@@ -32,6 +33,22 @@ def guardarGenesEnArchivo(genes_asociados, HPO):
         print(f"Genes guardados en el archivo genes_for_HP_{codigo}.tsv")
     except Exception as e:
         print(f"Error al guardar los genes en el archivo: {e}")
+
+def guardarEnfermedadesEnArchivo(enfermedades_asociadas, HPO):
+    no, codigo=HPO.split(':')
+    directorio=f'../results/diseases_for_HP_{codigo}'
+    try:
+        with open(directorio, "w", encoding='utf-8') as file:
+            # Escribir la cabecera
+            file.write("id\tname\n")
+            
+            # Escribir cada gen en una nueva línea
+            for enfermedad in enfermedades_asociadas:
+                file.write(f"{enfermedad['id']}\t{enfermedad['name']}\n")
+        file.close()
+        print(f"Enfermedades guardadas en el archivo diseases_for_HP_{codigo}.tsv")
+    except Exception as e:
+        print(f"Error al guardar las enfermedades en el archivo: {e}")
 
 #El segundo paso es conectarnos a STRINGDB
 def descargarRedString(genes, especie, min_score):
@@ -82,8 +99,9 @@ especie=9606
 min_score=0.4
 
 print(f'Buscando genes asociados a {fenotipo} en HPO...')
-genesAsociados=buscarGenesHPO(codigoFenotipo)
+genesAsociados, enfermedadesAsociadas=buscarGenesEnfermedadesHPO(codigoFenotipo)
 guardarGenesEnArchivo(genesAsociados, codigoFenotipo)
+guardarEnfermedadesEnArchivo(enfermedadesAsociadas, codigoFenotipo)
 
 if genesAsociados:
     print(f'Descargando red de proteinas de STRINGDB...')
