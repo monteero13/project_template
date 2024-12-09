@@ -18,7 +18,7 @@ def buscarGenesHPO(HPO):
     return genes_asociados
 
 #El segundo paso es conectarnos a STRINGDB
-def descargarRedTSV(genes, especie, min_score):
+def descargarRedString(genes, especie, min_score):
     urlTSV = f'https://string-db.org/api/tsv/network'
     urlImagen = f'https://string-db.org/api/image/network'
     
@@ -35,16 +35,16 @@ def descargarRedTSV(genes, especie, min_score):
         response1.raise_for_status()
         os.makedirs('../results', exist_ok=True)
         with open('../results/red_inicial.tsv', 'w', encoding='utf-8') as file:
-            file.write(response.text)
+            file.write(response1.text)
         print(f'Descargado el archivo .tsv de la red inicial')
         
         response2=requests.get(urlImagen, params=parametros, stream=True)
         response2.raise_for_status()
         with open('../results/red_inicial.png', 'wb') as out_file:
-            shutil.copyfileobj(response.raw, out_file)
+            shutil.copyfileobj(response2.raw, out_file)
         print(f'Descargado el archivo .png de la red inicial')
         
-    except requests.exceptions.RequestException as e:
+    except requests.excceptions.RequestException as e:
         print(f"Error al conectarse a la API de STRINGDB: {e}")
         
 
@@ -54,7 +54,7 @@ def limpiarDatos():
     # Seleccionar solo las columnas 'preferredName_A' y 'preferredName_B'
     selected_columns = data[['preferredName_A', 'preferredName_B']]
     # Eliminar duplicados
-    selected_columns.drop_duplicates()
+    selected_columns = selected_columns.drop_duplicates()
     # Guardar estas columnas en un nuevo archivo de texto
     selected_columns.to_csv('../results/genes_igraph.txt', sep='\t', index=False, header=False)
     print("Se ha limpiado el archivo")
