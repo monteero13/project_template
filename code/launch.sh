@@ -125,8 +125,8 @@ fi
 # Finalización
 # ============================
 
-python3 "$SCRIPT_DIR/obtener_fenotipos.py" \
-    --input "$RESULTS_DIR/diseases_for_HP_0000526" \
+python3 "$SCRIPT_DIR/fenotipos_de_enfermedades.py" \
+    --input "$RESULTS_DIR/diseases_for_HP_0000526.tsv" \
     --output "$RESULTS_DIR/fenotipos_de_enfermedades.csv"
 
 python3 "$SCRIPT_DIR/relacion_fenotipos_y_enfermedades.py" \
