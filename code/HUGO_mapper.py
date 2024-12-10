@@ -17,23 +17,20 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 def download_string_network(url, output_gz, output_txt):
     """Descargar y descomprimir la red STRINGdb."""
     
-    # Descargar archivo si no existe
-    if not os.path.exists(output_gz):
-        logging.info(f"Descargando la red desde STRINGdb: {url}")
-        response = requests.get(url, stream=True)
-        with open(output_gz, 'wb') as f:
-            shutil.copyfileobj(response.raw, f)
-        logging.info(f"Archivo descargado: {output_gz}")
+    
+    logging.info(f"Descargando la red desde STRINGdb: {url}")
+    response = requests.get(url, stream=True)
+    with open(output_gz, 'wb') as f:
+        shutil.copyfileobj(response.raw, f)
+    logging.info(f"Archivo descargado: {output_gz}")
     
     # Descomprimir solo si el archivo descomprimido no existe
-    if not os.path.exists(output_txt):
-        logging.info(f"Descomprimiendo {output_gz}...")
-        with gzip.open(output_gz, 'rb') as f_in:
-            with open(output_txt, 'wb') as f_out:
-                shutil.copyfileobj(f_in, f_out)
-        logging.info(f"Archivo descomprimido: {output_txt}")
-    else:
-        logging.info(f"El archivo descomprimido ya existe: {output_txt}")
+    logging.info(f"Descomprimiendo {output_gz}...")
+    with gzip.open(output_gz, 'rb') as f_in:
+        with open(output_txt, 'wb') as f_out:
+            shutil.copyfileobj(f_in, f_out)
+    logging.info(f"Archivo descomprimido: {output_txt}")
+   
 
 # === FUNCIONES PARA OBTENER EL MAPEADO DE STRING A HUGO ===
 def get_string_to_hugo_mapping(string_ids):
@@ -204,6 +201,7 @@ def analyze_network_statistics(output_file):
     print(f"Average combined score: {avg_score:.2f}")
 
 
+
 # === CONFIGURACIÓN DE `argparse` ===
 def parse_args():
     parser = argparse.ArgumentParser(description="Script para descargar y procesar la red STRINGdb para Homo sapiens.")
@@ -229,8 +227,8 @@ def main():
     
     try:
         # Descargar y descomprimir la red (si es necesario)
-        if not os.path.exists(STRING_FILE):
-            download_string_network(STRING_URL, "../results/9606.protein.links.v12.0.txt.gz", STRING_FILE)
+        
+        download_string_network(STRING_URL, "../results/9606.protein.links.v12.0.txt.gz", STRING_FILE)
 
         # Process network
         process_string_network(STRING_FILE, OUTPUT_FILE, STRING_SCORE_THRESHOLD)
