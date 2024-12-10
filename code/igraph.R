@@ -18,6 +18,9 @@ vertex_clustering <- transitivity(grafo, type = "local")
 # Visualizar la red con coeficiente de clustering - si los vecinos estan conectadas, se visualiza en rojo!
 V(grafo)$color <- ifelse(vertex_clustering > 0, "red", "lightblue")
 set.seed(321)
+if (!dir.exists("../results/resultados_igraph")) {
+  dir.create("../results/resultados_igraph")
+}
 png("../results/resultados_igraph/redClustering.png", width = 800, height = 600)
 plot(grafo, vertex.size = 20, main = "Coeficiente de Clustering Local")
 dev.off()
@@ -31,9 +34,6 @@ tabla_clustering <- data.frame(
 )
 print('Los coeficientes de clustering de cada nodo son:')
 tabla_clustering
-if (!dir.exists("../results/resultados_igraph")) {
-  dir.create("../results/resultados_igraph")
-}
 write.table(tabla_clustering, "../results/resultados_igraph/coefClustering.txt", sep = "\t", row.names = FALSE, quote = FALSE)
 
 ##COEFICIENTE CLUSTERING GLOBAL
@@ -111,7 +111,7 @@ cat("Coeficiente asortatividad:", assortativity_coeff, "\n")
 degree_threshold <- quantile(degree_centrality, 0.6)
 betweenness_threshold <- quantile(betweenness_normalized, 0.8)
 selected_nodes <- which(
-  degree_centrality >= degree_threshold &          # Percentil 0.8 en degree
+  degree_centrality >= degree_threshold &          # Percentil 0.6 en degree
     betweenness_normalized >= betweenness_threshold & # Percentil 0.8 en betweenness
     vertex_clustering < 0.5                          # Clustering menor a 0.5
 )
