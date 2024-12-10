@@ -3,7 +3,7 @@ import shutil
 import os
 import pandas as pd
 
-#El primer paso es obtener los genes y enfermedades asociadas al HPO dado (HP:0000526)
+#Paso 1: obtener los genes y enfermedades asociadas al HPO dado (HP:0000526)
 def buscarGenesEnfermedadesHPO(HPO):
     url = f'https://ontology.jax.org/api/network/annotation/{HPO}'
     genes_asociados=[]
@@ -50,7 +50,7 @@ def guardarEnfermedadesEnArchivo(enfermedades_asociadas, HPO):
     except Exception as e:
         print(f"Error al guardar las enfermedades en el archivo: {e}")
 
-#El segundo paso es conectarnos a STRINGDB
+#Paso 2: conectarnos a STRINGDB
 def descargarRedString(genes, especie, min_score):
     urlTSV = f'https://string-db.org/api/tsv/network'
     urlImagen = f'https://string-db.org/api/image/network'
@@ -69,13 +69,13 @@ def descargarRedString(genes, especie, min_score):
         os.makedirs('../results', exist_ok=True)
         with open('../results/red_inicial.tsv', 'w', encoding='utf-8') as file:
             file.write(response1.text)
-        print(f'Se ha descargado el archivo .tsv de la red inicial')
+            print(f'Se ha descargado el archivo red_inicial.tsv')
         
         response2=requests.get(urlImagen, params=parametros, stream=True)
         response2.raise_for_status()
         with open('../results/red_inicial.png', 'wb') as out_file:
             shutil.copyfileobj(response2.raw, out_file)
-        print(f'Se ha descargado el archivo .png de la red inicial')
+            print(f'Se ha descargado la imagen red_inicial.png')
         
     except requests.excceptions.RequestException as e:
         print(f"Error al conectarse a la API de STRINGDB: {e}")
@@ -89,8 +89,8 @@ def limpiarDatos():
     # Eliminar duplicados
     selected_columns = selected_columns.drop_duplicates()
     # Guardar estas columnas en un nuevo archivo de texto
-    selected_columns.to_csv('../results/genes_igraph.txt', sep='\t', index=False, header=False)
-    print("Se ha limpiado el archivo")
+    selected_columns.to_csv('../results/genes_filtrados.txt', sep='\t', index=False, header=False)
+    print("Se ha limpiado el archivo .tsv en genes_filtrados.txt")
 
 
 fenotipo='Aniridia'
@@ -100,6 +100,7 @@ min_score=0.4
 
 print(f'Buscando genes asociados a {fenotipo} en HPO...')
 genesAsociados, enfermedadesAsociadas=buscarGenesEnfermedadesHPO(codigoFenotipo)
+print('Guardando genes y enfermedades...')
 guardarGenesEnArchivo(genesAsociados, codigoFenotipo)
 guardarEnfermedadesEnArchivo(enfermedadesAsociadas, codigoFenotipo)
 
