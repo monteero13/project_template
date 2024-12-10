@@ -22,6 +22,26 @@ bash "$SCRIPT_DIR/setup.sh"
 echo "Dependencias instaladas con éxito."
 
 # ============================
+# Descargar genes y enfermedades 
+# ============================
+
+echo "Descargando genes y enfermedades..."
+
+python3 "$SCRIPT_DIR/scriptDescargasInicial.py" --fenotipo "Aniridia" --codigoFenotipo "HP:0000526" --especie 9606 --min_score 0.4
+
+echo "Descargas realizadas con éxito. Los resultados están en la carpeta $RESULTS_DIR."
+
+# ============================
+# Analizar la red de Aniridia
+# ============================
+
+echo "Analizando la red de aniridia..."
+
+Rscript "$SCRIPT_DIR/igraph.R"
+
+echo "Red analizada con éxito. Los resultados están en la carpeta resultados_igrap dentro de la carpeta $RESULTS_DIR."
+
+# ============================
 # Propagación de la Red
 # ============================
 
