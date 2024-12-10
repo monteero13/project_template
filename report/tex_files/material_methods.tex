@@ -18,23 +18,14 @@ La \textbf{STRING Database} es una base de datos que integra información sobre 
 
 \subsection{\textbf{Metodología}}
 
-\subsubsection{Obtención de genes}
+\subsubsection{Obtención de genes, enfermedades y la red de interacción}
 
-El primer paso que se llevó a cabo para comenzar el proyecto es la obtención de los genes relacionados con el fenotipo seleccionado. Para ello se visitó directamente la web de HPO (https://hpo.jax.org/) y se introdujo el identificador del fenotipo, HP:0000526 en este caso. Como resultado de la busqueda se obtuvo el conjunto de genes relacionados con la aniridia. Finalmente descargamos el conjunto de genes resultante de HPO.  
+El primer paso que se llevó a cabo para comenzar el proyecto fue la obtención de los genes y enfermedades relacionadas con el fenotipo seleccionado. Para ello utilizamos la API de HPO, mediante una función solicitamos estos archivos introduciendo como parámetro el código de la aniridia (HP:000526). Si la respuesta es exitosa, guardamos tanto la lista de enfermedades como la lista de genes en nuestra carpeta de resultados. Más adelante utilizaremos el archivo relacionado con las patologías, ahora nos centraremos en la lista de genes.
 
+Una vez obtenidos los genes, utilizamos la API de STRINGDB para descargar la red de interacción de proteínas. Con otra función hacemos un request a su servidor y solicitamos toda esta información, guardando el archivo red_inicial.tsv y la imagen de la red (red_inicial.png) en la carpeta Results. Cabe recalcar que nuestro organismo base es el Homo Sapiens y hemos establecido un valor de 0.4 como índice de confianza para las interacciones. Además, debemos limpiar el archivo .tsv para quedarnos solamente con las columnas de interés, es decir, aquellas que contienen los nombres de las proteínas que interaccionan. Guardamos la información filtrada en el archivo genes_filtrados.txt que emplearemos a continuación para analizar la red.
 
-\subsubsection{Obtención de la red de interacciones inicial}
-
-Tras descargar los genes, se utilizó la pagina web de STRING para obtener su red de interacciones (https://string-db.org/). Para ello es necesario seleccionar la opción para introducir múltiples proteínas y especificar la especie, en este caso Homo Sapiens. Se introdujo la lista de genes obtenida de HPO. Finalmente, dandole a exportar aparecen varias opciones. En el caso de este estudio se descargó la imagenen formato PNG de la red de interacciones. Además se descargaron los datos de la red como salida de texto en formato tsv.
-
-
-\subsubsection{Análisis de la red de interacciones}
-
-En este punto del proyecto se llevó a cabo un análisis exaustivo de la red de interacciones de todos los genes implicados en el fenotipo. El análisis de dicha red  implica examinar cómo los genes están conectados entre sí para identificar patrones, relaciones funcionales y estructuras que revelen información clave. 
-
-Se calcularon métricas clave como el grado de los nodos, la centralidad y la modularidad, con el objetivo de identificar los nodos más importantes dentro de la red. A través del análisis estructural y funcional, se detectaron los nodos clave, aquellos que desempeñan un papel central en la red.
-
-El resto del proyecto gira en torno a los genes clave seleccionados tras el análisis de la red.
+\subsubsection{Análisis de la red de interacción}
+Todo lo anterior descrito fue programado en Python, ahora haremos uso de R y su librería iGraph. Importamos la librería y leemos la información de genes_filtrados.txt. Con varias funciones incluidas dentro de la librería, averiguamos distintos parámetros: si los nodos están completamente conectados, si el grafo está dirigido, el coeficiente de clustering local de los nodos, el coeficiente de clustering global, el grado de centralidad, la centralidad de intermediación, la modularidad, etc. Con toda esta información, elegimos cuáles son nuestros genes más interesantes para posteriormente propagar la red. Se tuvieron en cuenta concretamente tres variables: la centralidad de intermediación (por encima del percentil 0.8), el coeficiente de clustering local (menor al umbral de 0.5) y el grado de centralidad (superior al percentil 0.6). La elección de estos parámetros ha sido motivada por la necesidad de encontrar aquellos genes que puedan tener un papel importante en diferentes módulos biológicos, ya que una alta centralidad de intermediación indica la posibilidad de que esos genes actúen como puentes dentro de la red, además un coeficiente de clustering local bajo también señala que no están muy integrados en un solo módulo. Por otra parte, un alto grado de centralidad nos asegura que los genes seleccionados tengan cierta influencia dentro de la red, siendo hubs de la red. Así pues, tras escoger los nodos que cumplen con nuestros baremos, continuaremos con el siguiente paso, la propagación de red.
 
 \subsubsection{Propagación de red}
 
