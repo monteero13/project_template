@@ -12,7 +12,7 @@ RESULTS_DIR="$PROJECT_DIR/results"  # Directorio donde se guardan los resultados
 MATERIAL_DIR="$SCRIPT_DIR/material"  # Directorio de materiales
 
 # ============================
-# Paso 1: Ejecutar el setup.sh
+# Ejecutar el setup.sh
 # ============================
 
 echo "Ejecutando setup.sh para instalar dependencias..."
@@ -22,7 +22,7 @@ bash "$SCRIPT_DIR/setup.sh"
 echo "Dependencias instaladas con éxito."
 
 # ============================
-# Paso 2: Propagación de la Red
+# Propagación de la Red
 # ============================
 
 echo "Mapeando la red al formato HUGO..."
@@ -32,7 +32,7 @@ python3 "$SCRIPT_DIR/HUGO_mapper.py" --input "$RESULTS_DIR/9606.protein.links.v1
 echo "Proceso de mapeo completado. Los resultados están en la carpeta $RESULTS_DIR."
 
 # ============================
-# Paso 3: Propagación de Redes a partir de los genes semilla
+# Propagación de Redes a partir de los genes semilla
 # ============================
 
 echo "Iniciando la propagación de redes a partir de los genes semilla (WNT10B, SEM1, WT1, PAX6, NF1)..."
@@ -56,7 +56,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # ============================
-# Paso 4: Clusterización de la Red
+# Clusterización de la Red
 # ============================
 
 echo "Iniciando la clusterización de la red expandida..."
@@ -67,7 +67,7 @@ Rscript "$SCRIPT_DIR/clustering.R"
 echo "Proceso de clusterización completado. Los resultados están en la carpeta $RESULTS_DIR."
 
 # ============================
-# Paso 5: Representación del Grafo
+# Representación del Grafo
 # ============================
 
 echo "Generando la representación gráfica de la red..."
@@ -82,7 +82,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # ============================
-# Paso 6: Análisis de Enriquecimiento Funcional
+# Análisis de Enriquecimiento Funcional
 # ============================
 
 echo "Iniciando el análisis de enriquecimiento funcional (GO)..."
