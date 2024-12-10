@@ -105,19 +105,34 @@ fi
 # Análisis de Enriquecimiento Funcional
 # ============================
 
-echo "Iniciando el análisis de enriquecimiento funcional (GO)..."
+echo "Iniciando el análisis de enriquecimiento funcional (STRING DB)..."
 
-# Ejecutar el script de análisis de enriquecimiento funcional
 python3 "$SCRIPT_DIR/enriquecimiento_cluster.py" \
-    --input "$RESULTS_DIR/genes_cluster.txt" \
-    --output "$RESULTS_DIR/enrichment_results.csv" \
-    --fdr_threshold 0.001 --categoria "Process"
+  --input "$RESULTS_DIR/genes_cluster.txt" \
+  --output_process "$RESULTS_DIR/enrichment_process_results.csv" \
+  --output_hpo "$RESULTS_DIR/enrichment_hpo_results.csv" \
+  --fdr_threshold 0.001
+
+echo "Análisis de enriquecimiento completado. Los resultados se han guardado en la carpeta $RESULTS_DIR."
 
 # Verificar si el análisis de enriquecimiento fue exitoso
 if [ $? -ne 0 ]; then
     echo "Error en el análisis de enriquecimiento funcional. Abortando."
     exit 1
 fi
+
+# ============================
+# Finalización
+# ============================
+
+python3 "$SCRIPT_DIR/obtener_fenotipos.py" \
+    --input "$RESULTS_DIR/diseases_for_HP_0000526" \
+    --output "$RESULTS_DIR/fenotipos_de_enfermedades.csv"
+
+python3 "$SCRIPT_DIR/relacion_fenotipos_y_enfermedades.py" \
+  --fenotipos "$RESULTS_DIR/fenotipos_de_enfermedades.csv" \
+  --genes_enriquecimiento "$RESULTS_DIR/enrichment_hpo_results.csv" \
+  --output "$RESULTS_DIR/fenotipos_comunes.csv"
 
 # ============================
 # Finalización
