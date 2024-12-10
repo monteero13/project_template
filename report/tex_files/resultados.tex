@@ -7,16 +7,84 @@ Al hacer las solicitudes a HPO obtenemos 45 genes y 29 enfermedades asociadas a 
 	\centering
 	\includegraphics[width=1\textwidth]{figures/red_interaccion_aniridia.png} % Especifica la ruta y el tamaño
 	\caption{Red de interacción con los genes asociados al fenotipo HP:0000526} % Agrega una leyenda si deseas
-	\label{fig:m
-\subsection{Red de interacciones inicial}
-
-
-\begin{figure}[h] % [h] indica que queremos la imagen aquí, en la posición actual
-	\centering
-	\includegraphics[width=1\textwidth]{figures/red_interaccion_aniridia.png} % Especifica la ruta y el tamaño
-	\caption{Red de interacción con los genes asociados al fenotipo HP:0000526} % Agrega una leyenda si deseas
-	\label{fig:mi-imagen} % Etiqueta para referenciar la imagen en el texto
+	\label{fig:m}
 \end{figure}
+
+\subsection{Análisis de la red inicial}
+En R y con la librería iGraph hemos estudiado nuestra red y nos indica que todos los nodos del conjunto están conectados y no se trata de un grafo dirigido. Además, calculamos que el coeficiente de clustering global es 0.68, la conectividad de 0.16, la modularidad 0.42, la dispersión de la red es de 0.84, la longitud promedio de camino es 2.74, el diámetro de la red es igual a 6 y el coeficiente de asortividad es de 0.49. En la tabla \ref{tab:parametros_red} podemos ver todos los datos recogidos.
+
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Parámetro} & \textbf{Valor} \\ \hline
+		Conexión de nodos & Todos nodos conectados \\ \hline
+		Tipo de grafo & No dirigido \\ \hline
+		Coeficiente de clustering global & 0.68 \\ \hline
+		Conectividad & 0.16 \\ \hline
+		Modularidad & 0.42 \\ \hline
+		Dispersión de la red & 0.84 \\ \hline
+		Longitud promedio de camino & 2.74 \\ \hline
+		Diámetro de la red & 6 \\ \hline
+		Coeficiente de asortividad & 0.49 \\ \hline
+	\end{tabular}
+	\caption{Parámetros estructurales de la red de interacción}
+	\label{tab:parametros_red}
+\end{table}
+
+Además, para cada nodo hemos calculado el coeficiente de clustering local, el grado de centralidad y su centralidad de intermediación, toda esta información puede observarse en la tabla \ref{tab:parametros_red}. 
+\begin{table}[ht]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\textbf{Nombre} & \textbf{Índice Intermediación} & \textbf{Coef. Clustering} & \textbf{Grado Centralidad}\\ \hline
+		TRIP13 & 0 & NA & 1 \\
+		SALL4 & 0.2372 & 0 & 4 \\
+		SLC25A11 & 0.0005 & 0.9722 & 9 \\
+		TRIM28 & 0.0197 & 0 & 2 \\
+		VHL & 0.0826 & 0.3333 & 3 \\
+		TMEM127 & 0.0137 & 0.8939 & 12 \\
+		KIF1B & 0.0080 & 0.9556 & 10 \\
+		TP63 & 0 & 1 & 3 \\
+		SDHA & 0.1029 & 0.7143 & 14 \\
+		TRIM44 & 0.1025 & 0 & 2 \\
+		LDHD & 0 & 1 & 2 \\
+		WNT10B & 0.2597 & 0.3333 & 6 \\
+		SDHAF2 & 0.0137 & 0.8939 & 12 \\
+		REST & 0.1345 & 0 & 4 \\
+		MDH2 & 0.0294 & 0.8205 & 13 \\
+		FOXE3 & 0 & 1 & 2 \\
+		DLST & 0 & 1 & 6 \\
+		RET & 0.2009 & 0.7121 & 12 \\
+		NF1 & 1 & 0.4762 & 15 \\
+		MAX & 0.0041 & 0.9556 & 10 \\
+		FH & 0.0362 & 0.7455 & 11 \\
+		SDHC & 0.3483 & 0.7143 & 14 \\
+		BTRC & 0.1152 & 0.3333 & 3 \\
+		MAFB & 0.0914 & 0 & 2 \\
+		SDHB & 0.1759 & 0.6286 & 15 \\
+		WT1 & 0.5058 & 0.2857 & 7 \\
+		BRCA2 & 0.1960 & 0.4 & 5 \\
+		GPC3 & 0.2936 & 0.1667 & 4 \\
+		ELP4 & 0 & 1 & 2 \\
+		DLX6 & 0.0862 & 0.7 & 5 \\
+		SEM1 & 0.6555 & 0.2381 & 7 \\
+		PAX6 & 0.8730 & 0.1389 & 9 \\
+		FOXC1 & 0 & 1 & 2 \\
+		DLX5 & 0.1873 & 0.4667 & 6 \\
+		PITX2 & 0.1521 & 0.3333 & 4 \\
+		CHN1 & 0 & NA & 1 \\
+		SDHD & 0.0294 & 0.8205 & 13 \\
+		FBXW4 & 0.0762 & 0.6 & 5 \\
+		PORCN & 0 & NA & 1 \\
+		POU6F2 & 0.0755 & 0.3333 & 3 \\
+		CTCFL & 0 & NA & 1 \\ \hline
+	\end{tabular}
+	\caption{Parámetros de los nodos de la red}
+	\label{tab:parametros_nodos_red}
+\end{table}
+
+Ahora vamos a filtrar con un percentil de 0.6 en degree, un percentil de 0.8 en betweenness y un clustering mayor a 0.5 y obtenemos 5 genes que cumplen estas condiciones: WNT10B, NF1, WT1, SEM1, PAX6.
 
 \subsection{Propagación de la red}
 
