@@ -16,9 +16,6 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 # === FUNCIONES PARA DESCARGAR Y DESCOMPRIMIR ===
 def download_string_network(url, output_gz, output_txt):
     """Descargar y descomprimir la red STRINGdb."""
-    # Crear carpeta 'material' si no existe
-    if not os.path.exists("material"):
-        os.makedirs("material")
     
     # Descargar archivo si no existe
     if not os.path.exists(output_gz):
@@ -233,7 +230,7 @@ def main():
     try:
         # Descargar y descomprimir la red (si es necesario)
         if not os.path.exists(STRING_FILE):
-            download_string_network(STRING_URL, "material/9606.protein.links.v12.0.txt.gz", STRING_FILE)
+            download_string_network(STRING_URL, "../results/9606.protein.links.v12.0.txt.gz", STRING_FILE)
 
         # Process network
         process_string_network(STRING_FILE, OUTPUT_FILE, STRING_SCORE_THRESHOLD)
@@ -246,3 +243,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
