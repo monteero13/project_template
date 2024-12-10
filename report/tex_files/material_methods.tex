@@ -41,7 +41,7 @@ El resto del proyecto gira en torno a los genes clave seleccionados tras el aná
 Con los genes clave seleccionados creamos una red de propagación. Para llevar a cabo esta tarea fue necesario desarrollar un algoritmo que permitiese propagar una red a partir de unos genes semilla.
 
 
-\subsubsection{Clustering (ALEXANDRA)}
+\subsubsection{Clustering}
 
 
 Para continuar con el análisis se desarrolló un algoritmo de clustering con el objetivo de identificar agrupaciones en la red de genes obtenida en el apartado anterior.
@@ -51,44 +51,18 @@ El \textbf{clustering} consiste en dividir un conjunto de datos en grupos o comu
 
 Aplicado en el campo de la biología de sistemas, este método permite analizar redes complejas como las redes de interacción proteína-proteínas, rutas metabólicas y redes de regulación génica. A menudo, las comunidades identificadas con este tipo de clustering se corresponden a grupos de proteínas, genes (como es en este caso) o componentes moleculares que trabajan juntos para realizar una función específica.
 
-\textbf{Clustering Basado en centralidad de intermediación de enlaces}
+Para este proyecto se emplea un código para realizar el clustering de los genes de la red usando la \textbf{biblioteca igraph}. En este lo primero que se hace es cargar los datos de las interacciones entre genes desde el archivo de la red obtenida previamente en formato tabular.
 
-Este es un enfoque jerárquico que se usa para identificar comunidades (grupos) dentro de una red. El método se basa en la \textbf{centralidad de intermediación (betweenness)}. Esta mide cuántos de los caminos más cortos entre nodos pasan por esa arista, es decir, permite identificar qué aristas son "críticas" para conectar diferentes partes de la red. Cuanto mayor sea este valor, más importante es la arista para el flujo de información entre los nodos.
+A continuación, se crea un grafo no dirigido con los datos previos. Se estudian algunas propiedades de la red.
 
-Es un proceso de clustering jerárquico porque identifica comunidades con un proceso iterativo de eliminación de aristas. Se basa en la idea de que, a medida que se eliminan las aristas con mayor betwenness la red se fragmenta en grupos más pequeños.
+Después, se calculan las \textbf{métricas de centralidad}, es decir, el \textbf{grado de centralidad} (mide el número de conexiones de cada nodo), la \textbf{centralidad de cercanía} (mide la distancia media entre un nodo y los demás) y la \textbf{conectividad} (mide la densidad de conexiones en el grafo).
 
-Tras eliminar cada arista con mayor betwenness se recalculan las comunidades que quedan. En cada comunidad, los nodos están más conectados entre sí que con los de las otras comunidades (en esto se basa el clustering).
+Una vez obtenidas las medidas se aplican varios métodos de clustering. Estos son \textbf{Edge Betweenness Clustering}, basado en la intermediación de aristas e ir eliminando iterativamente las aristas con mayor betwenness; \textbf{Clustering Basado en el Algoritmo Fast Greedy}, este consiste en agrupar nodos que tienen más conexiones entre ellos que con otros, optimizando de manera eficiente la modularidad; y \textbf{Clustering Basado en el Algoritmo Louvain}, el cual encuentra comunidades en redes grandes optimizando su estructura jerárquica para maximizar la modularidad.
 
-El código empleado para esto en el proyecto (clustering.Rmd) sigue el siguiente flujo.
+Además, se realiza la identificación de comunidades con \textbf{Link Communities}, método que considera las relaciones entre aristas, es decir, entre nodos.
 
-Se recibe la red en un archivo de tipo TSV. A continuación, se crea un grafo a partir de un dataframe cuyas columnas representan las aristas o conexiones entre nodos (se obtiene al leer el archivo TSV). El grafo creado será no dirigido. Después, se calcula la centralidad de intermediación de cada arista del grafo y se ordenan en función de esta de mayor a menos. Lo siguiente, es calcular las posiciones de los nodos con el \textbf{algoritmo de Fruchterman-Reingold}, lo que servirá para la representación gráfica.
+Estos resultados se guardan como imágenes en la carpeta del proyecto "results" y se añadirán en el apartado de resultados de este informe.
 
-La primera red que se grafica es la original, destacando las aristas de mayor betwenness (aparecerán más gruesas y en rojo).
-
-Lo siguiente será eliminar de manera iterativa las aristas de mayor betwennes. A medida que se elimina cada arista también se va a calcular la \textbf{modularidad} del grafo, es decir, cómo de bien está la red dividida en comunidades, siendo un valor cercano a 1 una buena división. Por último, resaltar que, después de eliminar cada arista se va a graficar la nueva red.
-
-\textbf{Clustering Basado en Walktrap}
-
-Este es un algoritmo de agrupamiento usado para identificar comunidades en redes o grafos basado en el concepto de \textbf{"camino aleatorio"}, y su objetivo es agrupar nodos en comunidades que estén más fuertemente unidas entre sí que con el resto de la red.
-
-Los caminos aleatorios se generan eligiendo al azar el siguiente nodo vecino desde el actual. Se calcula la probabilidad de que un camino vaya de un nodo al elegido al azar y, si la probabilidad es alta, es probable que estén en la misma comunidad. Es decir, los nodos de la misma comunidad suelen tener caminos aleatorios muy similares.
-
-La similitud entre nodos se evalúa con una matriz de transición que indica la probabilidad de llegar de un nodo a otro en uno o más pasos de un camino aleatorio.
-
-Este algoritmo es jerárquico, pues comienza con cada nodo como una comunidad distinta y después agrupa iterativamente aquellas más cercanas hasta que toda la red se agrupa en una sola comunidad o hasta un número de comunidades preestablecido. 
-
-Con este algoritmo, se obtendrá un dendograma; este es un gráfico que representa como las comunidades se van combinando.
-
-En términos generales, la implementación del algoritmo es la siguiente.
-
-Primero se crea un grafo no dirigido a partir de los datos de interacción proporcionados en un archivo TSV. Después, se aplica el agortimo Walktrap para hacer el agrupamiento en la red. Luego, se visualizan las comunidades, para lo que se representará cada una con un color diferente. Además, se podrá visualizar el dondograma.
-
-\textbf{Clustering Basado en el Algoritmo Fast Greedy}
-El clustering basado en el \textbf{algoritmo Fast Greedy} es un método para detectar comunidades en redes de interacción. Este algoritmo está diseñado para dividir un grafo en grupos o comunidades de nodos que están más densamente conectados entre sí que con otros nodos. El algoritmo de Fast Greedy se basa en la \textbf{modularidad} (explicada anteriormente).
-
-Por tanto, el objetivo de este algoritmo es maximizar la modularidad para encontrar la mejor partición posible del grafo en comunidades.
-
-El \textbf{algoritmo Fast Greedy} es un método aglomerativo que comienza con cada nodo como una comunidad individual. A continuación, calcula la modularidad para todas las posibles uniones de comunidades, es decir, evalúa si unir dos comunidades mejorará la modularidad. Por tanto, une las dos comunidades que mejoran más la modularidad y repite el proceso hasta que la modularidad sea inmejorable para la red.
-
+Por último, se buscan vecinos interesantes de los genes de interés en el estudio \textbf{(WNT10B, WT1, SEM1, PAX6, NF1)}. Estos se guardan en un archivo plano que se empleará para el enriquecimiento funcional.
 
 \subsubsection{Enriquecimiento funcional de los clusters}
