@@ -11,10 +11,33 @@ SCRIPT_DIR="$PROJECT_DIR/code"  # Directorio donde están los scripts
 
 echo "Iniciando la instalación de dependencias..."
 
-# Verificar si Python está instalado
+# Verificar si python3 está instalado
 if ! command -v python3 &>/dev/null; then
-  echo "Python no está instalado. Por favor, instala Python antes de continuar."
+  echo "python3 no está instalado. Instalando python3..."
+  
+  # Instalar python3 en sistemas basados en Debian/Ubuntu
+  if [ -f /etc/debian_version ]; then
+    echo "Sistema Debian/Ubuntu detectado. Instalando Python 3..."
+    sudo apt update
+    sudo apt install -y python3 python3-pip
+  else
+    echo "El sistema operativo no es compatible con la instalación automática de python3 en este script."
+    exit 1
+  fi
+fi
+
+# Verificar si python3 está ahora disponible
+if ! command -v python3 &>/dev/null; then
+  echo "Python3 no pudo ser instalado. Por favor, instálalo manualmente."
   exit 1
+fi
+
+# Verificar si pip está instalado
+if ! command -v pip &>/dev/null; then
+  echo "pip no está instalado. Instalando pip..."
+  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+  python3 get-pip.py
+  rm get-pip.py
 fi
 
 # Actualizar pip
