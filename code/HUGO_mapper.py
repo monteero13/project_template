@@ -212,7 +212,7 @@ def parse_args():
     parser.add_argument("--input", type=str, required=True, help="Ruta del archivo STRINGdb descomprimido (por ejemplo, 9606.protein.links.v12.0.txt).")
     parser.add_argument("--output", type=str, help="Archivo de salida para el PPI filtrado.")
     parser.add_argument("--score_threshold", type=int, default=400, help="Umbral de puntaje de interacción (default: 400).")
-    parser.add_argument("--url", type=str, default="https://string-db-downloads.org/download/protein.links.v12.0/9606.protein.links.v12.0.txt.gz", help="URL para descargar la red STRINGdb.")
+    parser.add_argument("--url", type=str, default="https://stringdb-downloads.org/download/protein.links.v12.0/9606.protein.links.v12.0.txt.gz", help="URL para descargar la red STRINGdb.")
     
     return parser.parse_args()
 
