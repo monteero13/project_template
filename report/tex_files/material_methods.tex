@@ -66,3 +66,14 @@ Estos resultados se guardan como imágenes en la carpeta del proyecto "results" 
 Por último, se buscan vecinos interesantes de los genes de interés en el estudio \textbf{(WNT10B, WT1, SEM1, PAX6, NF1)}. Estos se guardan en un archivo plano que se empleará para el enriquecimiento funcional.
 
 \subsubsection{Enriquecimiento funcional de los clusters}
+
+
+Para profundizar en la caracterización funcional del cluster seleccionado en el apartado anterior, hemos llevado a cabo un análisis de enriquecimiento funcional utilizando un enfoque basado en la base de datos STRINGdb. En este análisis, evaluamos específicamente dos categorías: procesos biológicos (Process) y ontología del fenotipo humano (HPO, Human Phenotype Ontology). Además de poder evaluar los procesos biológicos en los que están envueltos estos genes, otro de los objetivos era determinar si entre los fenotipos resultantes del análisis de enriquecimiento se encuentran aquellos descritos en HPO como relacionados con el fenotipo de interés.
+
+Durante el proceso se ha llevado a cabo la conversión a identificadores UniProt de los genes del cluster mediante el uso de la API de MyGene.info, asegurando compatibilidad con la API de STRINGdb.
+
+Posteriormente, dichos identificadores UniProt fueron sometidos al análisis de enriquecimiento utilizando la base de datos STRINGdb, con un enfoque en las categorías Process y HPO. 
+
+En este proceso nosotros consideramos oportuno establecer un umbral de significancia estadística de FDR < 0.001, para identificar términos significativamente enriquecidos.
+Se evaluaron las asociaciones entre los genes del cluster y términos fenotípicos relevantes descritos en HPO.
+
