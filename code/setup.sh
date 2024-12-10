@@ -11,42 +11,51 @@ SCRIPT_DIR="$PROJECT_DIR/code"  # Directorio donde están los scripts
 
 echo "Iniciando la instalación de dependencias..."
 
-# Verificar si python3 está instalado
+# Verificar si Python está instalado
 if ! command -v python3 &>/dev/null; then
-  echo "python3 no está instalado. Instalando python3..."
-  
-  # Instalar python3 en sistemas basados en Debian/Ubuntu
-  if [ -f /etc/debian_version ]; then
-    echo "Sistema Debian/Ubuntu detectado. Instalando Python 3..."
-    sudo apt update
-    sudo apt install -y python3 python3-pip
-  else
-    echo "El sistema operativo no es compatible con la instalación automática de python3 en este script."
-    exit 1
-  fi
-fi
-
-# Verificar si python3 está ahora disponible
-if ! command -v python3 &>/dev/null; then
-  echo "Python3 no pudo ser instalado. Por favor, instálalo manualmente."
+  echo "Python no está instalado. Por favor, instala Python antes de continuar."
   exit 1
 fi
 
 # Verificar si pip está instalado
-if ! command -v pip &>/dev/null; then
-  echo "pip no está instalado. Instalando pip..."
-  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-  python3 get-pip.py
-  rm get-pip.py
+if ! command -v pip3 &>/dev/null; then
+    echo "pip no está instalado. Instalando pip..."
+    # Para sistemas basados en Debian/Ubuntu
+    if [ -f /etc/debian_version ]; then
+        sudo apt-get update
+        sudo apt-get install -y python3-pip
+    # Para sistemas basados en RedHat (CentOS, Fedora, etc.)
+    elif [ -f /etc/redhat-release ]; then
+        sudo yum install -y python3-pip
+    else
+        echo "No se pudo detectar el gestor de paquetes adecuado. Instale pip manualmente."
+        exit 1
+    fi
 fi
 
 # Actualizar pip
 echo "Actualizando pip..."
-pip install --upgrade pip
+pip3 install --upgrade pip
 
 # Instalar dependencias desde requirements.txt
 echo "Instalando dependencias de Python..."
-pip install -r "$SCRIPT_DIR/requirements.txt"
+pip3 install -r "$SCRIPT_DIR/requirements.txt"
+
+# Verificar si curl está instalado, si no, instalarlo
+if ! command -v curl &>/dev/null; then
+    echo "curl no está instalado. Instalando curl..."
+    # Detectar el gestor de paquetes y usar el adecuado
+    if [ -f /etc/debian_version ]; then
+        # Para sistemas basados en Debian (Ubuntu, etc.)
+        sudo apt-get update && sudo apt-get install -y curl
+    elif [ -f /etc/redhat-release ]; then
+        # Para sistemas basados en RedHat (CentOS, Fedora, etc.)
+        sudo yum install -y curl
+    else
+        echo "No se pudo detectar un gestor de paquetes adecuado. Instale curl manualmente."
+        exit 1
+    fi
+fi
 
 echo "Dependencias instaladas con éxito."
 
