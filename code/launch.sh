@@ -27,7 +27,7 @@ echo "Dependencias instaladas con éxito."
 
 echo "Mapeando la red al formato HUGO..."
 
-python3 "$SCRIPT_DIR/HUGO_mapper.py" --input "$STRING_TXT" --output "$RESULTS_DIR/homo_sapiens_string_ppi_filtered.tsv" --score_threshold 400
+python3 "$SCRIPT_DIR/HUGO_mapper.py" --input "$RESULTS_DIR/9606.protein.links.v12.0.txt" --output "$RESULTS_DIR/homo_sapiens_string_ppi_filtered.tsv" --score_threshold 400
 
 echo "Proceso de mapeo completado. Los resultados están en la carpeta $RESULTS_DIR."
 
