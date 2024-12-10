@@ -16,20 +16,27 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 # === FUNCIONES PARA DESCARGAR Y DESCOMPRIMIR ===
 def download_string_network(url, output_gz, output_txt):
     """Descargar y descomprimir la red STRINGdb."""
+    # Crear carpeta 'material' si no existe
     if not os.path.exists("material"):
         os.makedirs("material")
+    
+    # Descargar archivo si no existe
     if not os.path.exists(output_gz):
         logging.info(f"Descargando la red desde STRINGdb: {url}")
         response = requests.get(url, stream=True)
         with open(output_gz, 'wb') as f:
             shutil.copyfileobj(response.raw, f)
         logging.info(f"Archivo descargado: {output_gz}")
+    
+    # Descomprimir solo si el archivo descomprimido no existe
     if not os.path.exists(output_txt):
         logging.info(f"Descomprimiendo {output_gz}...")
         with gzip.open(output_gz, 'rb') as f_in:
             with open(output_txt, 'wb') as f_out:
                 shutil.copyfileobj(f_in, f_out)
         logging.info(f"Archivo descomprimido: {output_txt}")
+    else:
+        logging.info(f"El archivo descomprimido ya existe: {output_txt}")
 
 # === FUNCIONES PARA OBTENER EL MAPEADO DE STRING A HUGO ===
 def get_string_to_hugo_mapping(string_ids):
@@ -42,7 +49,7 @@ def get_string_to_hugo_mapping(string_ids):
     Returns:
         dict: Mapping from STRING protein IDs to HUGO symbols
     """
-    logging.info("Getting STRING ID to HUGO mapping using mygene...")
+    print("Getting STRING ID to HUGO mapping using mygene...")
     
     # Initialize mygene client
     mg = mygene.MyGeneInfo()
@@ -61,7 +68,7 @@ def get_string_to_hugo_mapping(string_ids):
     ensembl_list = list(ensembl_ids)
     mapping = {}
     
-    logging.info(f"Querying mygene for {len(ensembl_list)} proteins...")
+    print(f"Querying mygene for {len(ensembl_list)} proteins...")
     for i in tqdm(range(0, len(ensembl_list), batch_size)):
         batch = ensembl_list[i:i + batch_size]
         
@@ -87,26 +94,118 @@ def get_string_to_hugo_mapping(string_ids):
             time.sleep(0.1)
             
         except Exception as e:
-            logging.warning(f"Error in batch {i}-{i+batch_size}: {str(e)}")
+            print(f"Warning: Error in batch {i}-{i+batch_size}: {str(e)}")
             continue
     
-    logging.info(f"Successfully mapped {len(mapping)} proteins to HUGO symbols")
+    print(f"Successfully mapped {len(mapping)} proteins to HUGO symbols")
     return mapping
 
-# === FUNCIONES DE CARGA Y FILTRADO DE DATOS ===
-def load_ppi_data(STRING_FILE, STRING_SCORE_THRESHOLD):
-    """Cargar interacciones de STRINGdb desde el archivo."""
-    logging.info(f"Cargando interacciones desde: {STRING_FILE}")
-    try:
-        interactions = pd.read_csv(STRING_FILE, sep="\t", header=0)
-        interactions.columns = ["protein1_hugo", "protein2_hugo", "combined_score"]
-        interactions['combined_score'] = pd.to_numeric(interactions['combined_score'], errors='coerce')
-        interactions = interactions.dropna(subset=['combined_score'])
-        interactions = interactions[interactions['combined_score'] >= STRING_SCORE_THRESHOLD]
-        return interactions
-    except Exception as e:
-        logging.error(f"Error al cargar las interacciones: {e}")
-        raise
+def process_string_network(input_file, output_file, min_score=400):
+    """
+    Process STRING network file:
+    1. Filter by minimum score
+    2. Convert protein IDs to HUGO symbols
+    
+    Args:
+        input_file (str): Path to input STRING network file
+        output_file (str): Path to output file
+        min_score (int): Minimum combined score to keep (default: 400)
+    """
+    # First pass: collect all unique protein IDs
+    print("Collecting unique protein IDs...")
+    unique_proteins = set()
+    total_lines = 0
+    
+    with open(input_file, 'r') as f:
+        # Skip header line
+        header = f.readline()
+        
+        for line in tqdm(f):
+            try:
+                protein1, protein2, score = line.strip().split()
+                if int(score) >= min_score:
+                    unique_proteins.add(protein1)
+                    unique_proteins.add(protein2)
+                total_lines += 1
+            except ValueError:
+                print(f"Warning: Skipping malformed line: {line.strip()}")
+                continue
+    
+    print(f"\nFound {len(unique_proteins)} unique proteins in network")
+    
+    # Get mapping
+    string_to_hugo = get_string_to_hugo_mapping(unique_proteins)
+    
+    print(f"\nProcessing network file (minimum score: {min_score})...")
+    
+    # Initialize counters
+    total_processed = 0
+    total_kept = 0
+    
+    # Open output file
+    with open(output_file, 'w') as out_f:
+        # Write header
+        out_f.write("protein1_hugo\tprotein2_hugo\tcombined_score\n")
+        
+        # Process input file line by line
+        with open(input_file, 'r') as in_f:
+            # Skip header line
+            next(in_f)
+            
+            for line in tqdm(in_f, total=total_lines):
+                try:
+                    total_processed += 1
+                    
+                    # Parse line
+                    protein1, protein2, score = line.strip().split()
+                    score = int(score)
+                    
+                    # Check score
+                    if score >= min_score:
+                        # Get HUGO symbols
+                        hugo1 = string_to_hugo.get(protein1)
+                        hugo2 = string_to_hugo.get(protein2)
+                        
+                        # Write if both HUGO symbols exist
+                        if hugo1 and hugo2:
+                            out_f.write(f"{hugo1}\t{hugo2}\t{score}\n")
+                            total_kept += 1
+                    
+                    # Print progress every million lines
+                    if total_processed % 1000000 == 0:
+                        print(f"\nProcessed: {total_processed:,} pairs")
+                        print(f"Kept: {total_kept:,} pairs")
+                
+                except ValueError:
+                    print(f"Warning: Skipping malformed line: {line.strip()}")
+                    continue
+    
+    print(f"\nFinal counts:")
+    print(f"Total processed: {total_processed:,} pairs")
+    print(f"Total kept: {total_kept:,} pairs")
+
+def analyze_network_statistics(output_file):
+    """
+    Print basic statistics about the processed network
+    
+    Args:
+        output_file (str): Path to processed network file
+    """
+    print("\nAnalyzing network statistics...")
+    
+    # Read the processed network
+    df = pd.read_csv(output_file, sep='\t')
+    
+    # Calculate statistics
+    total_interactions = len(df)
+    unique_genes = set(df['protein1_hugo'].unique()) | set(df['protein2_hugo'].unique())
+    avg_score = df['combined_score'].mean()
+    
+    print(f"\nNetwork Statistics:")
+    print(f"Total interactions: {total_interactions:,}")
+    print(f"Unique genes: {len(unique_genes):,}")
+    print(f"Average combined score: {avg_score:.2f}")
+
 
 # === CONFIGURACIÓN DE `argparse` ===
 def parse_args():
@@ -116,12 +215,13 @@ def parse_args():
     parser.add_argument("--input", type=str, required=True, help="Ruta del archivo STRINGdb descomprimido (por ejemplo, 9606.protein.links.v12.0.txt).")
     parser.add_argument("--output", type=str, help="Archivo de salida para el PPI filtrado.")
     parser.add_argument("--score_threshold", type=int, default=400, help="Umbral de puntaje de interacción (default: 400).")
-    parser.add_argument("--url", type=str, default="https://string-db.org/cgi/download?sessionId=bMogNhQqaAZX&species_text=Homo+sapiens&settings_expanded=0&min_download_score=0&filter_redundant_pairs=0&delimiter_type=txt", help="URL para descargar la red STRINGdb.")
+    parser.add_argument("--url", type=str, default="https://string-db-downloads.org/download/protein.links.v12.0/9606.protein.links.v12.0.txt.gz", help="URL para descargar la red STRINGdb.")
     
     return parser.parse_args()
 
 # === PROCESO PRINCIPAL ===
 def main():
+    # File paths
     args = parse_args()
     
     STRING_FILE = args.input
@@ -129,37 +229,20 @@ def main():
     STRING_SCORE_THRESHOLD = args.score_threshold
     STRING_URL = args.url
 
+    
     try:
         # Descargar y descomprimir la red (si es necesario)
         if not os.path.exists(STRING_FILE):
             download_string_network(STRING_URL, "material/9606.protein.links.v12.0.txt.gz", STRING_FILE)
+
+        # Process network
+        process_string_network(STRING_FILE, OUTPUT_FILE, STRING_SCORE_THRESHOLD)
         
-        # Cargar y procesar datos de interacciones
-        interactions = load_ppi_data(STRING_FILE, STRING_SCORE_THRESHOLD)
-
-        # Obtener el mapeo de STRING a HUGO
-        unique_proteins = set(interactions["protein1_hugo"]).union(set(interactions["protein2_hugo"]))
-        string_to_hugo = get_string_to_hugo_mapping(unique_proteins)
-        
-        # Filtrar y convertir los IDs de STRING a HUGO
-        interactions["protein1_hugo"] = interactions["protein1_hugo"].map(string_to_hugo)
-        interactions["protein2_hugo"] = interactions["protein2_hugo"].map(string_to_hugo)
-        interactions = interactions.dropna(subset=["protein1_hugo", "protein2_hugo"])
-
-        # Construir el grafo
-        G = nx.Graph()
-        for _, row in interactions.iterrows():
-            G.add_edge(row["protein1_hugo"], row["protein2_hugo"], weight=row["combined_score"])
-
-        # Exportar el archivo filtrado
-        interactions.to_csv(OUTPUT_FILE, sep="\t", index=False)
-        logging.info(f"Archivo de salida generado: {OUTPUT_FILE}")
-
-        # Analizar estadísticas
+        # Analyze results
         analyze_network_statistics(OUTPUT_FILE)
-
+        
     except Exception as e:
-        logging.error(f"Error durante la ejecución del script: {e}")
+        print(f"Error: {str(e)}")
 
 if __name__ == "__main__":
     main()
