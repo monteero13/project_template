@@ -1,29 +1,25 @@
 import os
-import requests
-import json
+import argparse
 import mygene
+import requests
 import csv
 
+# Función para obtener los IDs de UniProt a partir de símbolos de genes
 def obtener_ids_uniprot(gene_symbols):
-    """
-    Convierte una lista de símbolos de genes en identificadores de UniProt usando MyGene.info.
-    """
     mg = mygene.MyGeneInfo()
     query_result = mg.querymany(gene_symbols, scopes='symbol', fields='uniprot', species='human')
 
     study_gene_uniprot_ids = []
     for gene in query_result:
         uniprot_data = gene.get('uniprot', {}).get('Swiss-Prot')
-        if isinstance(uniprot_data, list):  # Si hay múltiples identificadores, agregarlos todos
+        if isinstance(uniprot_data, list):
             study_gene_uniprot_ids.extend(uniprot_data)
-        elif isinstance(uniprot_data, str):  # Si es un único identificador, agregarlo directamente
+        elif isinstance(uniprot_data, str):
             study_gene_uniprot_ids.append(uniprot_data)
     return study_gene_uniprot_ids
 
+# Función para realizar el análisis de enriquecimiento en STRINGdb
 def realizar_enriquecimiento_string(uniprot_ids, fdr_threshold=0.001, categoria="Process"):
-    """
-    Realiza el análisis de enriquecimiento en STRINGdb para una categoría específica.
-    """
     if not (0 <= fdr_threshold <= 1):
         raise ValueError("El FDR debe estar entre 0 y 1.")
 
@@ -63,37 +59,37 @@ def realizar_enriquecimiento_string(uniprot_ids, fdr_threshold=0.001, categoria=
 
     return resultados
 
+# Función para exportar los resultados a un archivo CSV
 def exportar_resultados(resultados, filename):
-    """
-    Exporta los resultados a un archivo CSV.
-    """
     with open(filename, mode='w', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=["term", "genes", "fdr", "category", "description"])
         writer.writeheader()
         for result in resultados:
             writer.writerow(result)
 
-def procesar_archivo_cluster(ruta_archivo):
-    """
-    Procesa un archivo específico y realiza el análisis de enriquecimiento.
-    """
-    # Leer los genes del archivo
-    with open(ruta_archivo, "r") as f:
+# Función principal para procesar el archivo de genes y realizar el análisis de enriquecimiento
+def main():
+    # Usamos argparse para recibir los parámetros desde la línea de comandos
+    parser = argparse.ArgumentParser(description="Análisis de enriquecimiento de genes utilizando STRINGdb.")
+    parser.add_argument("--input", type=str, required=True, help="Ruta al archivo de genes de entrada (por ejemplo, genes_cluster.txt).")
+    parser.add_argument("--output", type=str, required=True, help="Ruta para guardar los resultados del enriquecimiento.")
+    parser.add_argument("--fdr_threshold", type=float, default=0.001, help="Umbral de FDR (default: 0.001).")
+    parser.add_argument("--categoria", type=str, default="Process", choices=["Process", "HPO"], help="Categoría de enriquecimiento (default: Process).")
+    args = parser.parse_args()
+
+    # Leer los genes del archivo de entrada
+    with open(args.input, "r") as f:
         genes = [line.strip() for line in f if line.strip()]
 
-    # Obtener IDs de UniProt
+    # Obtener los IDs de UniProt para los genes
     uniprot_ids = obtener_ids_uniprot(genes)
 
-    # Análisis de enriquecimiento para cada categoría
-    for categoria in ["Process", "HPO"]:
-        resultados = realizar_enriquecimiento_string(uniprot_ids, categoria=categoria)
-        nombre_resultados = f"{os.path.splitext(ruta_archivo)[0]}_enriquecimiento_{categoria.lower()}.csv"
-        exportar_resultados(resultados, nombre_resultados)
-        print(f"Resultados para '{categoria}' exportados a '{nombre_resultados}'.")
+    # Realizar el análisis de enriquecimiento en STRINGdb
+    resultados = realizar_enriquecimiento_string(uniprot_ids, fdr_threshold=args.fdr_threshold, categoria=args.categoria)
 
-# Ejecutar procesamiento del archivo
-try:
-    archivo_genes = "genes_cluster4.txt"  # Cambia esto por la ruta de tu archivo
-    procesar_archivo_cluster(archivo_genes)
-except Exception as e:
-    print(f"Ha ocurrido un error inesperado: {e}")
+    # Exportar los resultados a un archivo CSV
+    exportar_resultados(resultados, args.output)
+    print(f"Análisis completado. Los resultados se han guardado en {args.output}")
+
+if __name__ == "__main__":
+    main()
