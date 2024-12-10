@@ -1,5 +1,6 @@
 import requests
 import pandas as pd
+import argparse
 
 def obtener_fenotipos_asociados_a_enfermedad(disease_id):
     """
@@ -50,25 +51,38 @@ def obtener_fenotipos_para_lista_enfermedades(lista_enfermedades):
     
     return resultados
 
-# Leer el archivo de texto línea por línea
-enfermedades = []
-with open('../results/diseases_for_HP_0000526', 'r') as file:
-    for line in file:
-        # Suponiendo que los datos están separados por espacios o tabuladores
-        parts = line.split()  # Esto divide la línea en una lista
-        if len(parts) >= 2:
-            id_enfermedad = parts[0]
-            nombre_enfermedad = ' '.join(parts[1:])  # El resto es el nombre de la enfermedad
-            enfermedades.append({"id": id_enfermedad, "name": nombre_enfermedad})
+# Función principal
+def main():
+    # Usamos argparse para recibir los parámetros desde la línea de comandos
+    parser = argparse.ArgumentParser(description="Obtiene fenotipos asociados a enfermedades y los guarda en un archivo.")
+    
+    parser.add_argument("--input", type=str, required=True, help="Ruta al archivo con las enfermedades.")
+    parser.add_argument("--output", type=str, required=True, help="Ruta para guardar los resultados de los fenotipos.")
+    
+    args = parser.parse_args()
 
-# Obtener fenotipos asociados
-fenotipos_asociados = obtener_fenotipos_para_lista_enfermedades(enfermedades)
+    # Leer el archivo de enfermedades proporcionado
+    enfermedades = []
+    with open(args.input, 'r') as file:
+        for line in file:
+            parts = line.split()  # Divide la línea en una lista
+            if len(parts) >= 2:
+                id_enfermedad = parts[0]
+                nombre_enfermedad = ' '.join(parts[1:])  # El resto es el nombre de la enfermedad
+                enfermedades.append({"id": id_enfermedad, "name": nombre_enfermedad})
 
-# Crear un DataFrame para estructurar los resultados
-df_fenotipos = pd.DataFrame(fenotipos_asociados)
+    # Obtener los fenotipos asociados a las enfermedades
+    fenotipos_asociados = obtener_fenotipos_para_lista_enfermedades(enfermedades)
 
-# Exportar resultados a CSV
-df_fenotipos.to_csv('../results/fenotipos_de_enfermedades.csv', index=False, encoding='utf-8')
+    # Crear un DataFrame para estructurar los resultados
+    df_fenotipos = pd.DataFrame(fenotipos_asociados)
 
-# Mostrar un resumen de los resultados
-print(df_fenotipos.head())
+    # Exportar resultados a CSV
+    df_fenotipos.to_csv(args.output, index=False, encoding='utf-8')
+
+    # Mostrar un resumen de los resultados
+    print(f"Fenotipos asociados guardados en: {args.output}")
+    print(df_fenotipos.head())
+
+if __name__ == "__main__":
+    main()
