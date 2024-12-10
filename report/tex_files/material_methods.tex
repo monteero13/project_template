@@ -38,8 +38,10 @@ El resto del proyecto gira en torno a los genes clave seleccionados tras el aná
 
 \subsubsection{Propagación de red}
 
-Con los genes clave seleccionados creamos una red de propagación. Para llevar a cabo esta tarea fue necesario desarrollar un algoritmo que permitiese propagar una red a partir de unos genes semilla.
-
+Para analizar de manera exhaustiva los genes funcionalmente relevantes asociados con nuestro fenotipo de interés, aplicamos el algoritmo \textbf{DIAMOnD (Disease Module Detection)} a una red de interacción proteína-proteína (PPI). Este procedimiento nos permitió expandir un módulo génico inicial definido por el conjunto de genes semilla previamente seleccionado mediante la integración de información de interacción genética y funcional.
+Los genes semilla iniciales, seleccionados por su relevancia biológica y su asociación conocida con el fenotipo en estudio, fueron: \textbf{WNT10B, SEM1, WT1, PAX6, y NF1}. Estos genes representan el núcleo inicial desde el cual se propagaron las interacciones para identificar genes adicionales funcionalmente relacionados.
+Respecto a la red base, utilizamos un archivo que contiene todas las interacciones proteína-proteína humanas disponibles en la base de datos STRING.
+El algoritmo DIAMOnD se utilizó para expandir el módulo génico inicial.  En este método, en cada iteración, el algoritmo evalúa los nodos vecinos de los genes ya presentes en el módulo y asigna un puntaje basado en el número de conexiones con los genes actuales del módulo. El nodo con el puntaje más alto se añade al módulo. Este proceso se repite hasta alcanzar el número máximo de nodos adicionales (en este caso, 200 nodos) o hasta que no queden candidatos relevantes. Una vez completada la expansión, se construyó un subgrafo que incluye todos los genes del módulo expandido junto con las aristas que los conectan.
 
 \subsubsection{Clustering}
 
@@ -74,6 +76,8 @@ Durante el proceso se ha llevado a cabo la conversión a identificadores UniProt
 
 Posteriormente, dichos identificadores UniProt fueron sometidos al análisis de enriquecimiento utilizando la base de datos STRINGdb, con un enfoque en las categorías Process y HPO. 
 
-En este proceso nosotros consideramos oportuno establecer un umbral de significancia estadística de FDR < 0.001, para identificar términos significativamente enriquecidos.
+En este proceso nosotros consideramos oportuno establecer un umbral de significancia estadística de \textbf{ FDR  \texttt< 0.001}, para identificar términos significativamente enriquecidos.
 Se evaluaron las asociaciones entre los genes del cluster y términos fenotípicos relevantes descritos en HPO.
+
+Como resultado de la ejecución del algoritmo desarrollado se obtienen dos archivos en formato csv. Uno recoge los resultados para la categoría HPO y los de la categoría Process.
 
