@@ -1,54 +1,11 @@
-\section{Introducción}
+La aniridia es un trastorno congénito del desarrollo ocular caracterizado por la ausencia parcial o total del iris, la estructura que da color al ojo y regula la cantidad de luz que entra en la pupila. Además de afectar la estética ocular, esta condición puede causar problemas visuales significativos, como fotofobia, nistagmo y disminución de la agudeza visual. Los individuos con aniridia a menudo presentan malformaciones asociadas, como cataratas, glaucoma y problemas en la córnea, lo que agrava su salud visual y afecta su calidad de vida \cite{Landsend2021}.
 
-La aniridia es un trastorno congénito del desarrollo ocular caracterizado por la
-ausencia parcial o total del iris, la estructura que da color al ojo y que regula la
-cantidad de luz que entra en la pupila. Esta condición, además de afectar la estética
-del ojo, puede causar una serie de problemas visuales significativos, como fotofobia (sensibilidad a la luz), nistagmo (movimientos involuntarios de los ojos) y
-disminución de la agudeza visual. Los individuos con aniridia a menudo presentan
-malformaciones oculares asociadas, como cataratas, glaucoma (enfermedad ocular
-que daña el nervio óptico, esencial para la visión) y problemas en la córnea, lo que agrava su
-salud visual y afecta gravemente su calidad de vida [\cite{Landsend2021}.
+Sin embargo, la aniridia no es solo un trastorno ocular, sino que también está vinculada a diversas patologías sistémicas, lo que sugiere que sus mecanismos genéticos y funcionales son complejos. Por ejemplo, estudios han mostrado que esta enfermedad está asociada con el síndrome de WAGR, que incluye anomalías renales, tumores y problemas de desarrollo, además de la aniridia \cite{lopezrelacion}. Otros síndromes relacionados incluyen el síndrome de Gillespie, caracterizado por discapacidad intelectual, y el síndrome de Axenfeld-Rieger, que afecta tanto los ojos como otros órganos \cite{Law2011}. Estas asociaciones destacan la importancia de investigar los mecanismos genéticos de la aniridia y su relación con otras patologías.
 
+Uno de los avances más importantes en la investigación de la aniridia ha sido la identificación del gen \textbf{PAX6} como regulador clave del desarrollo ocular. PAX6 es un factor de transcripción crucial para la diferenciación de diversas estructuras oculares, regulando la expresión de otros genes esenciales para este proceso \cite{robles_lopez_2012}. Las mutaciones en PAX6 se han vinculado no solo con la aniridia, sino también con otras anomalías oculares como la displasia corneal y el glaucoma congénito \cite{CalvaoPires2014}. Sin embargo, para comprender completamente la heterogeneidad clínica de la aniridia, es necesario estudiar cómo PAX6 interactúa con otros genes en redes genéticas más amplias.
 
-No obstante, la aniridia no es solo un trastorno ocular, sino que también está
-vinculada a diversas patologías sistémicas, lo que sugiere que sus mecanismos
-genéticos y funcionales son complejos y multifactoriales\cite{BLACK2022389}. Por ejemplo, estudios
-han mostrado que esta enfermedad puede estar asociada con el síndrome de
-WAGR, una condición genética que incluye anomalías renales, tumores y problemas de desarrollo, además de la aniridia \cite{lopezrelacion}. Otros síndromes relacionados incluyen el síndrome de Gillespie, caracterizado por discapacidad intelectual, y el síndrome de Axenfeld-Rieger, que afecta tanto los ojos como otros órganos \cite{Law2011}. Estas asociaciones con condiciones sistémicas destacan la importancia de investigar en profundidad los mecanismos genéticos que subyacen
-a la aniridia, así como su relación con otras patologías.
+A través de un enfoque de biología de sistemas, en este trabajo se exploran las interacciones entre \textbf{PAX6} y otros genes asociados con la aniridia mediante el análisis de redes genéticas y moleculares. Utilizando el algoritmo DIAMOnD, se propaga una red basada en la especie \textit{Homo sapiens} descargada de STRINGdb, y se identifican genes relevantes en la red utilizando métricas como el índice de betweenness y el grado de centralidad. Estos genes se agrupan mediante técnicas de clusterización y se realiza un análisis de enriquecimiento de los clusters obtenidos. Este enfoque nos permite analizar las interacciones entre genes que podrían contribuir a la presentación clínica de la aniridia y sus trastornos relacionados.
 
+Además, se exploran los fenotipos asociados con los genes enriquecidos, estableciendo posibles conexiones entre las enfermedades y los fenotipos mediante la integración de datos de un archivo adicional de fenotipos. Al asociar estos fenotipos con genes y enfermedades, este trabajo no solo amplía nuestro entendimiento sobre la aniridia, sino que también ofrece una visión integral sobre los mecanismos patológicos subyacentes a varias condiciones sistémicas relacionadas con esta enfermedad.
 
-Uno de los avances más significativos en la investigación de la aniridia ha sido la 
-identificación del gen \textbf{PAX6} como regulador clave del desarrollo ocular. PAX6 es un factor de transcripción que juega un papel crucial en
-la diferenciación de diversas estructuras oculares, regulando la expresión de otros genes esenciales para este proceso \cite{robles_lopez_2012}. Las mutaciones en PAX6 han sido vinculadas
-no solo con la aniridia, sino también con otras anomalías oculares como la displasia corneal (alteración en el desarrollo o estructura de la córnea) y el glaucoma
-congénito  \cite{CalvaoPires2014}. Sin embargo, para entender completamente la heterogeneidad clínica de la aniridia, es fundamental analizar cómo interactúa
-PAX6 con otros genes en redes genéticas más amplias.
-
-
-Además de PAX6, varios genes han demostrado ser importantes para entender la
-complejidad de la aniridia y sus trastornos asociados, entre ellos \textbf{FOXC1}, \textbf{WT1},
-\textbf{FOXE3} y \textbf{PITX2}.
-
-Las mutaciones en \textbf{FOXC1} \cite{NCBIGeneFOXC1}  están asociadas con el síndrome de Axenfeld-Rieger,
-un trastorno que incluye glaucoma y otras anomalías oculares \cite{Reis2023}. Este gen codifica un factor de transcripción que, al igual que PAX6, regula
-el desarrollo del ojo, y su interacción con otros genes es clave para comprender las
-manifestaciones clínicas variadas que se presentan en estos pacientes. La integración
-de FOXC1 en los análisis de redes génicas permite explorar cómo las vías de desarrollo ocular pueden estar interconectadas con otras rutas reguladoras sistémica.
-
-
-Otro gen relevante es \textbf{WT1}, conocido por su papel en el desarrollo renal y la formación de tumores. Las mutaciones en WT1 están vinculadas al síndrome de
-WAGR. La investigación sobre WT1 desde una perspectiva de biología de sistemas permite investigar cómo los defectos en los programas de desarrollo que afectan
-tanto a los ojos como a otros órganos pueden estar mediadas por la interacción de redes génicas compartidas \cite{Pelletier1991}.
-
-\textbf{FOXE3} es un gen sin intrones que pertenece a la familia de factores de transcripción "Forkhead", que regulan la expresión de otros genes específicos de tejido cruciales para la diferenciación y desarrollo. La proteína que se codifica desempeña un importante papel en la formación del cristalino en vertebrados, siendo un factor de transcripción específico. Además, las mutaciones de este gen están relacionadas con disgenesia mesenquimal (desarrollo incompleto del tejido mesenquimático) del segmento anterior del ojo y afaquia primaria congénita (ausencia del cristalino).
-
-
-Finalmente, el gen \textbf{PITX2} está involucrado en la morfogénesis craneofacial y cardiovascular. Las mutaciones en este gen están asociadas con el sóndrome de Axenfeld-Rieger, afectando no solo a los ojos, sino también al desarrollo de órganos internos, debido a su rol en la simetría del desarrollo\cite{French2021}. Desde la
-perspectiva de la biología de sistemas, PITX2 representa un nodo crítico dentro de redes regulatorias que conectan el desarrollo de múltiples órganos, lo que resalta cómo las disfunciones en un solo gen pueden dar lugar a manifestaciones clínicas en varios sistemas.
-
-
-El objetivo de este trabajo es examinar las patologías asociadas al fenotipo de la aniridia desde el punto de vista de la biología de sistemas, enfocándonos en los genes que tienen una relación funcional con \textbf{PAX6}. A través de la identificación de genes asociados y el análisis de redes génicas y moleculares mediante técnicas como la creación de clusters\cite{ben1999clustering} y el análisis de redes funcionales \cite{FloresCamacho2009}, se tratará de avanzar en la comprensión de cómo las interacciones entre estos genes contribuyen a la presentación clínica de la aniridia
-y sus trastornos relacionados. Este enfoque no solo amplía nuestro conocimiento sobre la aniridia, sino que también ofrece información valiosa sobre los mecanismos
-patológicos que interconectan diversas condiciones sistémicas.
-
+Este análisis tiene como objetivo avanzar en la comprensión de cómo las redes genéticas y sus interacciones funcionales pueden explicar la heterogeneidad clínica de la aniridia y sus trastornos asociados, proporcionando nuevas perspectivas sobre los mecanismos que vinculan diversos fenotipos y enfermedades.
