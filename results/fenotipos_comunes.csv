@@ -1,0 +1,284 @@
+phenotype_id,phenotype_name,disease_id,disease_name
+HP:0001770,Toe syndactyly,OMIM:305600,Focal dermal hypoplasia
+HP:0001156,Brachydactyly,OMIM:305600,Focal dermal hypoplasia
+HP:0009381,Short finger,OMIM:305600,Focal dermal hypoplasia
+HP:0009803,Short phalanx of finger,OMIM:305600,Focal dermal hypoplasia
+HP:0001274,Agenesis of corpus callosum,OMIM:305600,Focal dermal hypoplasia
+HP:0001249,Intellectual disability,OMIM:305600,Focal dermal hypoplasia
+HP:0002308,Chiari malformation,OMIM:305600,Focal dermal hypoplasia
+HP:0000238,Hydrocephalus,OMIM:305600,Focal dermal hypoplasia
+HP:0004322,Short stature,OMIM:305600,Focal dermal hypoplasia
+HP:0008070,Sparse hair,OMIM:305600,Focal dermal hypoplasia
+HP:0001010,Hypopigmentation of the skin,OMIM:305600,Focal dermal hypoplasia
+HP:0000568,Microphthalmia,OMIM:305600,Focal dermal hypoplasia
+HP:0007663,Reduced visual acuity,OMIM:305600,Focal dermal hypoplasia
+HP:0000526,Aniridia,OMIM:305600,Focal dermal hypoplasia
+HP:0000505,Visual impairment,OMIM:305600,Focal dermal hypoplasia
+HP:0000612,Iris coloboma,OMIM:305600,Focal dermal hypoplasia
+HP:0000486,Strabismus,OMIM:305600,Focal dermal hypoplasia
+HP:0000567,Chorioretinal coloboma,OMIM:305600,Focal dermal hypoplasia
+HP:0000528,Anophthalmia,OMIM:305600,Focal dermal hypoplasia
+HP:0000023,Inguinal hernia,OMIM:305600,Focal dermal hypoplasia
+HP:0000028,Cryptorchidism,OMIM:305600,Focal dermal hypoplasia
+HP:0000126,Hydronephrosis,OMIM:305600,Focal dermal hypoplasia
+HP:0000369,Low-set ears,OMIM:305600,Focal dermal hypoplasia
+HP:0002558,Supernumerary nipple,OMIM:305600,Focal dermal hypoplasia
+HP:0000175,Cleft palate,OMIM:305600,Focal dermal hypoplasia
+HP:0000689,Dental malocclusion,OMIM:305600,Focal dermal hypoplasia
+HP:0000204,Cleft upper lip,OMIM:305600,Focal dermal hypoplasia
+HP:0000677,Oligodontia,OMIM:305600,Focal dermal hypoplasia
+HP:0000684,Delayed eruption of teeth,OMIM:305600,Focal dermal hypoplasia
+HP:0000324,Facial asymmetry,OMIM:305600,Focal dermal hypoplasia
+HP:0001382,Joint hypermobility,OMIM:305600,Focal dermal hypoplasia
+HP:0002650,Scoliosis,OMIM:305600,Focal dermal hypoplasia
+HP:0000526,Aniridia,OMIM:194072,"Wilms tumor, aniridia, genitourinary anomalies, and mental retardationsyndrome"
+HP:0001249,Intellectual disability,OMIM:194072,"Wilms tumor, aniridia, genitourinary anomalies, and mental retardationsyndrome"
+HP:0001513,Obesity,OMIM:194072,"Wilms tumor, aniridia, genitourinary anomalies, and mental retardationsyndrome"
+HP:0000047,Hypospadias,OMIM:194072,"Wilms tumor, aniridia, genitourinary anomalies, and mental retardationsyndrome"
+HP:0000130,Abnormality of the uterus,OMIM:194072,"Wilms tumor, aniridia, genitourinary anomalies, and mental retardationsyndrome"
+HP:0000028,Cryptorchidism,OMIM:194072,"Wilms tumor, aniridia, genitourinary anomalies, and mental retardationsyndrome"
+HP:0000526,Aniridia,OMIM:612469,WAGRO syndrome
+HP:0000518,Cataract,OMIM:612469,WAGRO syndrome
+HP:0007957,Corneal opacity,OMIM:612469,WAGRO syndrome
+HP:0000505,Visual impairment,OMIM:612469,WAGRO syndrome
+HP:0000508,Ptosis,OMIM:612469,WAGRO syndrome
+HP:0000093,Proteinuria,OMIM:612469,WAGRO syndrome
+HP:0001249,Intellectual disability,OMIM:612469,WAGRO syndrome
+HP:0000739,Anxiety,OMIM:612469,WAGRO syndrome
+HP:0001513,Obesity,OMIM:612469,WAGRO syndrome
+HP:0000822,Hypertension,OMIM:612469,WAGRO syndrome
+HP:0000369,Low-set ears,OMIM:612469,WAGRO syndrome
+HP:0000347,Micrognathia,OMIM:612469,WAGRO syndrome
+HP:0000272,Malar flattening,OMIM:612469,WAGRO syndrome
+HP:0000303,Mandibular prognathia,OMIM:612469,WAGRO syndrome
+HP:0000494,Downslanted palpebral fissures,OMIM:612469,WAGRO syndrome
+HP:0000612,Iris coloboma,OMIM:617141,Aniridia 2
+HP:0000526,Aniridia,OMIM:617141,Aniridia 2
+HP:0000518,Cataract,OMIM:617141,Aniridia 2
+HP:0000526,Aniridia,OMIM:106230,"Aniridia, microcornea, and spontaneously reabsorbed cataract"
+HP:0000482,Microcornea,OMIM:106230,"Aniridia, microcornea, and spontaneously reabsorbed cataract"
+HP:0000518,Cataract,OMIM:106230,"Aniridia, microcornea, and spontaneously reabsorbed cataract"
+HP:0000518,Cataract,OMIM:106220,Aniridia and absent patella
+HP:0000501,Glaucoma,OMIM:106220,Aniridia and absent patella
+HP:0000526,Aniridia,OMIM:106220,Aniridia and absent patella
+HP:0000501,Glaucoma,ORPHA:250923,Isolated aniridia
+HP:0000518,Cataract,ORPHA:250923,Isolated aniridia
+HP:0000526,Aniridia,ORPHA:250923,Isolated aniridia
+HP:0000518,Cataract,ORPHA:2334,Autosomal dominant keratitis
+HP:0000589,Coloboma,ORPHA:2334,Autosomal dominant keratitis
+HP:0000482,Microcornea,ORPHA:2334,Autosomal dominant keratitis
+HP:0007663,Reduced visual acuity,ORPHA:2334,Autosomal dominant keratitis
+HP:0000539,Abnormality of refraction,ORPHA:2334,Autosomal dominant keratitis
+HP:0000526,Aniridia,ORPHA:2334,Autosomal dominant keratitis
+HP:0000518,Cataract,OMIM:617142,Aniridia 3
+HP:0007663,Reduced visual acuity,OMIM:617142,Aniridia 3
+HP:0000526,Aniridia,OMIM:617142,Aniridia 3
+HP:0000501,Glaucoma,OMIM:617142,Aniridia 3
+HP:0000508,Ptosis,OMIM:206700,Gillespie syndrome
+HP:0000505,Visual impairment,OMIM:206700,Gillespie syndrome
+HP:0000526,Aniridia,OMIM:206700,Gillespie syndrome
+HP:0007663,Reduced visual acuity,OMIM:206700,Gillespie syndrome
+HP:0002119,Ventriculomegaly,OMIM:206700,Gillespie syndrome
+HP:0001328,Specific learning disability,OMIM:206700,Gillespie syndrome
+HP:0001250,Seizure,OMIM:206700,Gillespie syndrome
+HP:0001251,Ataxia,OMIM:206700,Gillespie syndrome
+HP:0001321,Cerebellar hypoplasia,OMIM:206700,Gillespie syndrome
+HP:0001249,Intellectual disability,OMIM:206700,Gillespie syndrome
+HP:0001510,Growth delay,OMIM:206700,Gillespie syndrome
+HP:0001642,Pulmonic stenosis,OMIM:206700,Gillespie syndrome
+HP:0001252,Hypotonia,OMIM:206700,Gillespie syndrome
+HP:0001999,Abnormal facial shape,OMIM:206700,Gillespie syndrome
+HP:0000826,Precocious puberty,OMIM:206700,Gillespie syndrome
+HP:0002808,Kyphosis,OMIM:206700,Gillespie syndrome
+HP:0002650,Scoliosis,OMIM:206700,Gillespie syndrome
+HP:0000587,Abnormal optic nerve morphology,ORPHA:1101,Anophthalmia-megalocornea-cardiopathy-skeletal anomalies syndrome
+HP:0000528,Anophthalmia,ORPHA:1101,Anophthalmia-megalocornea-cardiopathy-skeletal anomalies syndrome
+HP:0000545,Myopia,ORPHA:1101,Anophthalmia-megalocornea-cardiopathy-skeletal anomalies syndrome
+HP:0000526,Aniridia,ORPHA:1101,Anophthalmia-megalocornea-cardiopathy-skeletal anomalies syndrome
+HP:0000023,Inguinal hernia,ORPHA:1101,Anophthalmia-megalocornea-cardiopathy-skeletal anomalies syndrome
+HP:0000028,Cryptorchidism,ORPHA:1101,Anophthalmia-megalocornea-cardiopathy-skeletal anomalies syndrome
+HP:0030680,Abnormal cardiovascular system morphology,ORPHA:1101,Anophthalmia-megalocornea-cardiopathy-skeletal anomalies syndrome
+HP:0000598,Abnormality of the ear,ORPHA:1101,Anophthalmia-megalocornea-cardiopathy-skeletal anomalies syndrome
+HP:0000327,Hypoplasia of the maxilla,ORPHA:1101,Anophthalmia-megalocornea-cardiopathy-skeletal anomalies syndrome
+HP:0000343,Long philtrum,ORPHA:1101,Anophthalmia-megalocornea-cardiopathy-skeletal anomalies syndrome
+HP:0002705,"High, narrow palate",ORPHA:1101,Anophthalmia-megalocornea-cardiopathy-skeletal anomalies syndrome
+HP:0000303,Mandibular prognathia,ORPHA:1101,Anophthalmia-megalocornea-cardiopathy-skeletal anomalies syndrome
+HP:0000268,Dolichocephaly,ORPHA:1101,Anophthalmia-megalocornea-cardiopathy-skeletal anomalies syndrome
+HP:0000767,Pectus excavatum,ORPHA:1101,Anophthalmia-megalocornea-cardiopathy-skeletal anomalies syndrome
+HP:0002650,Scoliosis,ORPHA:1101,Anophthalmia-megalocornea-cardiopathy-skeletal anomalies syndrome
+HP:0007957,Corneal opacity,ORPHA:1064,Aniridia-renal agenesis-psychomotor retardation syndrome
+HP:0001087,Developmental glaucoma,ORPHA:1064,Aniridia-renal agenesis-psychomotor retardation syndrome
+HP:0000486,Strabismus,ORPHA:1064,Aniridia-renal agenesis-psychomotor retardation syndrome
+HP:0000526,Aniridia,ORPHA:1064,Aniridia-renal agenesis-psychomotor retardation syndrome
+HP:0004322,Short stature,ORPHA:1064,Aniridia-renal agenesis-psychomotor retardation syndrome
+HP:0001252,Hypotonia,ORPHA:1064,Aniridia-renal agenesis-psychomotor retardation syndrome
+HP:0000463,Anteverted nares,ORPHA:1064,Aniridia-renal agenesis-psychomotor retardation syndrome
+HP:0002007,Frontal bossing,ORPHA:1064,Aniridia-renal agenesis-psychomotor retardation syndrome
+HP:0001363,Craniosynostosis,ORPHA:1064,Aniridia-renal agenesis-psychomotor retardation syndrome
+HP:0005280,Depressed nasal bridge,ORPHA:1064,Aniridia-renal agenesis-psychomotor retardation syndrome
+HP:0000347,Micrognathia,ORPHA:1064,Aniridia-renal agenesis-psychomotor retardation syndrome
+HP:0000526,Aniridia,ORPHA:1068,Aniridia-intellectual disability syndrome
+HP:0000518,Cataract,ORPHA:1068,Aniridia-intellectual disability syndrome
+HP:0000568,Microphthalmia,OMIM:610256,Anterior segment dysgenesis 2
+HP:0000589,Coloboma,OMIM:610256,Anterior segment dysgenesis 2
+HP:0000647,Sclerocornea,OMIM:610256,Anterior segment dysgenesis 2
+HP:0007663,Reduced visual acuity,OMIM:610256,Anterior segment dysgenesis 2
+HP:0000482,Microcornea,OMIM:610256,Anterior segment dysgenesis 2
+HP:0007957,Corneal opacity,OMIM:610256,Anterior segment dysgenesis 2
+HP:0000526,Aniridia,OMIM:610256,Anterior segment dysgenesis 2
+HP:0000518,Cataract,OMIM:610256,Anterior segment dysgenesis 2
+HP:0000526,Aniridia,ORPHA:1065,Aniridia-cerebellar ataxia-intellectual disability syndrome
+HP:0100022,Abnormality of movement,ORPHA:1065,Aniridia-cerebellar ataxia-intellectual disability syndrome
+HP:0001249,Intellectual disability,ORPHA:1065,Aniridia-cerebellar ataxia-intellectual disability syndrome
+HP:0002167,Abnormal speech pattern,ORPHA:1065,Aniridia-cerebellar ataxia-intellectual disability syndrome
+HP:0001251,Ataxia,ORPHA:1065,Aniridia-cerebellar ataxia-intellectual disability syndrome
+HP:0001263,Global developmental delay,ORPHA:1065,Aniridia-cerebellar ataxia-intellectual disability syndrome
+HP:0004414,Abnormality of the pulmonary artery,ORPHA:1065,Aniridia-cerebellar ataxia-intellectual disability syndrome
+HP:0000364,Hearing abnormality,ORPHA:1065,Aniridia-cerebellar ataxia-intellectual disability syndrome
+HP:0001252,Hypotonia,ORPHA:1065,Aniridia-cerebellar ataxia-intellectual disability syndrome
+HP:0001337,Tremor,ORPHA:29072,Hereditary pheochromocytoma-paraganglioma
+HP:0001824,Weight loss,ORPHA:29072,Hereditary pheochromocytoma-paraganglioma
+HP:0100749,Chest pain,ORPHA:29072,Hereditary pheochromocytoma-paraganglioma
+HP:0012378,Fatigue,ORPHA:29072,Hereditary pheochromocytoma-paraganglioma
+HP:0000526,Aniridia,ORPHA:29072,Hereditary pheochromocytoma-paraganglioma
+HP:0005584,Renal cell carcinoma,ORPHA:29072,Hereditary pheochromocytoma-paraganglioma
+HP:0000093,Proteinuria,ORPHA:29072,Hereditary pheochromocytoma-paraganglioma
+HP:0000482,Microcornea,ORPHA:233,Duane retraction syndrome
+HP:0000486,Strabismus,ORPHA:233,Duane retraction syndrome
+HP:0000526,Aniridia,ORPHA:233,Duane retraction syndrome
+HP:0000490,Deeply set eye,ORPHA:233,Duane retraction syndrome
+HP:0000612,Iris coloboma,ORPHA:233,Duane retraction syndrome
+HP:0000508,Ptosis,ORPHA:233,Duane retraction syndrome
+HP:0000567,Chorioretinal coloboma,ORPHA:233,Duane retraction syndrome
+HP:0012385,Camptodactyly,ORPHA:233,Duane retraction syndrome
+HP:0001156,Brachydactyly,ORPHA:233,Duane retraction syndrome
+HP:0001250,Seizure,ORPHA:233,Duane retraction syndrome
+HP:0001263,Global developmental delay,ORPHA:233,Duane retraction syndrome
+HP:0030680,Abnormal cardiovascular system morphology,ORPHA:233,Duane retraction syndrome
+HP:0000377,Abnormal pinna morphology,ORPHA:233,Duane retraction syndrome
+HP:0011386,Narrow internal auditory canal,ORPHA:233,Duane retraction syndrome
+HP:0000365,Hearing impairment,ORPHA:233,Duane retraction syndrome
+HP:0000407,Sensorineural hearing impairment,ORPHA:233,Duane retraction syndrome
+HP:0000324,Facial asymmetry,ORPHA:233,Duane retraction syndrome
+HP:0000431,Wide nasal bridge,ORPHA:233,Duane retraction syndrome
+HP:0000470,Short neck,ORPHA:233,Duane retraction syndrome
+HP:0000465,Webbed neck,ORPHA:233,Duane retraction syndrome
+HP:0000581,Blepharophimosis,ORPHA:233,Duane retraction syndrome
+HP:0000175,Cleft palate,ORPHA:233,Duane retraction syndrome
+HP:0000463,Anteverted nares,ORPHA:233,Duane retraction syndrome
+HP:0000347,Micrognathia,ORPHA:233,Duane retraction syndrome
+HP:0002162,Low posterior hairline,ORPHA:233,Duane retraction syndrome
+HP:0003312,Abnormal form of the vertebral bodies,ORPHA:233,Duane retraction syndrome
+HP:0007400,Irregular hyperpigmentation,ORPHA:233,Duane retraction syndrome
+HP:0001053,Hypopigmented skin patches,ORPHA:233,Duane retraction syndrome
+HP:0000518,Cataract,OMIM:106210,Aniridia
+HP:0000508,Ptosis,OMIM:106210,Aniridia
+HP:0000486,Strabismus,OMIM:106210,Aniridia
+HP:0000526,Aniridia,OMIM:106210,Aniridia
+HP:0000501,Glaucoma,OMIM:106210,Aniridia
+HP:0001952,Glucose intolerance,OMIM:106210,Aniridia
+HP:0000486,Strabismus,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0000508,Ptosis,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0000526,Aniridia,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0001320,Cerebellar vermis hypoplasia,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0001250,Seizure,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0001337,Tremor,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0001263,Global developmental delay,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0001321,Cerebellar hypoplasia,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0100543,Cognitive impairment,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0001249,Intellectual disability,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0001251,Ataxia,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0004322,Short stature,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0004325,Decreased body weight,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0001631,Atrial septal defect,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0001642,Pulmonic stenosis,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0001627,Abnormal heart morphology,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0000028,Cryptorchidism,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0004396,Poor appetite,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0002007,Frontal bossing,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0001999,Abnormal facial shape,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0000218,High palate,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0001252,Hypotonia,OMIM:117360,"Spinocerebellar ataxia 29, congenital nonprogressive"
+HP:0000526,Aniridia,OMIM:602361,Gracile bone dysplasia
+HP:0000568,Microphthalmia,OMIM:602361,Gracile bone dysplasia
+HP:0001156,Brachydactyly,OMIM:602361,Gracile bone dysplasia
+HP:0000238,Hydrocephalus,OMIM:602361,Gracile bone dysplasia
+HP:0001250,Seizure,OMIM:602361,Gracile bone dysplasia
+HP:0001263,Global developmental delay,OMIM:602361,Gracile bone dysplasia
+HP:0001508,Failure to thrive,OMIM:602361,Gracile bone dysplasia
+HP:0004322,Short stature,OMIM:602361,Gracile bone dysplasia
+HP:0000054,Micropenis,OMIM:602361,Gracile bone dysplasia
+HP:0000526,Aniridia,ORPHA:654,Nephroblastoma
+HP:0100526,Neoplasm of the lung,ORPHA:654,Nephroblastoma
+HP:0002664,Neoplasm,ORPHA:654,Nephroblastoma
+HP:0002896,Neoplasm of the liver,ORPHA:654,Nephroblastoma
+HP:0001528,Hemihypertrophy,ORPHA:654,Nephroblastoma
+HP:0001824,Weight loss,ORPHA:654,Nephroblastoma
+HP:0000822,Hypertension,ORPHA:654,Nephroblastoma
+HP:0000047,Hypospadias,ORPHA:654,Nephroblastoma
+HP:0000028,Cryptorchidism,ORPHA:654,Nephroblastoma
+HP:0031105,Abnormal uterus morphology,ORPHA:654,Nephroblastoma
+HP:0002094,Dyspnea,ORPHA:654,Nephroblastoma
+HP:0002027,Abdominal pain,ORPHA:654,Nephroblastoma
+HP:0000526,Aniridia,ORPHA:1069,Aniridia-absent patella syndrome
+HP:0000501,Glaucoma,ORPHA:1069,Aniridia-absent patella syndrome
+HP:0000508,Ptosis,ORPHA:1069,Aniridia-absent patella syndrome
+HP:0000518,Cataract,ORPHA:1069,Aniridia-absent patella syndrome
+HP:0000023,Inguinal hernia,ORPHA:1069,Aniridia-absent patella syndrome
+HP:0000028,Cryptorchidism,ORPHA:1069,Aniridia-absent patella syndrome
+HP:0001252,Hypotonia,ORPHA:1069,Aniridia-absent patella syndrome
+HP:0000526,Aniridia,OMIM:245450,D-lactic aciduria with susceptibility to gout
+HP:0000023,Inguinal hernia,OMIM:245450,D-lactic aciduria with susceptibility to gout
+HP:0001249,Intellectual disability,OMIM:245450,D-lactic aciduria with susceptibility to gout
+HP:0000494,Downslanted palpebral fissures,OMIM:245450,D-lactic aciduria with susceptibility to gout
+HP:0000526,Aniridia,ORPHA:2440,Isolated split hand-split foot malformation
+HP:0006101,Finger syndactyly,ORPHA:2440,Isolated split hand-split foot malformation
+HP:0000407,Sensorineural hearing impairment,ORPHA:2440,Isolated split hand-split foot malformation
+HP:0000612,Iris coloboma,ORPHA:251038,3q29 microduplication syndrome
+HP:0000526,Aniridia,ORPHA:251038,3q29 microduplication syndrome
+HP:0000518,Cataract,ORPHA:251038,3q29 microduplication syndrome
+HP:0000568,Microphthalmia,ORPHA:251038,3q29 microduplication syndrome
+HP:0000647,Sclerocornea,ORPHA:251038,3q29 microduplication syndrome
+HP:0001770,Toe syndactyly,ORPHA:251038,3q29 microduplication syndrome
+HP:0001263,Global developmental delay,ORPHA:251038,3q29 microduplication syndrome
+HP:0001249,Intellectual disability,ORPHA:251038,3q29 microduplication syndrome
+HP:0001250,Seizure,ORPHA:251038,3q29 microduplication syndrome
+HP:0001513,Obesity,ORPHA:251038,3q29 microduplication syndrome
+HP:0001629,Ventricular septal defect,ORPHA:251038,3q29 microduplication syndrome
+HP:0000369,Low-set ears,ORPHA:251038,3q29 microduplication syndrome
+HP:0000365,Hearing impairment,ORPHA:251038,3q29 microduplication syndrome
+HP:0000218,High palate,ORPHA:251038,3q29 microduplication syndrome
+HP:0000256,Macrocephaly,ORPHA:251038,3q29 microduplication syndrome
+HP:0000348,High forehead,ORPHA:251038,3q29 microduplication syndrome
+HP:0001363,Craniosynostosis,ORPHA:251038,3q29 microduplication syndrome
+HP:0000175,Cleft palate,ORPHA:251038,3q29 microduplication syndrome
+HP:0000470,Short neck,ORPHA:251038,3q29 microduplication syndrome
+HP:0000431,Wide nasal bridge,ORPHA:251038,3q29 microduplication syndrome
+HP:0000494,Downslanted palpebral fissures,ORPHA:251038,3q29 microduplication syndrome
+HP:0000164,Abnormality of the dentition,ORPHA:251038,3q29 microduplication syndrome
+HP:0001252,Hypotonia,ORPHA:251038,3q29 microduplication syndrome
+HP:0000526,Aniridia,OMIM:206750,"Aniridia, partial, with unilateral renal agenesis and psychomotorretardation"
+HP:0001087,Developmental glaucoma,OMIM:206750,"Aniridia, partial, with unilateral renal agenesis and psychomotorretardation"
+HP:0001249,Intellectual disability,OMIM:206750,"Aniridia, partial, with unilateral renal agenesis and psychomotorretardation"
+HP:0002007,Frontal bossing,OMIM:206750,"Aniridia, partial, with unilateral renal agenesis and psychomotorretardation"
+HP:0000568,Microphthalmia,ORPHA:83461,Congenital primary aphakia
+HP:0000526,Aniridia,ORPHA:83461,Congenital primary aphakia
+HP:0000504,Abnormality of vision,ORPHA:83461,Congenital primary aphakia
+HP:0000647,Sclerocornea,ORPHA:83461,Congenital primary aphakia
+HP:0001087,Developmental glaucoma,ORPHA:83461,Congenital primary aphakia
+HP:0000486,Strabismus,OMIM:180500,"Axenfeld-Rieger syndrome, type 1"
+HP:0000501,Glaucoma,OMIM:180500,"Axenfeld-Rieger syndrome, type 1"
+HP:0000526,Aniridia,OMIM:180500,"Axenfeld-Rieger syndrome, type 1"
+HP:0000482,Microcornea,OMIM:180500,"Axenfeld-Rieger syndrome, type 1"
+HP:0000047,Hypospadias,OMIM:180500,"Axenfeld-Rieger syndrome, type 1"
+HP:0000322,Short philtrum,OMIM:180500,"Axenfeld-Rieger syndrome, type 1"
+HP:0000691,Microdontia,OMIM:180500,"Axenfeld-Rieger syndrome, type 1"
+HP:0000327,Hypoplasia of the maxilla,OMIM:180500,"Axenfeld-Rieger syndrome, type 1"
+HP:0000431,Wide nasal bridge,OMIM:180500,"Axenfeld-Rieger syndrome, type 1"
+HP:0000677,Oligodontia,OMIM:180500,"Axenfeld-Rieger syndrome, type 1"
+HP:0000219,Thin upper lip vermilion,OMIM:180500,"Axenfeld-Rieger syndrome, type 1"
+HP:0000824,Decreased response to growth hormone stimulation test,OMIM:180500,"Axenfeld-Rieger syndrome, type 1"
+HP:0000526,Aniridia,OMIM:616902,"Chromosome 11P13 deletion syndrome, distal"
+HP:0001249,Intellectual disability,OMIM:616902,"Chromosome 11P13 deletion syndrome, distal"
+HP:0001250,Seizure,OMIM:616902,"Chromosome 11P13 deletion syndrome, distal"
+HP:0001263,Global developmental delay,OMIM:616902,"Chromosome 11P13 deletion syndrome, distal"
