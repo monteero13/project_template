@@ -122,8 +122,10 @@ if [ $? -ne 0 ]; then
 fi
 
 # ============================
-# Finalización
+# Fenotipos_enfermedades
 # ============================
+
+echo "Buscando relaciones entre fenotipos del enriquecimiento y los relacionados con el fenotipo Aniridia"
 
 python3 "$SCRIPT_DIR/fenotipos_de_enfermedades.py" \
     --input "$RESULTS_DIR/diseases_for_HP_0000526.tsv" \
