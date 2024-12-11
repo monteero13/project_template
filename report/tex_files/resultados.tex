@@ -1,7 +1,7 @@
 \section{Resultados}
 
 \subsection{Obtención de genes, enfermedades y la red de interacción}
-Al hacer las solicitudes a HPO obtenemos 45 genes y 29 enfermedades asociadas a \textbf{Aniridia}. Después obtenemos la red de interacción que visualizamos aquí abajo.
+Al hacer las solicitudes a HPO obtenemos 45 genes y 29 enfermedades asociadas a \textbf{Aniridia}. Después obtenemos la red de interacción que visualizamos aquí abajo en la figura \ref{fig:m}.
 
 \begin{figure}[h] % [h] indica que queremos la imagen aquí, en la posición actual
 	\centering
@@ -11,7 +11,7 @@ Al hacer las solicitudes a HPO obtenemos 45 genes y 29 enfermedades asociadas a 
 \end{figure}
 
 \subsection{Análisis de la red inicial}
-En R y con la librería iGraph hemos estudiado nuestra red y nos indica que todos los nodos del conjunto están conectados y no se trata de un grafo dirigido. Además, calculamos que el coeficiente de clustering global es 0.68, la conectividad de 0.16, la modularidad 0.42, la dispersión de la red es de 0.84, la longitud promedio de camino es 2.74, el diámetro de la red es igual a 6 y el coeficiente de asortividad es de 0.49. En la tabla \ref{tab:parametros_red} podemos ver todos los datos recogidos.
+En R y con la librería iGraph hemos estudiado nuestra red y nos indica que todos los nodos del conjunto están conectados y no se trata de un grafo dirigido. Además, calculamos que el coeficiente de clustering global es 0.68, la conectividad de 0.16, la modularidad 0.42, la dispersión de la red es de 0.84, la longitud promedio de camino es 2.74, el diámetro de la red es igual a 6 y el coeficiente de asortividad es de 0.49. En la tabla \ref{tab:parametros_red} podemos ver todos los datos recogidos. También hemos representado la red según su coeficiente de clustering en la figura \ref{fig:redCoefClustering} y según su grado de intermediación en la figura \ref{fig:redBetweenness}.
 
 \begin{table}[ht]
 	\centering
@@ -31,6 +31,20 @@ En R y con la librería iGraph hemos estudiado nuestra red y nos indica que todo
 	\caption{Parámetros estructurales de la red de interacción}
 	\label{tab:parametros_red}
 \end{table}
+
+\begin{figure}[!h] % [h] indica que queremos la imagen aquí, en la posición actual
+	\centering
+	\includegraphics[scale=0.7]{figures/redCoefClustering.png} % Especifica la ruta y el tamaño
+	\caption{Red según coeficiente de clustering local} % Agrega una leyenda si deseas
+	\label{fig:redCoefClustering}
+\end{figure}
+
+\begin{figure}[!h] % [h] indica que queremos la imagen aquí, en la posición actual
+	\centering
+	\includegraphics[scale=0.7]{figures/redBetweenness.png} % Especifica la ruta y el tamaño
+	\caption{Red según índice de centralidad de intermediación} % Agrega una leyenda si deseas
+	\label{fig:redBetweenness}
+\end{figure}
 
 Además, para cada nodo hemos calculado el coeficiente de clustering local, el grado de centralidad y su centralidad de intermediación, toda esta información puede observarse en la tabla \ref{tab:parametros_nodos_red}. 
 \begin{table}[ht]
@@ -90,8 +104,14 @@ Ahora vamos a filtrar con un percentil de 0.6 en degree, un percentil de 0.8 en 
 
 A partir de los genes semilla WNT10B, WT1, SEM1, PAX6, y NF1, se generó una red de interacciones proteína-proteína (PPI) utilizando datos de STRINGdb. Se estableció un umbral de puntaje de interacción de 700 para incluir únicamente conexiones de alta confianza. La red inicial centrada en los genes semilla fue posteriormente expandida mediante el algoritmo DIAMOnD, incluyendo 200 nodos adicionales que se encuentran altamente conectados con los genes semilla y entre sí.
 
-La red generada señala importantes interacciones entre los genes semilla y otros desconocidos (como la relación WNT10B - TGFB2), lo cual permite continuar el estudio hacia el objetivo del artículo.
+La red generada en la figura \ref{fig:grafoPropagado} señala importantes interacciones entre los genes semilla y otros desconocidos (como la relación WNT10B - TGFB2), lo cual permite continuar el estudio hacia el objetivo del artículo.
 
+\begin{figure}[!h] % [h] indica que queremos la imagen aquí, en la posición actual
+	\centering
+	\includegraphics[width=1\textwidth]{figures/graph_no_weights.png} % Especifica la ruta y el tamaño
+	\caption{Red resultante al propagar con WNT10B, WT1, SEM1, PAX6, y NF1} % Agrega una leyenda si deseas
+	\label{fig:grafoPropagado}
+\end{figure}
 
 \subsection{Clustering}
 
