@@ -1,6 +1,7 @@
 import requests
 import pandas as pd
 import argparse
+import os
 
 def obtener_fenotipos_asociados_a_enfermedad(disease_id):
     """
@@ -51,6 +52,26 @@ def obtener_fenotipos_para_lista_enfermedades(lista_enfermedades):
     
     return resultados
 
+def leer_enfermedades(archivo):
+    """
+    Lee el archivo de enfermedades y extrae la información.
+    :param archivo: Ruta del archivo con las enfermedades.
+    :return: Lista de diccionarios con los IDs y nombres de enfermedades.
+    """
+    enfermedades = []
+    try:
+        with open(archivo, 'r') as file:
+            for line in file:
+                parts = line.split()  # Divide la línea en una lista
+                if len(parts) >= 2:
+                    id_enfermedad = parts[0]
+                    nombre_enfermedad = ' '.join(parts[1:])  # El resto es el nombre de la enfermedad
+                    enfermedades.append({"id": id_enfermedad, "name": nombre_enfermedad})
+    except FileNotFoundError:
+        print(f"Error: El archivo {archivo} no fue encontrado.")
+        raise
+    return enfermedades
+
 # Función principal
 def main():
     # Usamos argparse para recibir los parámetros desde la línea de comandos
@@ -61,18 +82,21 @@ def main():
     
     args = parser.parse_args()
 
+    # Verificar que los archivos existen
+    if not os.path.exists(args.input):
+        print(f"Error: El archivo de entrada {args.input} no existe.")
+        return
+
     # Leer el archivo de enfermedades proporcionado
-    enfermedades = []
-    with open(args.input, 'r') as file:
-        for line in file:
-            parts = line.split()  # Divide la línea en una lista
-            if len(parts) >= 2:
-                id_enfermedad = parts[0]
-                nombre_enfermedad = ' '.join(parts[1:])  # El resto es el nombre de la enfermedad
-                enfermedades.append({"id": id_enfermedad, "name": nombre_enfermedad})
+    enfermedades = leer_enfermedades(args.input)
 
     # Obtener los fenotipos asociados a las enfermedades
     fenotipos_asociados = obtener_fenotipos_para_lista_enfermedades(enfermedades)
+
+    # Si no se obtuvieron fenotipos, mostrar mensaje y salir
+    if not fenotipos_asociados:
+        print("No se han obtenido fenotipos para las enfermedades proporcionadas.")
+        return
 
     # Crear un DataFrame para estructurar los resultados
     df_fenotipos = pd.DataFrame(fenotipos_asociados)
